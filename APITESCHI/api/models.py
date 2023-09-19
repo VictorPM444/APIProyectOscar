@@ -98,7 +98,14 @@ class CarroCompras(models.Model):
     class Meta:
         db_table='CarroCompras'
 
-
+class Resena(models.Model):
+    idResena = models.AutoField(primary_key=True, db_column='idResena')
+    fk_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,db_column='fk_producto')
+    fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
+    puntuacion = models.IntegerField(db_column='puntuacion')
+    comentario = models.TextField(max_length=200,db_column='comentario')
+    class Meta:
+        db_table='Resenas'
 
 
 
