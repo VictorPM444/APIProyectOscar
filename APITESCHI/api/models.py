@@ -29,3 +29,10 @@ class Color(models.Model):
     class Meta:
         db_table='Colores'
 
+class Categoria(models.Model):
+    idCategoria = models.AutoField(primary_key=True,db_column='idCategoria')
+    nombreCategoria = models.TextField(max_length=50,db_column='nombreCategoria')
+    descripcion = models.TextField(max_length=150,db_column='descripcion')
+    class Meta:
+        db_table='Categorias'
+
