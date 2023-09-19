@@ -16,23 +16,11 @@ class Marca(models.Model):
     class Meta:
         db_table='Marcas'
 
-
-class Talla(models.Model):
-    idTalla = models.AutoField(primary_key=True,db_column='idTalla')
-    nombreTalla = models.IntegerField(db_column='nombreTalla')
-    class Meta:
-        db_table='Tallas'
-
-class Color(models.Model):
-    idColor = models.AutoField(primary_key=True,db_column='idColor')
-    nombreColor = models.TextField(max_length=20,db_column='nombreColor')
-    class Meta:
-        db_table='Colores'
-
 class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True,db_column='idCategoria')
     nombreCategoria = models.TextField(max_length=50,db_column='nombreCategoria')
     descripcion = models.TextField(max_length=150,db_column='descripcion')
     class Meta:
         db_table='Categorias'
+
 
