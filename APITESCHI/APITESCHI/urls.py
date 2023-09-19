@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#se importa la vista de la API desde el Home que hicimos antes
+from api.views import Home
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #lo comentamos para que no se inicie con la ventana de django
+    #path('admin/', admin.site.urls),
+
+    #se crea, el path de vista con el home creado nombrandolo index
+    path('',Home.as_view(),name='index'),
+    
 ]
