@@ -23,6 +23,24 @@ class Categoria(models.Model):
     class Meta:
         db_table='Categorias'
 
+class Material(models.Model):
+    idMaterial = models.AutoField(primary_key=True, db_column='idMaterial')
+    nombreMaterial = models.TextField(max_length=30,db_column='nombreMaterial')
+    class Meta:
+        db_table='Materiales'
+
+class Temporada(models.Model):
+    idTemporada = models.AutoField(primary_key=True,db_column='idTemporada')
+    nombreTemporada = models.TextField(max_length=30,db_column='nombreTemporada')
+    class Meta:
+        db_table='Temporadas'
+
+class Genero(models.Model):
+    idGenero = models.AutoField(primary_key=True,db_column='idGenero')
+    nombreGenero = models.TextField(max_length=20,db_column='nombreGenero')
+    class Meta:
+        db_table='Generos'
+
 class Talla(models.Model):
     idTalla = models.AutoField(primary_key=True,db_column='idTalla')
     nombreTalla = models.FloatField(db_column='nombreTalla')
@@ -56,6 +74,22 @@ class Pedido(models.Model):
     metodoPago = models.TextField(max_length=20,db_column='metodoPago')
     class Meta:
         db_table='Pedidos'
+
+class Producto(models.Model):
+    idProducto = models.AutoField(primary_key=True,db_column='idProducto')
+    nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
+    descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
+    precioProducto =models.FloatField(db_column='precioProducto')
+    imagenProducto = models.ImageField(db_column='imagenProducto')
+    disponibilidadStock = models.IntegerField(db_column='disponibilidadStock')
+    fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
+    fk_material = models.ForeignKey(Material,on_delete=models.CASCADE,db_column='fk_material')
+    fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
+    fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
+    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
+    fk_temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE,db_column='fk_temporada')
+    fk_genero = models.ForeignKey(Genero,on_delete=models.CASCADE,db_column='fk_genero')
+
 
 
 
