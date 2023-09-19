@@ -16,5 +16,13 @@ class Marca(models.Model):
     class Meta:
         db_table='Marcas'
 
+class Talla(models.Model):
+    idTalla = models.AutoField(primary_key=True,db_column='idTalla')
+    nombreColor = models.TextField(max_length=20,db_collation='nombreColor')
+    class Meta:
+        db_table='Tallas'
+
+
+
 
 
