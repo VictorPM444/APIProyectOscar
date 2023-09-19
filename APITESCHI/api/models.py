@@ -46,6 +46,19 @@ class Usuario(models.Model):
     class Metas:
         db_table='Usuarios'
 
+class Pedido(models.Model):
+    idPedido = models.AutoField(primary_key=True,db_column='idPedido')
+    fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
+    fechaPedido = models.DateField(db_column='fechaPedido')
+    direccionEnvio = models.TextField(max_length=200,db_column='direccionEnvio')
+    estadoPedido = models.TextField(max_length=20,db_column='estadoPedido')
+    totalPedido = models.FloatField(db_column='totalPedido')
+    class Meta:
+        db_table='Pedidos'
+
+
+
+
 
 
 
