@@ -90,6 +90,14 @@ class Producto(models.Model):
     fk_temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE,db_column='fk_temporada')
     fk_genero = models.ForeignKey(Genero,on_delete=models.CASCADE,db_column='fk_genero')
 
+class CarroCompras(models.Model):
+    idCarroCompras = models.AutoField(primary_key=True,db_column='idCarroCompras')
+    fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
+    fk_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,db_column='fk_producto')
+    numeroProducto = models.IntegerField(db_column='numeroProducto')
+    class Meta:
+        db_table='CarroCompras'
+
 
 
 
