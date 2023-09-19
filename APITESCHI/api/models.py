@@ -35,7 +35,16 @@ class Color(models.Model):
     class Meta:
         db_table='Colores'
 
-
+class Usuario(models.Model):
+    idUsuario = models.AutoField(primary_key=True,db_column='idUsuario')
+    nombreUsuario = models.TextField(max_length=50,db_column='nombreUsuario')
+    apellidoPaterno = models.TextField(max_length=50,db_column='apellidoPaterno')
+    apellidoMaterno = models.TextField(max_length=50,db_column='apellidoMaterno')
+    password = models.TextField(max_length=25,db_column='password')
+    correoElectronico = models.EmailField(db_column='correoElectronico')
+    numeroTelefonico = models.IntegerField(db_column='numeroTelefonico')
+    class Metas:
+        db_table='Usuarios'
 
 
 
