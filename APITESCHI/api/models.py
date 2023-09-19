@@ -16,7 +16,11 @@ class Marca(models.Model):
     class Meta:
         db_table='Marcas'
 
-
+class Talla(models.Model):
+    idTalla = models.AutoField(primary_key=True,db_column='idTalla')
+    nombreTalla = models.IntegerField(db_column='nombreTalla')
+    class Meta:
+        db_table='Tallas'
 
 
 
