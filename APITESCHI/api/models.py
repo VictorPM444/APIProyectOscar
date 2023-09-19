@@ -53,6 +53,7 @@ class Pedido(models.Model):
     direccionEnvio = models.TextField(max_length=200,db_column='direccionEnvio')
     estadoPedido = models.TextField(max_length=20,db_column='estadoPedido')
     totalPedido = models.FloatField(db_column='totalPedido')
+    metodoPago = models.TextField(max_length=20,db_column='metodoPago')
     class Meta:
         db_table='Pedidos'
 
