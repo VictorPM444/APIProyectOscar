@@ -23,6 +23,20 @@ class Categoria(models.Model):
     class Meta:
         db_table='Categorias'
 
+class Talla(models.Model):
+    idTalla = models.AutoField(primary_key=True,db_column='idTalla')
+    nombreTalla = models.FloatField(db_column='nombreTalla')
+    class Meta:
+        db_table='Tallas'
+
+class Color(models.Model):
+    idColor = models.AutoField(primary_key=True,db_column='idColor')
+    nombreColor = models.TextField(max_length=30, db_column='nombreColor')
+    class Meta:
+        db_table='Colores'
+
+
+
 
 
 
