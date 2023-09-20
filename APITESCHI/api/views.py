@@ -2,9 +2,8 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 import requests
 
-class Home(APIView):
-    template_name = "index.html"
-    
+class sing_in(APIView):
+    template_name = "sing_in.html"
 
     def get(self, request):
         return render(request, self.template_name)
