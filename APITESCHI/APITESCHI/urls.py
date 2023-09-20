@@ -28,11 +28,8 @@ urlpatterns = [
     #se crea, el path de vista con el home creado nombrandolo login
    
    path('login/',login.as_view(),name='login'),
-   path('index_1/',index_1.as_view(),name='index_1')
-   path('index_2/',index_2.as_view(),name='index_2')
-
-
-    
+   path('index_1/',index_1.as_view(),name='index_1'),
+   path('index_2/',index_2.as_view(),name='index_2')    
     #path('admin/',admin.site.urls)
 ]
 
