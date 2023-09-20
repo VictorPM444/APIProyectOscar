@@ -421,14 +421,8 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" placeholder="Repeat Password">
                             </div>
-                            <!--<button type="submit" class="btn btn-primary btn-sm">Registrar</button>-->
+                            <button type="submit" class="btn btn-primary btn-sm">Registrar</button>
                             <!-- login.html -->
-
-                            <form method="post" action="{% url 'registro_usuario' %}">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit">Registrar</button>
-                            </form>
 
 
 
