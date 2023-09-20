@@ -29,3 +29,15 @@ urlpatterns = [
    path('index_1/',index_1.as_view(),name='index_1')
     
 ]
+
+
+#################miapp/urls.py
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # Otras URLs
+    path('registro/', views.registro_usuario, name='registro_usuario'),
+]
+
