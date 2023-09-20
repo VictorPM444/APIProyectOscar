@@ -15,10 +15,19 @@
     <title>Bigshop | Responsive E-commerce Template</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico'%}">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/default/classy-nav.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/default/icofont.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
 </head>
 
@@ -82,7 +91,7 @@
                     <nav class="classy-navbar" id="bigshopNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt="logo"></a>
+                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
 
                         <!-- Toggler -->
                         <div class="classy-navbar-toggler">
@@ -170,10 +179,10 @@
                                             <div class="single-mega cn-col-2">
                                                 <div class="megamenu-slides owl-carousel">
                                                     <a href="shop-grid-left-sidebar.html">
-                                                        <img src="img/bg-img/mega-slide-2.jpg" alt="">
+                                                        <img src="{% static 'img/bg-img/mega-slide-2.jpg'%}" alt="">
                                                     </a>
                                                     <a href="shop-list-left-sidebar.html">
-                                                        <img src="img/bg-img/mega-slide-1.jpg" alt="">
+                                                        <img src="{% static 'img/bg-img/mega-slide-1.jpg'%}" alt="">
                                                     </a>
                                                 </div>
                                             </div>
@@ -247,7 +256,7 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="img/product-img/top-1.png" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/top-1.png'%}" class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Kid's Fashion</a>
@@ -259,7 +268,7 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="img/product-img/best-4.png" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/best-4.png'%}" class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Headphone</a>
@@ -294,7 +303,7 @@
                             <!-- Account -->
                             <div class="account-area">
                                 <div class="user-thumbnail">
-                                    <img src="img/bg-img/user.jpg" alt="">
+                                    <img src="{% static 'img/bg-img/user.jpg'%}" alt="">
                                 </div>
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span> Lim Sarah</li>
@@ -329,7 +338,7 @@
                         </div>
                         <div class="col-5 col-md-4">
                             <div class="welcome_slide_image">
-                                <img src="img/bg-img/slide-1.png" alt="" data-animation="bounceInUp" data-delay="500ms">
+                                <img src="{% static 'img/bg-img/slide-1.png'%}" alt="" data-animation="bounceInUp" data-delay="500ms">
                                 <div class="discount_badge" data-animation="bounceInDown" data-delay="1.2s">
                                     <span>30%<br>OFF</span>
                                 </div>
@@ -382,7 +391,7 @@
                 <div class="col-12 col-md-4">
                     <div class="single_catagory_area mt-50">
                         <a href="#">
-                            <img src="img/bg-img/c1.jpg" alt="">
+                            <img src="{% static 'img/bg-img/c1.jpg'%}" alt="">
                         </a>
                     </div>
                 </div>
@@ -391,7 +400,7 @@
                 <div class="col-12 col-md-4">
                     <div class="single_catagory_area mt-50">
                         <a href="#">
-                            <img src="img/bg-img/c2.jpg" alt="">
+                            <img src="{% static 'img/bg-img/c2.jpg'%}" alt="">
                         </a>
                     </div>
                 </div>
@@ -400,7 +409,7 @@
                 <div class="col-12 col-md-4">
                     <div class="single_catagory_area mt-50">
                         <a href="#">
-                            <img src="img/bg-img/c3.jpg" alt="">
+                            <img src="{% static 'img/bg-img/c3.jpgp'%}" alt="">
                         </a>
                     </div>
                 </div>
@@ -422,8 +431,8 @@
                             <div class="row">
                                 <div class="col-12 col-lg-5">
                                     <div class="quickview_pro_img">
-                                        <img class="first_img" src="img/product-img/new-1-back.png" alt="">
-                                        <img class="hover_img" src="img/product-img/new-1.png" alt="">
+                                        <img class="first_img" src="{% static 'img/product-img/new-1-back.png'%}" alt="">
+                                        <img class="hover_img" src="{% static 'img/product-img/new-1.png'%}" alt="">
                                         <!-- Product Badge -->
                                         <div class="product_badge">
                                             <span class="badge-new">New</span>
@@ -499,8 +508,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-1-back.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-1.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-1-back.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-1.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -540,8 +549,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-6.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-6-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-6.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-6-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -581,8 +590,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-2.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-2-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-2.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-2-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -622,8 +631,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-4.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-4-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-4.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-4-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -663,8 +672,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-5.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-5-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-5.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-5-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -734,8 +743,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-2.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-2-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-2.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-2-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -781,8 +790,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-4.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-4-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-4.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-4-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -828,8 +837,8 @@
                         <div class="single-product-area">
                             <div class="product_image">
                                 <!-- Product Image -->
-                                <img class="normal_img" src="img/product-img/new-7.png" alt="">
-                                <img class="hover_img" src="img/product-img/new-7-back.png" alt="">
+                                <img class="normal_img" src="{% static 'img/product-img/new-7.png'%}" alt="">
+                                <img class="hover_img" src="{% static 'img/product-img/new-7-back.png'%}" alt="">
 
                                 <!-- Product Badge -->
                                 <div class="product_badge">
@@ -903,7 +912,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-1.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-1.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>KID’s Fashion</h5>
@@ -945,7 +954,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-2.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-2.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Beach Cap</h5>
@@ -987,7 +996,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-3.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-3.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Gold Neckless</h5>
@@ -1029,7 +1038,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-4.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-4.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Diamond Neckless</h5>
@@ -1071,7 +1080,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-5.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-5.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Sport Shoes</h5>
@@ -1113,7 +1122,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/top-6.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/top-6.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Pin Up Bikini</h5>
@@ -1161,7 +1170,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-1.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-1.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Sports Bra</h5>
@@ -1203,7 +1212,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-2.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-2.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Trendy Glasses</h5>
@@ -1245,7 +1254,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-3.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-3.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Women Watch</h5>
@@ -1287,7 +1296,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-4.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-4.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Headphone</h5>
@@ -1329,7 +1338,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-5.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-5.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Plus Bra</h5>
@@ -1371,7 +1380,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/best-6.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/best-6.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Laptop</h5>
@@ -1419,7 +1428,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-1.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-1.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Speaker</h5>
@@ -1461,7 +1470,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-2.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-2.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Fancy Lamp</h5>
@@ -1503,7 +1512,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-3.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-3.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Sport Bra</h5>
@@ -1545,7 +1554,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-4.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-4.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>S'well Water</h5>
@@ -1587,7 +1596,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-5.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-5.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>Slipper</h5>
@@ -1629,7 +1638,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="single_top_sellers">
                                                 <div class="top_seller_image">
-                                                    <img src="img/product-img/onsale-6.png" alt="Top-Sellers">
+                                                    <img src="{% static 'img/product-img/onsale-6.png'%}" alt="Top-Sellers">
                                                 </div>
                                                 <div class="top_seller_desc">
                                                     <h5>T-shirt</h5>
@@ -1685,7 +1694,7 @@
                 <!-- Beach Offer -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="beach_offer_area mb-4 mb-md-0">
-                        <img src="img/product-img/beach.png" alt="beach-offer">
+                        <img src="{% static 'img/product-img/beach.png'%}" alt="beach-offer">
                         <div class="beach_offer_info">
                             <p>Upto 70% OFF</p>
                             <h3>Beach Item</h3>
@@ -1697,7 +1706,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Apparels Offer -->
                     <div class="apparels_offer_area">
-                        <img src="img/product-img/apparels.jpg" alt="Beach-Offer">
+                        <img src="{% static 'img/product-img/apparels.jpg'%}" alt="Beach-Offer">
                         <div class="apparels_offer_info d-flex align-items-center">
                             <div class="apparels-offer-content">
                                 <h4>Apparel &amp; <br><span>Garments</span></h4>
@@ -1708,7 +1717,7 @@
 
                     <!-- Deals of the Week -->
                     <div class="weekly_deals_area mt-30">
-                        <img src="img/product-img/weekly-offer.jpg" alt="weekly-deals">
+                        <img src="{% static 'img/product-img/weekly-offer.jpg'%}" alt="weekly-deals">
                         <div class="weekly_deals_info">
                             <h4>Deals of the Week</h4>
                             <div class="deals_timer">
@@ -1730,7 +1739,7 @@
                         <div class="col-12 col-sm-6 col-lg-12">
                             <!-- Elect Offer -->
                             <div class="elect_offer_area mt-30 mt-lg-0">
-                                <img src="img/product-img/elect.jpg" alt="Elect-Offer">
+                                <img src="{% static 'img/product-img/elect.jpg'%}" alt="Elect-Offer">
                                 <div class="elect_offer_info d-flex align-items-center">
                                     <div class="elect-offer-content">
                                         <h4>Electronics</h4>
@@ -1742,7 +1751,7 @@
                         <div class="col-12 col-sm-6 col-lg-12">
                             <!-- Backpack Offer -->
                             <div class="backpack_offer_area mt-30">
-                                <img src="img/product-img/backpack.jpg" alt="Backpack-Offer">
+                                <img src="{% static 'img/product-img/backpack.jpg'%}" alt="Backpack-Offer">
                                 <div class="backpack_offer_info">
                                     <h4>Backpacks</h4>
                                     <a href="#" class="btn">Buy Now <i class="icofont-rounded-right"></i></a>
@@ -1768,22 +1777,22 @@
                 <div class="col-12">
                     <div class="popular_brands_slide owl-carousel">
                         <div class="single_brands">
-                            <img src="img/partner-img/1.jpg" alt="">
+                            <img src="{% static 'img/partner-img/1.'%}'" alt="">
                         </div>
                         <div class="single_brands">
-                            <img src="img/partner-img/2.jpg" alt="">
+                            <img src="{% static 'img/partner-img/2.jpg'%}" alt="">
                         </div>
                         <div class="single_brands">
-                            <img src="img/partner-img/3.jpg" alt="">
+                            <img src="{% static 'img/partner-img/3.jpg'%}" alt="">
                         </div>
                         <div class="single_brands">
-                            <img src="img/partner-img/4.jpg" alt="">
+                            <img src="{% static 'img/partner-img/4.jpg'%}" alt="">
                         </div>
                         <div class="single_brands">
-                            <img src="img/partner-img/5.jpg" alt="">
+                            <img src="{% static 'img/partner-img/5.jpg'%}" alt="">
                         </div>
                         <div class="single_brands">
-                            <img src="img/partner-img/6.jpg" alt="">
+                            <img src="{% static 'img/partner-img/6.jpg'%}" alt="">
                         </div>
                     </div>
                 </div>
@@ -1952,8 +1961,8 @@
                             <h6>Download our Mobile Apps</h6>
                         </div>
                         <div class="apps_download">
-                            <a href="#"><img src="img/core-img/play-store.png" alt="Play Store"></a>
-                            <a href="#"><img src="img/core-img/app-store.png" alt="Apple Store"></a>
+                            <a href="#"><img src="{% static 'img/core-img/play-store.png'%}" alt="Play Store"></a>
+                            <a href="#"><img src="{% static 'img/core-img/app-store.png'%}" alt="Apple Store"></a>
                         </div>
                     </div>
                 </div>
@@ -1973,11 +1982,11 @@
                     <!-- Payment Method -->
                     <div class="col-12 col-md-6">
                         <div class="payment_method">
-                            <img src="img/payment-method/paypal.png" alt="">
-                            <img src="img/payment-method/maestro.png" alt="">
-                            <img src="img/payment-method/western-union.png" alt="">
-                            <img src="img/payment-method/discover.png" alt="">
-                            <img src="img/payment-method/american-express.png" alt="">
+                            <img src="{% static 'img/payment-method/paypal.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/maestro.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/western-union.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/discover.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/american-express.png'%}" alt="">
                         </div>
                     </div>
                 </div>
@@ -1987,23 +1996,23 @@
     <!-- Footer Area -->
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/default/classy-nav.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/default/scrollup.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jarallax.min.js"></script>
-    <script src="js/jarallax-video.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/default/active.js"></script>
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery.easing.min.js'%}"></script>
+    <script src="{% static 'js/default/classy-nav.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/default/scrollup.js'%}"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'js/jarallax.min.js'%}"></script>
+    <script src="{% static 'js/jarallax-video.min.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/default/active.js'%}"></script>
 
 </body>
 

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 #se importa la vista de la API desde el Home que hicimos antes
 from api.views import login
+from api.views import index_1
 
 urlpatterns = [
     #lo comentamos para que no se inicie con la ventana de django
@@ -24,5 +25,7 @@ urlpatterns = [
 
     #se crea, el path de vista con el home creado nombrandolo login
    path('login/',login.as_view(),name='login'),
+
+   path('index_1/',index_1.as_view(),name='index_1')
     
 ]

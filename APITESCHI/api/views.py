@@ -8,4 +8,10 @@ class login(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
+
+class index_1(APIView):
+    template_name = "index_1.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
     
