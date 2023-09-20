@@ -18,19 +18,21 @@ from django.urls import path
 #se importa la vista de la API desde el Home que hicimos antes
 from api.views import login
 from api.views import index_1
+from api.views import index_2
 
-
-from django.urls import path
-from . import views
 
 urlpatterns = [
     #lo comentamos para que no se inicie con la ventana de django
     #path('admin/', admin.site.urls),
 
     #se crea, el path de vista con el home creado nombrandolo login
+   
    path('login/',login.as_view(),name='login'),
-
    path('index_1/',index_1.as_view(),name='index_1')
+   path('index_2/',index_2.as_view(),name='index_2')
+
+
     
+    #path('admin/',admin.site.urls)
 ]
 
