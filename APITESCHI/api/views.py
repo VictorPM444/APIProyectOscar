@@ -1,8 +1,8 @@
-from django.shortcuts import render
+#renderiza y redirige
+from django.shortcuts import render,redirect
 from rest_framework.views import APIView
-from django.contrib.auth.forms import UserCreationForm
-import requests
-from django.http import HttpResponse
+#importo la bd de usuario
+from .models import Usuario
 
 #def login(request):
  #   return render(request, 'login.html',{
@@ -54,12 +54,22 @@ class login(APIView):
     template_name = "login.html"
 
     def get(self, request):
-   #     if request.method == 'GET':
-    #        print ('enviando formulario')
-     #   else:
-      #       print(request.POST)
-       #      print ('obteniendo datos')
         return render(request, self.template_name) 
+    #metodo de envio de informacion
+    def post(self, request):
+            user=Usuario(
+                nombreUsuario=request.POST["nombre"],
+                apellidoPaterno=request.POST["apellidoPaterno"],
+                apellidoMaterno=request.POST["apellidoMaterno"],
+                password=request.POST["password1"],
+                correoElectronico=request.POST["email"],
+                numeroTelefonico=request.POST["numeroTelefono"]
+            )
+            user.save()
+            return redirect('index_1')
+       
+
+
     #{
          #   'form': UserCreationForm
         #}
