@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #se importa la vista de la API desde el Home que hicimos antes
-from api.views import sing_in
+from api.views import login
 
 urlpatterns = [
     #lo comentamos para que no se inicie con la ventana de django
     #path('admin/', admin.site.urls),
 
-    #se crea, el path de vista con el home creado nombrandolo sing_in
-    path('sing_in/',sing_in.as_view(),name='sing_in'),
+    #se crea, el path de vista con el home creado nombrandolo login
+   path('login/',login.as_view(),name='login'),
     
 ]
