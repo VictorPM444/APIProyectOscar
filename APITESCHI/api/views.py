@@ -3,49 +3,8 @@ from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 #importo la bd de usuario
 from .models import Usuario
-
-#def login(request):
- #   return render(request, 'login.html',{
-  #      'form': UserCreationForm
-   # })
-
-   # if request.method == 'GET':
-        # Realizar acciones para solicitudes GET
-    #    return HttpResponse('Esta es una solicitud GET')
-
-    #elif request.method == 'POST':
-        # Realizar acciones para solicitudes POST
-     #   return HttpResponse('Esta es una solicitud POST')
-
-    # Otras acciones para otros métodos HTTP
-
-    #return HttpResponse('Esta es una solicitud diferente de GET y POST')
-
-
-#def hello(request):
- #   return render(request, 'login.html')
-
-
-#class login(APIView):
-    #encapsulo el login para su llamado
- #   template_name = "login.html"
-
-  #  def get(self, request):
-   #     if request.method == 'GET':
-    #        print ('enviando formulario')
-     #   else:
-      #       print(request.POST)
-       #      print ('obteniendo datos')
-        #return render(request, self.template_name), {
-         #   'form': UserCreationForm
-        #}
-
-#def login(request):
- #   if requests.method == 'GET':
-  #          print ('enviando formulario')
-   # else:
-    #        print ('obteniendo datos')
-    #return render(request, 'login.html')
+#para los correos
+from django.core.mail import send_mail
 
 
 
@@ -54,9 +13,11 @@ class login(APIView):
     template_name = "login.html"
 
     def get(self, request):
-        return render(request, self.template_name) 
-    #metodo de envio de informacion
+        return render(request, self.template_name)
+     
+    #metodo de envio de informacion para almacenar
     def post(self, request):
+        try:
             user=Usuario(
                 nombreUsuario=request.POST["nombre"],
                 apellidoPaterno=request.POST["apellidoPaterno"],
@@ -66,13 +27,17 @@ class login(APIView):
                 numeroTelefonico=request.POST["numeroTelefono"]
             )
             user.save()
+            subject = 'Gracias por su registro '+request.POST["nombre"]
+            message = 'Bienvenido seas '+request.POST["nombre"]+' '+request.POST["apellidoPaterno"]+' '+request.POST["apellidoMaterno"]+' '+'esperamos encuentres todo lo que buscas en calzado "Viper"'
+            from_email = 'vipermxm@gmail.com'
+            recipient_list = [request.POST["email"]]
+
+            send_mail(subject, message, from_email, recipient_list)
+
             return redirect('index_1')
+        except:
+            return render(request, self.template_name,{"error":""})
        
-
-
-    #{
-         #   'form': UserCreationForm
-        #}
 
 class index_1(APIView):
     template_name = "index_1.html"
@@ -87,3 +52,8 @@ class index_2(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
+
+
+
+
+
