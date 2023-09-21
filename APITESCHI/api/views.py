@@ -39,15 +39,33 @@ class login(APIView):
             return render(request, self.template_name,{"error":""})
        
 
-class index_1(APIView):
+class home(APIView):
     template_name = "index_1.html"
 
     def get(self, request):
         return render(request, self.template_name)
 
 
-class index_2(APIView):
+class shop(APIView):
     template_name = "index_2.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+    
+class formulario(APIView):
+    template_name = "forms.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+    
+class gallery(APIView):
+    template_name= "gallery.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+    
+class my_account(APIView):
+    template_name= "my_account.html"
 
     def get(self, request):
         return render(request, self.template_name)

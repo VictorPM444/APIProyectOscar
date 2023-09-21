@@ -110,9 +110,10 @@
                                 <ul>
                                     <li><a href="#">Home</a>
                                         <ul class="dropdown">
-                                            <li><a href="../index_1/">Home - 1</a></li>
-                                            <li><a href="../index_2/">Home - 2</a></li>
-                                            <li><a href="index-3.html">Home - 3</a></li>
+                                            <li><a href="{% url 'login'%}">Login</a></li>
+                                            <li><a href="{% url 'home'%}">Home</a></li>
+                                            <li><a href="{% url 'shop' %}">Shop</a></li>
+                                            <li><a href="{% url 'registro' %}">Registro</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Shop</a>
@@ -208,7 +209,7 @@
                                                 <li><a href="breadcrumb.html">- Breadcrumbs</a></li>
                                                 <li><a href="buttons.html">- Buttons</a></li>
                                                 <li><a href="forms.html">- Forms</a></li>
-                                                <li><a href="gallery.html">- Gallery</a></li>
+                                                <li><a href="{% url 'gallery' %}">- Gallery</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="heading.html">- Headings</a></li>

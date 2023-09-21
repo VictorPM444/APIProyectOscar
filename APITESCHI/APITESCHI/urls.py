@@ -16,9 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #se importa la vista de la API desde el Home que hicimos antes
-from api.views import login
-from api.views import index_1
-from api.views import index_2
+from api.views import login, home, shop, formulario,gallery,my_account
 
 
 urlpatterns = [
@@ -28,8 +26,12 @@ urlpatterns = [
     #se crea, el path de vista con el home creado nombrandolo login
    
    path('login/',login.as_view(),name='login'),
-   path('index_1/',index_1.as_view(),name='index_1'),
-   path('index_2/',index_2.as_view(),name='index_2')    
+   path('',home.as_view(),name='home'),
+   path('shop/',shop.as_view(),name='shop'),   
+   path('registro/',formulario.as_view(),name='registro'),   
+   path('gallery/',gallery.as_view(),name='gallery'),
+   path('my_account/',my_account.as_view(),name='my_account'),
+
     #path('admin/',admin.site.urls)
 ]
 
