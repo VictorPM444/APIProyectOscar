@@ -40,7 +40,7 @@ class login(APIView):
 
 
 class home(APIView):
-    template_name = "index_3.html"
+    template_name = "home.html"
 
     def get(self, request):
         return render(request, self.template_name)
@@ -93,8 +93,8 @@ class wishlist(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class shop_list_right_sidebar(APIView):
-    template_name= "shop_list_right_sidebar.html"
+class shop(APIView):
+    template_name= "shop.html"
 
     def get(self, request):
         return render(request, self.template_name)
