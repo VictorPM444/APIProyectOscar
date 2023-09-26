@@ -58,12 +58,6 @@ class my_account(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class shop_grid_left_sidebar(APIView):
-    template_name= "shop_grid_left_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class about_us(APIView):
     template_name= "about_us.html"
 
@@ -76,20 +70,14 @@ class account_details(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class addressws(APIView):
-    template_name= "addressws.html"
+class addresses(APIView):
+    template_name= "addresses.html"
 
     def get(self, request):
         return render(request, self.template_name)
     
 class cart(APIView):
     template_name= "cart.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class coming_soon(APIView):
-    template_name= "coming_soon.html"
 
     def get(self, request):
         return render(request, self.template_name)
@@ -169,6 +157,12 @@ class wishlist(APIView):
     
 class shop_grid_no_sidebar(APIView):
     template_name= "shop_grid_no_sidebar.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+    
+class shop_grid_left_sidebar(APIView):
+    template_name= "shop_grid_left_sidebar.html"
 
     def get(self, request):
         return render(request, self.template_name)
