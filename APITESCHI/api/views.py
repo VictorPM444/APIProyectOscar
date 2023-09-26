@@ -117,12 +117,6 @@ class checkout_2(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class checkout_3(APIView):
-    template_name= "checkout_3.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class checkout_4(APIView):
     template_name= "checkout_4.html"
 
