@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #se importa la vista de la API desde el Home que hicimos antes
-from api.views import login,home,my_account,about_us,account_details,addresses,cart,order_list,product_details,wishlist,shop
+from api.views import login,home,my_account,about_us,account_details,addresses,cart,order_list,product_details,wishlist,shop,checkout_complate,checkout_1,checkout_2,checkout_3,checkout_4,checkout_5
 
 
 urlpatterns = [
@@ -36,6 +36,12 @@ urlpatterns = [
    path('product_details/',product_details.as_view(),name='product_details'),
    path('wishlist/',wishlist.as_view(),name='wishlist'),
    path('shop/',shop.as_view(),name='shop'),
+   path('checkout_complate/',checkout_complate.as_view(),name='checkout_complate'),
+   path('checkout_1/',checkout_1.as_view(),name='checkout_1'),
+   path('checkout_2/',checkout_2.as_view(),name='checkout_2'),
+   path('checkout_3/',checkout_3.as_view(),name='checkout_3'),
+   path('checkout_4/',checkout_4.as_view(),name='checkout_4'),
+   path('checkout_5/',checkout_5.as_view(),name='checkout_5'),
     #path('admin/',admin.site.urls)
 
 ]
