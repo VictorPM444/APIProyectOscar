@@ -52,18 +52,6 @@ class shop(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class formulario(APIView):
-    template_name = "forms.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class gallery(APIView):
-    template_name= "gallery.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class my_account(APIView):
     template_name= "my_account.html"
 
