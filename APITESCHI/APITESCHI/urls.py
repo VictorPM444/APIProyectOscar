@@ -22,7 +22,7 @@ from api.views import login,home,my_account,about_us,account_details,addresses,c
 urlpatterns = [
     #lo comentamos para que no se inicie con la ventana de django
     #path('admin/', admin.site.urls),
-
+    
     #se crea, el path de vista con el home creado nombrandolo login
    
    path('login/',login.as_view(),name='login'),
