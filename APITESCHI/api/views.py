@@ -81,12 +81,6 @@ class order_list(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class product_details(APIView):
-    template_name= "product_details.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class wishlist(APIView):
     template_name= "wishlist.html"
 
