@@ -37,17 +37,10 @@ class login(APIView):
             return redirect('index_1')
         except:
             return render(request, self.template_name,{"error":""})
-       
+
 
 class home(APIView):
-    template_name = "index_1.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-
-class shop(APIView):
-    template_name = "index_2.html"
+    template_name = "index_3.html"
 
     def get(self, request):
         return render(request, self.template_name)
@@ -78,12 +71,6 @@ class addresses(APIView):
     
 class cart(APIView):
     template_name= "cart.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class index_3(APIView):
-    template_name= "index_3.html"
 
     def get(self, request):
         return render(request, self.template_name)
