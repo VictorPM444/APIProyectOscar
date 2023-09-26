@@ -82,50 +82,8 @@ class cart(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class compare(APIView):
-    template_name= "compare.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class contact(APIView):
-    template_name= "contact.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class downloads(APIView):
-    template_name= "downloads.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class faq(APIView):
-    template_name= "faq.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class heading(APIView):
-    template_name= "heading.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class index_3(APIView):
     template_name= "index_3.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class index(APIView):
-    template_name= "index.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class modals(APIView):
-    template_name= "modals.html"
 
     def get(self, request):
         return render(request, self.template_name)
@@ -142,51 +100,8 @@ class product_details(APIView):
     def get(self, request):
         return render(request, self.template_name)
     
-class register(APIView):
-    template_name= "register.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
 class wishlist(APIView):
     template_name= "wishlist.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-    
-class shop_grid_no_sidebar(APIView):
-    template_name= "shop_grid_no_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class shop_grid_left_sidebar(APIView):
-    template_name= "shop_grid_left_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class shop_grid_right_sidebar(APIView):
-    template_name= "shop_grid_right_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class shop_grid_top_sidebar(APIView):
-    template_name= "shop_grid_top_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class shop_list_left_sidebar(APIView):
-    template_name= "shop_list_left_sidebar.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-    
-class shop_list_no_sidebar(APIView):
-    template_name= "shop_list_no_sidebar.html"
 
     def get(self, request):
         return render(request, self.template_name)
@@ -196,12 +111,7 @@ class shop_list_right_sidebar(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
-    
-class shop_list_top_sidebar(APIView):
-    template_name= "shop_list_top_sidebar.html"
 
-    def get(self, request):
-        return render(request, self.template_name)
     
 
 
