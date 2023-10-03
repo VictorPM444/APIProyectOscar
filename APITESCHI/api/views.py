@@ -21,13 +21,22 @@ class login(APIView):
     #metodo de envio de informacion para almacenar
     def post(self, request):
         try:
+
+            if request.POST["password1"] == request.POST["password2"]:
+                print("hola registro")
+
+            else:
+                print("adios")
+
+
             user=Usuario(
-                nombreUsuario=request.POST["nombre"],
-                apellidoPaterno=request.POST["apellidoPaterno"],
-                apellidoMaterno=request.POST["apellidoMaterno"],
-                password=request.POST["password1"],
-                correoElectronico=request.POST["email"],
-                numeroTelefonico=request.POST["numeroTelefono"]
+               
+                    nombreUsuario=request.POST["nombre"],
+                    apellidoPaterno=request.POST["apellidoPaterno"],
+                    apellidoMaterno=request.POST["apellidoMaterno"],
+                    password=request.POST["password1"],
+                    correoElectronico=request.POST["email"],
+                    numeroTelefonico=request.POST["numeroTelefono"]
             )
             user.save()
 

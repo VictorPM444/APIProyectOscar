@@ -1,5 +1,8 @@
 from django.db import models
 
+
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
 # Create your models here.
 #Aqui se crea el modelo de la BD (esqueleto)
 
@@ -59,7 +62,7 @@ class Usuario(models.Model):
     apellidoPaterno = models.TextField(max_length=50,db_column='apellidoPaterno')
     apellidoMaterno = models.TextField(max_length=50,db_column='apellidoMaterno')
     password = models.TextField(max_length=25,db_column='password')
-    correoElectronico = models.EmailField(db_column='correoElectronico')
+    correoElectronico = models.EmailField(unique=True,db_column='correoElectronico')
     numeroTelefonico = models.IntegerField(db_column='numeroTelefonico')
     class Metas:
         db_table='Usuarios'
@@ -144,6 +147,8 @@ class Usuario_Pedido(models.Model):
     fk_id_Pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE,db_column='fk_id_Pedido')
     class Meta:
         db_table='Usuario_Pedido'
+
+
 
 
 
