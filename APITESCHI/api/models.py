@@ -147,6 +147,9 @@ class Usuario_Pedido(models.Model):
         db_table='Usuario_Pedido'
 
 
+        
+
+
 
 
 
