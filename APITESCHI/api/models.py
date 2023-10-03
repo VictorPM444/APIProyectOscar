@@ -89,6 +89,8 @@ class Producto(models.Model):
     fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
     fk_temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE,db_column='fk_temporada')
     fk_genero = models.ForeignKey(Genero,on_delete=models.CASCADE,db_column='fk_genero')
+    class Meta:
+        db_table='Producto'
 
 class CarroCompras(models.Model):
     idCarroCompras = models.AutoField(primary_key=True,db_column='idCarroCompras')
@@ -107,6 +109,41 @@ class Resena(models.Model):
     class Meta:
         db_table='Resenas'
 
+#Tablas de muchos a muchos
+class Producto_has_Categoria(models.Model):
+    id_Producto_has_Categoria = models.AutoField(primary_key=True,db_column='id_Producto_has_Categoria')
+    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
+    fk_id_Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE,db_column='fk_id_Categoria')
+    class Meta:
+        db_table='Producto_has_Categoria'
+
+class Producto_has_Color(models.Model):
+    id_Producto_has_Color = models.AutoField(primary_key=True,db_column='id_Producto_has_Color')
+    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
+    fk_id_Color = models.ForeignKey(Color, on_delete=models.CASCADE,db_column='fk_id_Color')
+    class Meta:
+        db_table='Producto_has_Color'
+
+class Producto_has_Talla(models.Model):
+    id_Producto_has_Talla = models.AutoField(primary_key=True,db_column='id_Producto_has_Talla')
+    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
+    fk_id_Talla = models.ForeignKey(Talla, on_delete=models.CASCADE,db_column='fk_id_Talla')
+    class Meta:
+        db_table='Producto_has_Talla'
+
+class Producto_has_Material(models.Model):
+    id_Producto_has_Material = models.AutoField(primary_key=True,db_column='id_Producto_has_Material')
+    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
+    fk_id_Material = models.ForeignKey(Material, on_delete=models.CASCADE,db_column='fk_id_Material')
+    class Meta:
+        db_table='Producto_has_Material'
+
+class Usuario_Pedido(models.Model):
+    id_Usuario_has_Pedido = models.AutoField(primary_key=True,db_column='id_Usuario_has_Pedido')
+    fk_id_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,db_column='fk_id_Usuario')
+    fk_id_Pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE,db_column='fk_id_Pedido')
+    class Meta:
+        db_table='Usuario_Pedido'
 
 
 

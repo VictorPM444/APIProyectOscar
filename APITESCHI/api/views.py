@@ -7,6 +7,9 @@ from .models import Usuario
 from django.core.mail import send_mail
 
 
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 class login(APIView):
     #encapsulo el login para su llamado
@@ -27,14 +30,20 @@ class login(APIView):
                 numeroTelefonico=request.POST["numeroTelefono"]
             )
             user.save()
-            subject = 'Gracias por su registro '+request.POST["nombre"]
-            message = 'Bienvenido seas '+request.POST["nombre"]+' '+request.POST["apellidoPaterno"]+' '+request.POST["apellidoMaterno"]+' '+'esperamos encuentres todo lo que buscas en calzado "Viper"'
+
+            # Luego, prepara y envía el correo electrónico
+            subject = 'Registro Exitoso'
             from_email = 'vipermxm@gmail.com'
             recipient_list = [request.POST["email"]]
 
-            send_mail(subject, message, from_email, recipient_list)
+            # Utiliza la plantilla HTML para el correo electrónico
+            html_message = render_to_string('bienvenida.html', {"nombre": request.POST["nombre"]+' '+request.POST["apellidoPaterno"]+' '+request.POST["apellidoMaterno"]})
+            #{{nombre}} es como se llama la variable que mandamos
+            # Envía el correo electrónico
+            send_mail(subject, strip_tags(html_message), from_email, recipient_list, html_message=html_message)
 
-            return redirect('index_1')
+            return redirect('home')
+        
         except:
             return render(request, self.template_name,{"error":""})
 
