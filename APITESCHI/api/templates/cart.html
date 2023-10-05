@@ -4,6 +4,7 @@
 
 
 <!-- Mirrored from designing-world.com/bigshop-2.3.0/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:41 GMT -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -41,7 +42,7 @@
 
     <!-- Header Area -->
     <header class="header_area">
-        
+
 
         <!-- Main Menu -->
         <div class="bigshop-main-menu">
@@ -50,7 +51,8 @@
                     <nav class="classy-navbar" id="bigshopNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
+                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}"
+                                alt="logo"></a>
 
                         <!-- Toggler -->
                         <div class="classy-navbar-toggler">
@@ -124,7 +126,8 @@
 
                             <!-- Cart -->
                             <div class="cart-area">
-                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span></div>
+                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span>
+                                </div>
 
                                 <!-- Cart Dropdown Content -->
                                 <div class="cart-dropdown-content">
@@ -132,7 +135,8 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/top-1.png'%}" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/top-1.png'%}"
+                                                        class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Kid's Fashion</a>
@@ -144,7 +148,8 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/best-4.png'%}" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/best-4.png'%}"
+                                                        class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Headphone</a>
@@ -196,7 +201,7 @@
         </div>
     </header>
     <!-- Header Area End -->
-    
+
     <!-- Breadcumb Area -->
     <div class="breadcumb_area">
         <div class="container h-100">
@@ -220,110 +225,101 @@
                 <div class="col-12">
                     <div class="cart-table">
                         <div class="table-responsive">
-                            <table class="table table-bordered mb-30">
+
+                            <form id="search-form">
+                                <input type="text" id="search-input" placeholder="Buscar">
+                            </form>
+
+                            <table id="usuarios" class="table table-bordered mb-30">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><i class="icofont-ui-delete"></i></th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Unit Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Total</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido Paterno</th>
+                                        <th scope="col">Apellido Materno</th>
+                                        <th scope="col">Correo Electronico</th>
+                                        <th scope="col">Numero Telefonico</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for usuario in usuarios %}
                                     <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-1.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Bluetooth Speaker</a>
-                                        </td>
-                                        <td>$9</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$9</td>
+                                        <td>{{ usuario.idUsuario }}</td>
+                                        <td>{{ usuario.nombreUsuario }}</td>
+                                        <td>{{ usuario.apellidoPaterno }}</td>
+                                        <td>{{ usuario.apellidoMaterno }}</td>
+                                        <td>{{ usuario.correoElectronico }}</td>
+                                        <td>{{ usuario.numeroTelefonico }}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-2.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Roof Lamp</a>
-                                        </td>
-                                        <td>$11</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty3" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$11</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-6.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Cotton T-shirt</a>
-                                        </td>
-                                        <td>$6</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty4" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-4.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Water Bottle</a>
-                                        </td>
-                                        <td>$17</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty5" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$17</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-5.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Alka Sliper</a>
-                                        </td>
-                                        <td>$13</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty6" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td>$13</td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
+
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                            <script>
+                                $(document).ready(function() {
+                                    // Función para filtrar los registros de la tabla por nombre de usuario
+                                    $("#search-input").on("keyup", function() {
+                                        var searchText = $(this).val().toLowerCase();
+                                        $("#usuarios tbody tr").filter(function() {
+                                            var usuarioNombre = $(this).find("td:eq(1)").text().toLowerCase(); // 1 es el índice de la columna 'nombreUsuario'
+                                            $(this).toggle(usuarioNombre.indexOf(searchText) > -1);
+                                        });
+                                    });
+                                });
+                            </script>
+                            
+
+
+
+
+
+
+                            <!-- Agrega un id a tu botón -->
+                            <button id="excelButton">Descargar Excel</button>
+
+
+                            <script>
+                                document.getElementById('excelButton').addEventListener('click', function () {
+                                    exportToExcel('usuarios', 'TablaExcel');
+                                });
+
+                                function exportToExcel(tableID, filename = '') {
+                                    var downloadLink;
+                                    var dataType = 'application/vnd.ms-excel';
+                                    var tableSelect = document.getElementById(tableID);
+                                    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+                                    // Especifica el nombre del archivo
+                                    filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+                                    // Crea el elemento de enlace de descarga
+                                    downloadLink = document.createElement("a");
+
+                                    document.body.appendChild(downloadLink);
+
+                                    if (navigator.msSaveOrOpenBlob) {
+                                        var blob = new Blob(['\ufeff', tableHTML], {
+                                            type: dataType
+                                        });
+                                        navigator.msSaveOrOpenBlob(blob, filename);
+                                    } else {
+                                        // Crea un enlace al archivo
+                                        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                                        // Establece el nombre del archivo
+                                        downloadLink.download = filename;
+
+                                        // Dispara la función
+                                        downloadLink.click();
+                                    }
+                                }
+                            </script>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -461,7 +457,8 @@
                         </div>
                         <div class="subscribtion_form">
                             <form action="#" method="post">
-                                <input type="email" name="mail" class="form-control mail" placeholder="Your E-mail Addrees">
+                                <input type="email" name="mail" class="form-control mail"
+                                    placeholder="Your E-mail Addrees">
                                 <button type="submit" class="submit"><i class="icofont-long-arrow-right"></i></button>
                             </form>
                         </div>
@@ -486,7 +483,8 @@
                     <!-- Copywrite -->
                     <div class="col-12 col-md-6">
                         <div class="copywrite_text">
-                            <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Designing World</a></p>
+                            <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Designing
+                                    World</a></p>
                         </div>
                     </div>
                     <!-- Payment Method -->
@@ -505,27 +503,28 @@
     </footer>
     <!-- Footer Area -->
 
-     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-     <script src="{% static 'js/jquery.min.js'%}"></script>
-     <script src="{% static 'js/popper.min.js'%}"></script>
-     <script src="{% static 'js/bootstrap.min.js'%}"></script>
-     <script src="{% static 'js/jquery.easing.min.js'%}"></script>
-     <script src="{% static 'js/default/classy-nav.min.js'%}"></script>
-     <script src="{% static 'js/owl.carousel.min.js'%}"></script>
-     <script src="{% static 'js/default/scrollup.js'%}"></script>
-     <script src="{% static 'js/waypoints.min.js'%}"></script>
-     <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
-     <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
-     <script src="{% static 'js/jquery-ui.min.js'%}"></script>
-     <script src="{% static 'js/jarallax.min.js'%}"></script>
-     <script src="{% static 'js/jarallax-video.min.js'%}"></script>
-     <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
-     <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
-     <script src="{% static 'js/wow.min.js'%}"></script>
-     <script src="{% static 'js/default/active.js'%}"></script>
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery.easing.min.js'%}"></script>
+    <script src="{% static 'js/default/classy-nav.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/default/scrollup.js'%}"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'js/jarallax.min.js'%}"></script>
+    <script src="{% static 'js/jarallax-video.min.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/default/active.js'%}"></script>
 
 </body>
 
 
 <!-- Mirrored from designing-world.com/bigshop-2.3.0/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:41 GMT -->
+
 </html>
