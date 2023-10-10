@@ -133,6 +133,9 @@ AUTHENTICATION_BACKENDS = (
     'myapp.backends.EmailBackend',  # Utiliza un backend personalizado para autenticación por correo electrónico
 )
 
+AUTH_USER_MODEL = 'api.Usuario'  # Reemplaza 'miapp' con el nombre de tu aplicación
+
+
 
 # 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

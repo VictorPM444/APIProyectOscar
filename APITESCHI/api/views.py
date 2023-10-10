@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 # importo la bd de usuario
 from .models import Usuario
 
+
 # para los correos
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -28,18 +29,15 @@ class login(APIView):
             password = request.POST.get('password22')
 
             # Autenticación personalizada
-            try:
-                user = Usuario.objects.get(correoElectronico=email)
-                if user.check_password(password):
-                    # La contraseña es correcta, inicia sesión
-                    login(request, user)
-                    return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
-                else:
-                    mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
-                    return render(request, self.template_name, {'error': mensaje, 'form': AuthenticationForm()})
-            except Usuario.DoesNotExist:
+            user = authenticate(request, correoElectronico=email, password=password)
+
+            if user is not None:
+                # La contraseña es correcta, inicia sesión
+                login(request, user)
+                return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
+            else:
                 mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
-                return render(request, self.template_name, {'error': mensaje, 'form': AuthenticationForm()})
+                return render(request, self.template_name, {'error': mensaje})
         else:
             # Procesar registro
             # ...
