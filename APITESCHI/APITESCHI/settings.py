@@ -108,6 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Django incluye uno seguro llamado Argon2PasswordHasher por defecto
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',  # Usar Argon2 (recomendado)
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',  # Usar PBKDF2
+
     # Otros hashers seguros pueden ir aquí si es necesario
 ]
 
