@@ -102,6 +102,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# settings.py
+
+# Asegúrate de que la configuración de PASSWORD_HASHERS contenga un hasher seguro
+# Django incluye uno seguro llamado Argon2PasswordHasher por defecto
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',  # Usar Argon2 (recomendado)
+    # Otros hashers seguros pueden ir aquí si es necesario
+]
+
+# Resto de la configuración de Django
+# ...
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

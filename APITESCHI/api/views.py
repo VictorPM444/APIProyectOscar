@@ -12,8 +12,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 
-
-from django.urls import reverse_lazy
+from django.contrib.auth.hashers import make_password  # Importa la función make_password
 
 
 from django.contrib.auth import authenticate, login
@@ -26,14 +25,17 @@ class login(APIView):
     def post(self, request):
         if "Inicio de Sesión" in request.POST:
             email = request.POST.get('email22')
-            password = request.POST.get('password22')
+            password1 = request.POST.get('password22')
 
-            # Autenticación personalizada
-            user = authenticate(request, correoElectronico=email, password=password)
+            # Buscar un usuario con el correo electrónico proporcionado
+            try:
+                usuario = Usuario.objects.get(correoElectronico=email)
+            except Usuario.DoesNotExist:
+                usuario = None
 
-            if user is not None:
+            if usuario is not None and usuario.password == password1:
                 # La contraseña es correcta, inicia sesión
-                login(request, user)
+                login(request, usuario)
                 return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
             else:
                 mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
@@ -47,8 +49,6 @@ class login(APIView):
     def get(self, request):
         return render(request, self.template_name, {'form': AuthenticationForm()})
 
-
-    
 
 class home(APIView):
     template_name = "home.html"

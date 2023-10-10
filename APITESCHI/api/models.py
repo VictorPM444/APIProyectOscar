@@ -58,7 +58,7 @@ class Color(models.Model):
 
 class Usuario(AbstractUser):
     idUsuario = models.AutoField(primary_key=True, db_column='idUsuario')
-    nombreUsuario = models.TextField(max_length=50, db_column='nombreUsuario')
+    nombreUsuario = models.CharField(max_length=50, db_column='nombreUsuario')
     apellidoPaterno = models.TextField(max_length=50, db_column='apellidoPaterno')
     apellidoMaterno = models.TextField(max_length=50, db_column='apellidoMaterno')
     password = models.TextField(max_length=128)
@@ -70,6 +70,15 @@ class Usuario(AbstractUser):
 
     # Define un related_name único para la relación con permisos de usuario
     user_permissions = models.ManyToManyField(Permission, verbose_name='Permisos', blank=True, related_name='usuarios')
+    
+    first_name = None
+    last_name = None
+    last_login = None
+    email =None
+    date_joined = None
+    is_active = None
+    is_staff = None
+    is_superuser= None
 
     # Elimina la referencia a 'username' en el método __str__
     def __str__(self):
