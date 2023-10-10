@@ -14,29 +14,48 @@ from django.utils.html import strip_tags
 
 from django.contrib.auth.hashers import make_password  # Importa la función make_password
 
-
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+
+
+from django.contrib.auth.hashers import check_password
+
+
 
 
 class login(APIView):
     template_name = "login.html"
 
+    
+
+    
+
     def post(self, request):
-        if "Inicio de Sesión" in request.POST:
+        if "Inicio" in request.POST:
             email = request.POST.get('email22')
             password1 = request.POST.get('password22')
 
             # Buscar un usuario con el correo electrónico proporcionado
             try:
-                usuario = Usuario.objects.get(correoElectronico=email)
+                usuario = Usuario.objects.get(correoElectronico=email)#, password=password1
+                #usuario = authenticate(request, correoElectronico=email, password=password1)
+                valorObtenido= usuario.correoElectronico
             except Usuario.DoesNotExist:
-                usuario = None
+                valorObtenido = None
+            
+            #usuario = authenticate(request, correElectronico=email, password=password1)
 
-            if usuario is not None and usuario.password == password1:
+            contra=usuario.password
+
+            if valorObtenido is not None:
                 # La contraseña es correcta, inicia sesión
-                login(request, usuario)
-                return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
+                #login(request, usuario)
+                if check_password(password1, contra):
+                    return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
+                else:
+                    mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
+                    return render(request, self.template_name, {'error': mensaje})
+            
+                
             else:
                 mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
                 return render(request, self.template_name, {'error': mensaje})
