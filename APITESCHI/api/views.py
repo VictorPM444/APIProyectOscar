@@ -11,74 +11,46 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 
+
+from django.urls import reverse_lazy
+
+
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+
+
 class login(APIView):
-    # encapsulo el login para su llamado
     template_name = "login.html"
 
-    def get(self, request):
-        
-        return render(request, self.template_name, {"error": ""})
-
-    # metodo de envio de informacion para almacenar
     def post(self, request):
-        try:
-            if request.method == "POST":
-                email = request.POST["email"]
+        if "Inicio de Sesión" in request.POST:
+            email = request.POST.get('email22')
+            password = request.POST.get('password22')
 
-                # Verifica si el correo ya existe en la base de datos
-                if Usuario.objects.filter(correoElectronico=email).exists():
-                    mensaje = "El correo electrónico ya está registrado. Por favor, usa otro correo."
-                    # return render(request, 'login.html', {'mensaje': mensaje})
-                    return render(request, self.template_name, {"error": mensaje})
+            # Autenticación personalizada
+            try:
+                user = Usuario.objects.get(correoElectronico=email)
+                if user.check_password(password):
+                    # La contraseña es correcta, inicia sesión
+                    login(request, user)
+                    return redirect('home')  # Redirige a la página 'home' después del inicio de sesión
                 else:
-                    if request.POST["password1"] == request.POST["password2"]:
-                        print("hola registro")
-                        user = Usuario(
-                            nombreUsuario=request.POST["nombre"],
-                            apellidoPaterno=request.POST["apellidoPaterno"],
-                            apellidoMaterno=request.POST["apellidoMaterno"],
-                            password=request.POST["password1"],
-                            correoElectronico=request.POST["email"],
-                            numeroTelefonico=request.POST["numeroTelefono"],
-                        )
-                        user.save()
+                    mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
+                    return render(request, self.template_name, {'error': mensaje, 'form': AuthenticationForm()})
+            except Usuario.DoesNotExist:
+                mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
+                return render(request, self.template_name, {'error': mensaje, 'form': AuthenticationForm()})
+        else:
+            # Procesar registro
+            # ...
+            # Lógica de registro aquí
+            return redirect('cart')  # Redirige a la página deseada después del registro
 
-                        # Luego, prepara y envía el correo electrónico
-                        subject = "Registro Exitoso"
-                        from_email = "vipermxm@gmail.com"
-                        recipient_list = [request.POST["email"]]
+    def get(self, request):
+        return render(request, self.template_name, {'form': AuthenticationForm()})
 
-                        # Utiliza la plantilla HTML para el correo electrónico
-                        html_message = render_to_string(
-                            "bienvenida.html",
-                            {
-                                "nombre": request.POST["nombre"]
-                                + " "
-                                + request.POST["apellidoPaterno"]
-                                + " "
-                                + request.POST["apellidoMaterno"]
-                            },
-                        )
-                        # {{nombre}} es como se llama la variable que mandamos
-                        # Envía el correo electrónico
-                        send_mail(
-                            subject,
-                            strip_tags(html_message),
-                            from_email,
-                            recipient_list,
-                            html_message=html_message,
-                        )
-                        return redirect("home")
 
-                    else:
-                        contra_diff = "La contraseña no es la misma. Por favor, reintente de nuevo."
-                        return render(
-                            request, self.template_name, {"error": contra_diff}
-                        )
-
-        except:
-            return render(request, self.template_name, {"error": ""})
-
+    
 
 class home(APIView):
     template_name = "home.html"
@@ -182,6 +154,10 @@ class checkout_5(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
+
+
+
+
 
 
 

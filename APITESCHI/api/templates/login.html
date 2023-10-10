@@ -46,7 +46,7 @@
 
     <!-- Header Area -->
     <header class="header_area">
-        
+
 
         <!-- Main Menu -->
         <div class="bigshop-main-menu">
@@ -55,7 +55,8 @@
                     <nav class="classy-navbar" id="bigshopNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
+                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}"
+                                alt="logo"></a>
 
                         <!-- Toggler -->
                         <div class="classy-navbar-toggler">
@@ -129,7 +130,8 @@
 
                             <!-- Cart -->
                             <div class="cart-area">
-                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span></div>
+                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span>
+                                </div>
 
                                 <!-- Cart Dropdown Content -->
                                 <div class="cart-dropdown-content">
@@ -137,7 +139,8 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/top-1.png'%}" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/top-1.png'%}"
+                                                        class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Kid's Fashion</a>
@@ -149,7 +152,8 @@
                                         <li>
                                             <div class="cart-item-desc">
                                                 <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/best-4.png'%}" class="cart-thumb" alt="">
+                                                    <img src="{% static 'img/product-img/best-4.png'%}"
+                                                        class="cart-thumb" alt="">
                                                 </a>
                                                 <div>
                                                     <a href="#">Headphone</a>
@@ -222,61 +226,63 @@
     <div class="bigshop_reg_log_area section_padding_100_50">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="login_form mb-50">
-                        <h5 class="mb-3">Inicio de Sesion</h5>
-
-                        <form action="/login/" method="get">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="username" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Inicio de Sesion</button>
-                        </form>
-                        <!-- Forget Password -->
-                        <div class="forget_pass mt-15">
-                            <a href="#">Forget Password?</a>
+                <div class="col-md-6">
+                    <h5 class="mb-3">Inicio de Sesión</h5>
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email22" name="email22" placeholder="Email">
                         </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password22" name="password22"
+                                placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm" name="Inicio de Sesión">Iniciar Sesión</button>
+                    </form>
+
+                    <div class="forget_pass mt-15">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="login_form mb-50">
-                        <h5 class="mb-3">Registro</h5>
-                        {{error}}
-                        <form action="/login/" method="post">
-                           <!--{{form}}-->
+                <div class="col-md-6">
+                    <h5 class="mb-3">Registro</h5>
+                    {{ error }}
+                    <form action="/registro/" method="post">
+                        {% csrf_token %}
                         <div class="form-group">
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno">
+                            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno"
+                                placeholder="Apellido Paterno">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido Materno">
+                            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno"
+                                placeholder="Apellido Materno">
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="Integer" class="form-control" id="numeroTelefono" name="numeroTelefono" placeholder="Numero Telefonico">
+                            <input type="Integer" class="form-control" id="numeroTelefono" name="numeroTelefono"
+                                placeholder="Numero Telefonico">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password1"  name="password1" placeholder="Password">
+                            <input type="password" class="form-control" id="password1" name="password1"
+                                placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password2" name="password2"placeholder="Repeat Password">
+                            <input type="password" class="form-control" id="password2" name="password2"
+                                placeholder="Repetir Contraseña">
                         </div>
-                        
                         <button type="submit" class="btn btn-primary btn-sm">Registrar</button>
-                        <!-- login.html -->
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
+
+
+
         </div>
     </div>
     <!-- Login Area End -->
