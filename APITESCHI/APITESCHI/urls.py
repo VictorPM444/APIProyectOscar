@@ -18,6 +18,7 @@ from django.urls import path
 # se importa la vista de la API desde el Home que hicimos antes
 from api.views import (
     login,
+    recuperacion_contra,
     home,
     my_account,
     about_us,
@@ -54,6 +55,7 @@ urlpatterns = [
     path("checkout_2/", checkout_2.as_view(), name="checkout_2"),
     path("checkout_4/", checkout_4.as_view(), name="checkout_4"),
     path("checkout_5/", checkout_5.as_view(), name="checkout_5"),
+    path("recuperacion_contra/", recuperacion_contra.as_view(), name="recuperacion_contra"),
 
     # path('admin/',admin.site.urls)
     # Otras URL de la aplicación
