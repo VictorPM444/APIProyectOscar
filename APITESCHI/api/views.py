@@ -11,6 +11,9 @@ from .models import Usuario
 from .models import Formulario  # Asegúrate de importar tu modelo
 import csv
 
+# importaciones para graficos
+from django.db.models import Count
+
 
 # para los correos
 from django.core.mail import send_mail
@@ -261,6 +264,27 @@ class checkout_4(APIView):
 class checkout_5(APIView):
     template_name = "checkout_5.html"
 
+    def get(self, request):
+        return render(request, self.template_name)
+    
+class graficas_formulario(APIView):
+    template_name = "graficas_formulario.html"
+
+    def post(self, request):
+
+        pre1 = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1')).order_by('pregunta1')
+        etiquetasPregunta1 = [pre1_1['pregunta1'] for pre1_1 in pre1]
+        valoresPregunta1 = [pre1_1['total'] for pre1_1 in pre1]
+
+
+
+
+
+
+
+        return render(request, 'graficas_formulario.html', {"etiquetasPregunta1":etiquetasPregunta1,"valoresPregunta1":valoresPregunta1})
+
+    
     def get(self, request):
         return render(request, self.template_name)
     
