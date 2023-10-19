@@ -166,6 +166,23 @@ class Usuario_has_Pedido(models.Model):
         db_table='Usuario_has_Pedido'
 
 
+#############Formulario#######
+class Formulario(models.Model):
+    id_Formulario= models.AutoField(primary_key=True,db_column='id_Formulario')
+    pregunta1= models.TextField(db_column='¿Qué busca en una tienda online?')
+    pregunta2= models.TextField(db_column='¿Qué forma de pago desea tener en una tienda online?')
+    pregunta3= models.TextField(db_column='¿En que dispositivos visita mas una tienda online?')
+    pregunta4= models.TextField(db_column='En una tienda online de calzado, ¿Qué tipo de calzado busca con mas frecuencia?')
+    pregunta5= models.TextField(db_column='¿Qué métodos de búsqueda prefiere para un tienda de calzado online? ')
+    pregunta6= models.TextField(db_column='¿Se basa de las opiniones y calificaciones de los demás para definir si comprar o no un producto online?')
+    pregunta7= models.TextField(db_column='¿Cómo prefieres la vista de productos online?')
+    pregunta8= models.TextField(db_column='¿Qué le gustaría tener por el uso y compra de productos online?')
+    pregunta9= models.TextField(db_column='¿Te gustaría recibir notificaciones o avisos sobre ofertas y promociones? ')
+    pregunta10= models.TextField(db_column='¿Qué método de registro prefieres en tiendas online?')
+    class Meta:
+        db_table='Formulario'
+
+
 
 
 
