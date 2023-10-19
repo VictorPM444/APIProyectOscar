@@ -7,6 +7,11 @@ import string
 from .models import Usuario
 
 
+# importaciones para vsc
+from .models import Formulario  # Asegúrate de importar tu modelo
+import csv
+
+
 # para los correos
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -27,6 +32,30 @@ class login(APIView):
     template_name = "login.html"
 
     def post(self, request):
+        ###########Importacion de datos desde CSV###################
+        """ archivo_csv = 'C:/Users/Victor Patiño Mejia/Desktop/Respuestas.csv'  # Ruta al archivo CSV que deseas importar
+
+        with open(archivo_csv, 'r', encoding='utf-8') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                nuevo_registro = Formulario(
+                    pregunta1=row['¿Qué busca en una tienda online?'],
+                    pregunta2=row['¿Qué forma de pago desea tener en una tienda online?'],
+                    pregunta3=row['¿En que dispositivos visita mas una tienda online?'],
+                    pregunta4=row['En una tienda online de calzado, ¿Qué tipo de calzado busca con mas frecuencia?'],
+                    pregunta5=row['¿Qué métodos de búsqueda prefiere para un tienda de calzado online? '],
+                    pregunta6=row['¿Se basa de las opiniones y calificaciones de los demás para definir si comprar o no un producto online?'],
+                    pregunta7=row['¿Cómo prefieres la vista de productos online?'],
+                    pregunta8=row['¿Qué le gustaría tener por el uso y compra de productos online?'],
+                    pregunta9=row['¿Te gustaría recibir notificaciones o avisos sobre ofertas y promociones? '],
+                    pregunta10=row['¿Qué método de registro prefieres en tiendas online?'],
+                    # Asigna los campos y columnas correspondientes
+                )
+                nuevo_registro.save()
+        return render(request, 'home.html') """
+        ###########Importacion de datos desde CSV###################
+
+
         if "Inicio" in request.POST:
             # Procesar Login
             email = request.POST.get("email22")
@@ -132,6 +161,10 @@ class home(APIView):
     template_name = "home.html"
 
     def get(self, request):
+
+
+
+
         return render(request, self.template_name)
 
 
