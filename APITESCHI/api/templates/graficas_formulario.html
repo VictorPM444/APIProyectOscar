@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
+
 </head>
 
 <body>
@@ -228,20 +229,12 @@
                 <div class="col-12">
                     <div class="cart-table">
                         <div class="table-responsive">
+
                             <!-- Biblioteca de las gráficas (Chart.js) -->
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
                             <!-- Contenedor para el gráfico -->
                             <canvas id="pregunta1"></canvas>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -417,25 +410,32 @@
         var grafico = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: etiquetasPregunta1,
+                labels: etiquetasPregunta1|safe ,
                 datasets: [{
-                    label: 'Valores',
-                    data: valoresPregunta1,
+                    label: 'Cantidad',
+                    data: valoresPregunta1|safe ,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                maintainAspectRatio: false,
+                layout:{
+                    padding:{
+                        left: 10,
+                        right: 25,
+                        top: 5,
+                        bottom: 0
+
                     }
                 }
+                   
             }
+            
         });
     </script>
-    
+
 
 </body>
 
