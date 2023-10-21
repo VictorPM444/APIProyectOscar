@@ -396,13 +396,13 @@
     <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
     <script src="{% static 'js/wow.min.js'%}"></script>
     <script src="{% static 'js/default/active.js'%}"></script>
-    <!--Script que crea los graficos-->
-    <!-- PREGUNTA 1 -->
+    <!-- Código JavaScript para crear la gráfica -->
+    <!-- Pregunta 1 -->
     <script>
         // Datos obtenidos desde Django en la plantilla
-        var etiquetasPregunta1 = JSON.parse('{{ etiquetasPregunta1|safe }}');
-        var valoresPregunta1 = JSON.parse('{{ valoresPregunta1|safe }}');
-
+        var etiquetasPregunta1 = {{ etiquetasPregunta1| safe }};
+        var valoresPregunta1 = {{ valoresPregunta1| safe }};
+        
         // Obtén el contexto del lienzo (canvas) donde se dibujará el gráfico
         var ctx = document.getElementById('pregunta1').getContext('2d');
 
@@ -410,29 +410,22 @@
         var grafico = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: etiquetasPregunta1|safe ,
+                labels: etiquetasPregunta1,
                 datasets: [{
                     label: 'Cantidad',
-                    data: valoresPregunta1|safe ,
+                    data: valoresPregunta1,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
-                maintainAspectRatio: false,
-                layout:{
-                    padding:{
-                        left: 10,
-                        right: 25,
-                        top: 5,
-                        bottom: 0
-
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
-                   
             }
-            
         });
     </script>
 

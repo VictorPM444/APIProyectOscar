@@ -14,6 +14,9 @@ import csv
 # importaciones para graficos
 from django.db.models import Count
 
+import json  # Importa el módulo json
+
+
 
 # para los correos
 from django.core.mail import send_mail
@@ -276,14 +279,17 @@ class graficas_formulario(APIView):
     
     def get(self, request):
 
-        # Pregunta 10 -pérdidas- radar
-        perdidas = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1')).order_by('pregunta1')
-        etiquetasPregunta1 = [perdida['pregunta1'] for perdida in perdidas]
-        valoresPregunta1 = [perdida['total'] for perdida in perdidas]
+        # Realiza una consulta para contar las respuestas
+        respuestas = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1'))
 
+        # Convierte los resultados en listas de etiquetas y valores
+        etiquetas1 = [respuesta['pregunta1'] for respuesta in respuestas]
+        valores1 = [respuesta['total'] for respuesta in respuestas]
         
-        return render(request, self.template_name,{'etiquetasPregunta1': etiquetasPregunta1,
-                                                   'valoresPregunta1': valoresPregunta1})
+
+    
+        # Pasa los datos a la plantilla
+        return render(request, self.template_name, {'etiquetasPregunta1': etiquetas1, 'valoresPregunta1': valores1})
 
     
 class recuperacion_contra(APIView):
