@@ -228,10 +228,11 @@
                 <div class="col-12">
                     <div class="cart-table">
                         <div class="table-responsive">
-                            <!--Biblioteca de las graficas-->
+                            <!-- Biblioteca de las gráficas (Chart.js) -->
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                            <!--Referencia de graficos-->
-                            <canvas id="pregunta10"></canvas>
+
+                            <!-- Contenedor para el gráfico -->
+                            <canvas id="pregunta1"></canvas>
 
 
 
@@ -403,19 +404,23 @@
     <script src="{% static 'js/wow.min.js'%}"></script>
     <script src="{% static 'js/default/active.js'%}"></script>
     <!--Script que crea los graficos-->
-    Hasta abajo, antes de salir del body pones el script.
     <!-- PREGUNTA 1 -->
     <script>
-        // Luego, usar los datos en JavaScript
-        var ctx = document.getElementById('pregunta10').getContext('2d');
+        // Datos obtenidos desde Django en la plantilla
+        var etiquetasPregunta1 = JSON.parse('{{ etiquetasPregunta1|safe }}');
+        var valoresPregunta1 = JSON.parse('{{ valoresPregunta1|safe }}');
 
-        new Chart(ctx, {
+        // Obtén el contexto del lienzo (canvas) donde se dibujará el gráfico
+        var ctx = document.getElementById('pregunta1').getContext('2d');
+
+        // Crea un gráfico de barras
+        var grafico = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: etiquetasPregunta10,
+                labels: etiquetasPregunta1,
                 datasets: [{
-                    label: 'Cantidad',
-                    data: valoresPregunta10,
+                    label: 'Valores',
+                    data: valoresPregunta1,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -423,23 +428,14 @@
             },
             options: {
                 scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Meses'
-                        }
-                    },
                     y: {
-                        title: {
-                            display: true,
-                            text: 'Cantidad'
-                        },
                         beginAtZero: true
                     }
                 }
             }
         });
     </script>
+    
 
 </body>
 

@@ -277,13 +277,13 @@ class graficas_formulario(APIView):
     def get(self, request):
 
         # Pregunta 10 -pérdidas- radar
-        perdidas = Formulario.objects.values('pregunta10').annotate(total=Count('pregunta10'))
-        etiquetasPregunta10 = [perdida['pregunta10'] for perdida in perdidas]
-        valoresPregunta10 = [perdida['total'] for perdida in perdidas]
+        perdidas = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1'))
+        etiquetasPregunta1 = [perdida['pregunta1'] for perdida in perdidas]
+        valoresPregunta1 = [perdida['total'] for perdida in perdidas]
 
         
-        return render(request, self.template_name,{'etiquetasPregunta10': etiquetasPregunta10,
-                                                   'valoresPregunta10': valoresPregunta10})
+        return render(request, self.template_name,{'etiquetasPregunta1': etiquetasPregunta1,
+                                                   'valoresPregunta1': valoresPregunta1})
 
     
 class recuperacion_contra(APIView):
