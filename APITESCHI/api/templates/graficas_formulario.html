@@ -8,6 +8,7 @@
 <!-- Mirrored from designing-world.com/bigshop-2.3.0/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:41 GMT -->
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -227,17 +228,21 @@
                 <div class="col-12">
                     <div class="cart-table">
                         <div class="table-responsive">
+                            <!--Biblioteca de las graficas-->
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                            <!--Referencia de graficos-->
+                            <canvas id="pregunta10"></canvas>
 
 
 
 
 
-                            
-                                
 
 
 
-                            
+
+
+
 
                         </div>
                     </div>
@@ -397,6 +402,44 @@
     <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
     <script src="{% static 'js/wow.min.js'%}"></script>
     <script src="{% static 'js/default/active.js'%}"></script>
+    <!--Script que crea los graficos-->
+    Hasta abajo, antes de salir del body pones el script.
+    <!-- PREGUNTA 1 -->
+    <script>
+        // Luego, usar los datos en JavaScript
+        var ctx = document.getElementById('pregunta10').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: etiquetasPregunta10,
+                datasets: [{
+                    label: 'Cantidad',
+                    data: valoresPregunta10,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Cantidad'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 
