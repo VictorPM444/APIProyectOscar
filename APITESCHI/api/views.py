@@ -14,8 +14,6 @@ import csv
 # importaciones para graficos
 from django.db.models import Count
 
-import json  # Importa el módulo json
-
 
 
 # para los correos
@@ -27,8 +25,6 @@ from django.utils.html import strip_tags
 from django.contrib.auth.hashers import (
     make_password,
 )  # Importa la función make_password
-
-from django.contrib.auth.forms import AuthenticationForm
 
 
 from django.contrib.auth.hashers import check_password
@@ -279,17 +275,79 @@ class graficas_formulario(APIView):
     
     def get(self, request):
 
-        # Realiza una consulta para contar las respuestas
-        respuestas = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1'))
+        # Pregunta 1
+        respuestas1 = Formulario.objects.values('pregunta1').annotate(total=Count('pregunta1'))
+        etiquetas1 = [respuesta['pregunta1'] for respuesta in respuestas1]
+        valores1 = [respuesta['total'] for respuesta in respuestas1]
 
-        # Convierte los resultados en listas de etiquetas y valores
-        etiquetas1 = [respuesta['pregunta1'] for respuesta in respuestas]
-        valores1 = [respuesta['total'] for respuesta in respuestas]
-        
+        # Pregunta 2
+        respuestas2 = Formulario.objects.values('pregunta2').annotate(total=Count('pregunta2'))
+        etiquetas2 = [respuesta['pregunta2'] for respuesta in respuestas2]
+        valores2 = [respuesta['total'] for respuesta in respuestas2]
+
+        # Pregunta 3
+        respuestas3 = Formulario.objects.values('pregunta3').annotate(total=Count('pregunta3'))
+        etiquetas3 = [respuesta['pregunta3'] for respuesta in respuestas3]
+        valores3 = [respuesta['total'] for respuesta in respuestas3]
+
+        # Pregunta 4
+        respuestas4 = Formulario.objects.values('pregunta4').annotate(total=Count('pregunta4'))
+        etiquetas4 = [respuesta['pregunta4'] for respuesta in respuestas4]
+        valores4 = [respuesta['total'] for respuesta in respuestas4]
+
+        # Pregunta 5
+        respuestas5 = Formulario.objects.values('pregunta5').annotate(total=Count('pregunta5'))
+        etiquetas5 = [respuesta['pregunta5'] for respuesta in respuestas5]
+        valores5 = [respuesta['total'] for respuesta in respuestas5]
+
+        # Pregunta 6
+        respuestas6 = Formulario.objects.values('pregunta6').annotate(total=Count('pregunta6'))
+        etiquetas6 = [respuesta['pregunta6'] for respuesta in respuestas6]
+        valores6 = [respuesta['total'] for respuesta in respuestas6]
+
+        # Pregunta 7
+        respuestas7 = Formulario.objects.values('pregunta7').annotate(total=Count('pregunta7'))
+        etiquetas7 = [respuesta['pregunta7'] for respuesta in respuestas7]
+        valores7 = [respuesta['total'] for respuesta in respuestas7]
+
+        # Pregunta 8
+        respuestas8 = Formulario.objects.values('pregunta8').annotate(total=Count('pregunta8'))
+        etiquetas8 = [respuesta['pregunta8'] for respuesta in respuestas8]
+        valores8 = [respuesta['total'] for respuesta in respuestas8]
+
+        # Pregunta 9
+        respuestas9 = Formulario.objects.values('pregunta9').annotate(total=Count('pregunta9'))
+        etiquetas9 = [respuesta['pregunta9'] for respuesta in respuestas9]
+        valores9 = [respuesta['total'] for respuesta in respuestas9]
+
+        # Pregunta 10
+        respuestas10 = Formulario.objects.values('pregunta10').annotate(total=Count('pregunta10'))
+        etiquetas10 = [respuesta['pregunta10'] for respuesta in respuestas10]
+        valores10 = [respuesta['total'] for respuesta in respuestas10]
+
 
     
         # Pasa los datos a la plantilla
-        return render(request, self.template_name, {'etiquetasPregunta1': etiquetas1, 'valoresPregunta1': valores1})
+        return render(request, self.template_name, {'etiquetasPregunta1': etiquetas1, 
+                                                    'valoresPregunta1': valores1,
+                                                   'etiquetasPregunta2': etiquetas2,
+                                                   'valoresPregunta2': valores2,
+                                                   'etiquetasPregunta3': etiquetas3,
+                                                   'valoresPregunta3': valores3,
+                                                   'etiquetasPregunta4': etiquetas4,
+                                                   'valoresPregunta4': valores4,
+                                                   'etiquetasPregunta5': etiquetas5,
+                                                   'valoresPregunta5': valores5,
+                                                   'etiquetasPregunta6': etiquetas6,
+                                                   'valoresPregunta6': valores6,
+                                                   'etiquetasPregunta7': etiquetas7,
+                                                   'valoresPregunta7': valores7,
+                                                   'etiquetasPregunta8': etiquetas8,
+                                                   'valoresPregunta8': valores8,
+                                                   'etiquetasPregunta9': etiquetas9,
+                                                   'valoresPregunta9': valores9,
+                                                   'etiquetasPregunta10': etiquetas10,
+                                                   'valoresPregunta10': valores10})
 
     
 class recuperacion_contra(APIView):
