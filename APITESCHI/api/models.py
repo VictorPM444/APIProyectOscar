@@ -8,7 +8,6 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 #########################  ENTIDADES  #####################
 
 #metodo para la creacion de la entidad marca
-#metodo para la creacion de la entidad marca
 class Marca(models.Model):
     #creadion de ID autoincrementable y como llave primaria
     idMarca = models.AutoField(primary_key=True,db_column='idGenero')
@@ -100,7 +99,6 @@ class Producto(models.Model):
     nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
     descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
     precioProducto =models.FloatField(db_column='precioProducto')
-    imagenProducto = models.ImageField(db_column='imagenProducto')
     disponibilidadStock = models.IntegerField(db_column='disponibilidadStock')
     fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_material = models.ForeignKey(Material,on_delete=models.CASCADE,db_column='fk_material')
