@@ -34,6 +34,7 @@ from api.views import (
     checkout_4,
     checkout_5,
     graficas_formulario,
+    graficas_powerbi,
 )
 
 
@@ -58,6 +59,7 @@ urlpatterns = [
     path("checkout_5/", checkout_5.as_view(), name="checkout_5"),
     path("recuperacion_contra/", recuperacion_contra.as_view(), name="recuperacion_contra"),
     path("graficas_formulario/", graficas_formulario.as_view(), name="graficas_formulario"),
+    path("graficas_powerbi/", graficas_powerbi.as_view(), name="graficas_powerbi"),
 
     # path('admin/',admin.site.urls)
     # Otras URL de la aplicación

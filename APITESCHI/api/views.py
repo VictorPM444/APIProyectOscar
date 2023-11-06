@@ -227,6 +227,12 @@ class shop(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
+    
+class graficas_powerbi(APIView):
+    template_name = "graficas_powerbi.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 
 class checkout_complate(APIView):
