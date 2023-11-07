@@ -77,6 +77,8 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+#BD con sqlite
 #DATABASES = {
     #'default': {
    #     'ENGINE': 'django.db.backends.sqlite3',
@@ -84,13 +86,26 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
  #   }
 #}
 
-DATABASES = {
+#BD con postgres local
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_vicshop',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',  # Puede variar según tu configuración.
+        'PORT': '5432',           # Puede variar según tu configuración.
+    }
+} """
+
+#BD con postgres render
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vicshop',
+        'USER': 'victor',
+        'PASSWORD': 'TubH6REU5Dg1QlY3GoLTOCWoUHmzmcu3',
+        'HOST': 'oregon-postgres.render.com',  # Puede variar según tu configuración.  No perder: oregon-postgres.render.com
         'PORT': '5432',           # Puede variar según tu configuración.
     }
 }
