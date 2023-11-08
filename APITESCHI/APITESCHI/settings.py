@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 #}
 
 #BD con postgres local
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_vicshop',
@@ -116,10 +116,10 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
         'HOST': 'localhost',  # Puede variar según tu configuración.
         'PORT': '5432',           # Puede variar según tu configuración.
     }
-} """
+} 
 
 #BD con postgres render
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vicshop',
@@ -128,7 +128,7 @@ DATABASES = {
         'HOST': 'oregon-postgres.render.com',  # Puede variar según tu configuración.  No perder: oregon-postgres.render.com
         'PORT': '5432',           # Puede variar según tu configuración.
     }
-}
+} """
 
 
 # Password validation
