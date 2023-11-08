@@ -1,5 +1,13 @@
 # This file must be used with "source bin/activate" *from bash*
 # you cannot run it directly
+import sys
+
+# Agrega la ruta de tu proyecto al PYTHONPATH
+sys.path.append('APITESCHI')
+
+# Ahora puedes importar el módulo 'api' desde tu proyecto
+import api
+
 
 deactivate () {
     # reset old environment variables
