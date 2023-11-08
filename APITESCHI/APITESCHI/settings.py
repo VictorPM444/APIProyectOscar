@@ -71,7 +71,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'APITESCHI.APITESCHI.urls'
+#ROOT_URLCONF = 'APITESCHI.APITESCHI.urls'
+ROOT_URLCONF = 'APITESCHI.urls'
 
 TEMPLATES = [
     {
@@ -89,7 +90,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'APITESCHI.APITESCHI.wsgi.application'
+#WSGI_APPLICATION = 'APITESCHI.APITESCHI.wsgi.application'
+WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 
 
 # Database
