@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+# This file must be used with "source bin/activate" *from bash*
+# you cannot run it directly
+import sys
+
+# Agrega la ruta de tu proyecto al PYTHONPATH
+sys.path.append('APITESCHI')
+
+# Ahora puedes importar el módulo 'api' desde tu proyecto
+import api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
