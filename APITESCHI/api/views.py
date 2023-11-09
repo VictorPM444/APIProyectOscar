@@ -79,9 +79,7 @@ class login(APIView):
                 # La contraseña es correcta, inicia sesión
                 # login(request, usuario)
                 if check_password(password1, contra):
-                    return redirect(
-                        "home"
-                    )  # Redirige a la página 'home' después del inicio de sesión
+                    return redirect("home")  # Redirige a la página 'home' después del inicio de sesión
                 else:
                     mensaje = "Credenciales incorrectas. Por favor, inténtalo de nuevo."
                     return render(request, self.template_name, {"error": mensaje})
