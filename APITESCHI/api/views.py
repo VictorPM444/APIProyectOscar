@@ -174,13 +174,6 @@ class my_account(APIView):
         return render(request, self.template_name)
 
 
-class about_us(APIView):
-    template_name = "about_us.html"
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-
 class account_details(APIView):
     template_name = "account_details.html"
 

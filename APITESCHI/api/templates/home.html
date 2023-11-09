@@ -67,27 +67,13 @@
                             <!-- Nav -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{% url 'home'%}">Home</a></li>
-                                            <li><a href="{% url 'shop'%}">Shop</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Shop</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{% url 'order_list'%}">Orden List</a></li>
-                                            <li><a href="{% url 'cart'%}">Cart</a></li>
-                                            <li><a href="{% url 'wishlist'%}">Wishlist</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="{% url 'home'%}">Home</a></li>
+
+                                    <li><a href="{% url 'shop'%}">Shop</a></li>
+
                                     <li><a href="#">Pages</a>
                                         <div class="dropdown">
                                             <ul>
-                                                <li><a href="{% url 'about_us'%}">- About Us</a></li>
-                                                <li><a href="{% url 'account_details'%}">- Account Details</a></li>
-                                                <li><a href="{% url 'addresses'%}">- Addresses</a></li>
-                                                <li><a href="{% url 'login'%}">- Login &amp; Register</a></li>
-                                                <li><a href="{% url 'my_account'%}">- My Account</a></li>
                                                 <li><a href="{% url 'graficas_formulario'%}">- Graficas formulario</a></li>
                                                 <li><a href="{% url 'graficas_powerbi'%}">- Garficas Power BI</a></li>
                                             </ul>
@@ -99,75 +85,17 @@
 
                         <!-- Hero Meta -->
                         <div class="hero_meta_area ml-auto d-flex align-items-center justify-content-end">
-                            <!-- Search -->
-                            <div class="search-area">
-                                <div class="search-btn"><i class="icofont-search"></i></div>
-                                <!-- Form -->
-                                <div class="search-form">
-                                    <input type="search" class="form-control" placeholder="Search">
-                                    <input type="submit" class="d-none" value="Send">
-                                </div>
-                            </div>
-
+                        
                             <!-- Wishlist -->
                             <div class="wishlist-area">
                                 <a href="{% url 'wishlist'%}" class="wishlist-btn"><i class="icofont-heart"></i></a>
                             </div>
 
-                            <!-- Cart -->
+                            <!-- Cart                style="margin-right: 20px;" para separacion por margen -->
                             <div class="cart-area">
-                                <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span></div>
-
-                                <!-- Cart Dropdown Content -->
-                                <div class="cart-dropdown-content">
-                                    <ul class="cart-list">
-                                        <li>
-                                            <div class="cart-item-desc">
-                                                <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/top-1.png'%}" class="cart-thumb" alt="">
-                                                </a>
-                                                <div>
-                                                    <a href="#">Kid's Fashion</a>
-                                                    <p>1 x - <span class="price">$32.99</span></p>
-                                                </div>
-                                            </div>
-                                            <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                        </li>
-                                        <li>
-                                            <div class="cart-item-desc">
-                                                <a href="#" class="image">
-                                                    <img src="{% static 'img/product-img/best-4.png'%}" class="cart-thumb" alt="">
-                                                </a>
-                                                <div>
-                                                    <a href="#">Headphone</a>
-                                                    <p>2x - <span class="price">$49.99</span></p>
-                                                </div>
-                                            </div>
-                                            <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
-                                        </li>
-                                    </ul>
-                                    <div class="cart-pricing my-4">
-                                        <ul>
-                                            <li>
-                                                <span>Sub Total:</span>
-                                                <span>$822.96</span>
-                                            </li>
-                                            <li>
-                                                <span>Shipping:</span>
-                                                <span>$30.00</span>
-                                            </li>
-                                            <li>
-                                                <span>Total:</span>
-                                                <span>$856.63</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="cart-box">
-                                        <a href="{% url 'checkout_1'%}" class="btn btn-primary d-block">Checkout</a>
-                                    </div>
-                                </div>
+                                <a href="{% url 'wishlist'%}" class="wishlist-btn"  style="margin-right: 20px;"><i class="icofont-cart" ></i></a>
                             </div>
-
+                            
                             <!-- Account -->
                             <div class="account-area">
                                 <div class="user-thumbnail">
@@ -176,8 +104,6 @@
                                 <ul class="user-meta-dropdown">
                                     <li class="user-title"><span>Hello,</span> Lim Sarah</li>
                                     <li><a href="{% url 'my_account'%}">My Account</a></li>
-                                    <li><a href="{% url 'order_list'%}">Orders List</a></li>
-                                    <li><a href="{% url 'wishlist'%}">Wishlist</a></li>
                                     <li><a href="{% url 'login'%}"><i class="icofont-logout"></i> Logout</a></li>
                                 </ul>
                             </div>
