@@ -213,12 +213,12 @@
     <!-- Login Area End -->
 
     <!-- Footer Area -->
-    <footer class="footer_area section_padding_70_0" >
-        <div class="container" style="height: 220px; margin-bottom: 40px;">
+    <footer class="footer_area section_padding_70_0" style=" margin-bottom: -50px;">
+        <div class="container" style="height: 240px; margin-bottom: 40px;">
             <div class="row">
                 <!-- Single Footer Area -->
                 <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3" >
-                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                    <div class="single_footer_area mb-100" style="margin-top: 40px;">
                         <div class="footer_heading mb-4">
                             <h6>Contacto</h6>
                         </div>
@@ -240,13 +240,11 @@
 
                 <!-- Single Footer Area -->
                 <div class="col-12 col-sm-6 col-md col-lg-4 col-xl-2">
-                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                    <div class="single_footer_area mb-100" style="margin-top: 40px;">
                         <div class="footer_heading mb-4">
                             <h6>Informacion</h6>
                         </div>
                         <ul class="footer_widget_menu">
-                            <li><a href="#"><i class="icofont-rounded-right"></i> Tu cuenta</a></li>
-                            <li><a href="#"><i class="icofont-rounded-right"></i> Tu carrito</a></li>
                             <li><a href="#"><i class="icofont-rounded-right"></i> Politicas de devolucion</a></li>
                             <li><a href="#"><i class="icofont-rounded-right"></i> Informacion de entrega</a></li>
                         </ul>
@@ -255,12 +253,11 @@
 
                 <!-- Single Footer Area -->
                 <div class="col-12 col-sm-6 col-md col-lg-4 col-xl-2">
-                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                    <div class="single_footer_area mb-100" style="margin-top: 40px;">
                         <div class="footer_heading mb-4">
                             <h6>Cuenta</h6>
                         </div>
                         <ul class="footer_widget_menu">
-                            <li><a href="#"><i class="icofont-rounded-right"></i> Recuperacion de contraseña</a></li>
                             <li><a href="#"><i class="icofont-rounded-right"></i> Ayuda</a></li>
                             <li><a href="#"><i class="icofont-rounded-right"></i> Metodos de pago</a></li>
                             <li><a href="#"><i class="icofont-rounded-right"></i> Politicas de privacidad</a></li>
@@ -280,6 +277,16 @@
                             <p>Creado por VICSHOP <i class="fa fa-heart" aria-hidden="true"></i></p>
                         </div>
                     </div>
+                    {% comment %} <!-- Payment Method -->
+                    <div class="col-12 col-md-6">
+                        <div class="payment_method">
+                            <img src="{% static 'img/payment-method/paypal.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/maestro.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/western-union.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/discover.png'%}" alt="">
+                            <img src="{% static 'img/payment-method/american-express.png'%}" alt="">
+                        </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
