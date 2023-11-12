@@ -210,10 +210,15 @@ AUTH_USER_MODEL = 'api.Usuario'  # Reemplaza 'miapp' con el nombre de tu aplicac
 
 
 
-# 
+# para correos
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'vipermxm@gmail.com'
 EMAIL_HOST_PASSWORD = 'edlb afsh eybj arch'
+
+# para lo de stripe
+STRIPE_PUBLIC_KEY = 'pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa'
+STRIPE_SECRET_KEY = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
+
