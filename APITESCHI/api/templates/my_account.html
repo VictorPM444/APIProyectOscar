@@ -138,12 +138,11 @@
                 <div class="col-12 col-lg-3">
                     <div class="my-account-navigation mb-50">
                         <ul>
-                            <li class="active"><a href="my-account.html">Dashboard</a></li>
-                            <li><a href="order-list.html">Orders</a></li>
-                            <li><a href="downloads.html">Downloads</a></li>
-                            <li><a href="addresses.html">Addresses</a></li>
-                            <li><a href="account-details.html">Account Details</a></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li class="active"><a href="{% url 'my_account'%}">Inicio</a></li>
+                            <li><a href="{% url 'order_list'%}">Ordenes</a></li>
+                            <li><a href="{% url 'addresses'%}">Direcciones</a></li>
+                            <li><a href="{% url 'account_details'%}">Detalles de cuenta</a></li>
+                            <li><a href="{% url 'login'%}">Logout</a></li>
                         </ul>
                     </div>
                 </div>
