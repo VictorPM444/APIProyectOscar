@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment</title>
+    <style>
+        /* Estilos para personalizar el formulario de tarjeta */
+        #payment-form {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Estilos para los mensajes de éxito y error */
+        #payment-message {
+            margin-top: 10px;
+            color: red;
+        }
+
+        /* Estilos para el botón de pago */
+        #submit {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el spinner de carga */
+        #spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Animación del spinner de carga */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Formulario de pago -->
+    <form id="payment-form">
+        <label for="card-element">
+            Ingrese los detalles de su tarjeta:
+        </label>
+        <div id="card-element">
+            <!-- Stripe.js inyecta el elemento de la tarjeta -->
+        </div>
+
+        <!-- Mensajes de éxito y error -->
+        <div id="payment-message" class="hidden"></div>
+
+        <!-- Botón de pago -->
+        <button id="submit">
+            <div id="spinner" class="hidden"></div>
+            <span id="button-text">Pagar ahora</span>
+        </button>
+    </form>
+
+    <!-- Scripts de Stripe y JavaScript -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var stripe = Stripe('pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa');
+            var elements = stripe.elements();
+
+            // Configura el elemento de la tarjeta de crédito
+            var cardElement = elements.create('card');
+            cardElement.mount('#card-element');
+
+            var form = document.getElementById('payment-form');
+            var submitButton = document.getElementById('submit');
+            var errorElement = document.getElementById('payment-message');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                // Deshabilita el botón de pago para evitar múltiples clics
+                submitButton.disabled = true;
+                // Muestra el spinner de carga
+                document.getElementById('spinner').classList.remove('hidden');
+                // Oculta los mensajes de éxito y error
+                errorElement.textContent = '';
+                errorElement.classList.add('hidden');
+
+                stripe.createPaymentMethod({
+                    type: 'card',
+                    card: cardElement,
+                }).then(function (result) {
+                    if (result.error) {
+                        // Muestra un mensaje de error al usuario
+                        errorElement.textContent = result.error.message;
+                        errorElement.classList.remove('hidden');
+                    } else {
+                        // Envía el ID del método de pago al servidor para completar el pago
+                        fetch('/process-payment/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                payment_method_id: result.paymentMethod.id,
+                            }),
+                        }).then(function (response) {
+                            return response.json();
+                        }).then(function (data) {
+                            // Maneja la respuesta del servidor
+                            if (data.success) {
+                                // Muestra un mensaje de éxito al usuario
+                                errorElement.textContent = 'Pago exitoso!';
+                                errorElement.classList.remove('hidden');
+                            } else {
+                                // Muestra un mensaje de error al usuario
+                                errorElement.textContent = 'Error al procesar el pago.';
+                                errorElement.classList.remove('hidden');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

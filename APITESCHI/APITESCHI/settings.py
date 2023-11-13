@@ -218,7 +218,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'vipermxm@gmail.com'
 EMAIL_HOST_PASSWORD = 'edlb afsh eybj arch'
 
-# para lo de stripe
+# settings.py
+
 STRIPE_PUBLIC_KEY = 'pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa'
 STRIPE_SECRET_KEY = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
-

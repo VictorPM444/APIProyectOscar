@@ -30,32 +30,14 @@ from django.contrib.auth.hashers import (
 from django.contrib.auth.hashers import check_password
 
 
-#Stripe
-import stripe
+# views.py
 
-stripe.api_key = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
+from django.shortcuts import render
+from django.conf import settings
 
-def checkout(request):
-    return render(request, 'checkout.html')
+def payment(request):
+    return render(request, 'payment.html', {'stripe_public_key': settings.STRIPE_PUBLIC_KEY})
 
-def charge(request):
-    if request.method == 'POST':
-        token = request.POST['stripeToken']
-        try:
-            charge = stripe.Charge.create(
-                amount=2000,  # Monto en centavos
-                currency='usd',
-                description='Compra en tu tienda',
-                source=token,
-            )
-        except stripe.error.CardError as e:
-            # Manejar errores de tarjeta
-            pass
-
-        # Procesar el pago y actualizar la base de datos
-        # (Deberías implementar esta parte según tus necesidades)
-
-        return render(request, 'charge.html', {'charge': charge})
 
 
 
@@ -417,3 +399,8 @@ class recuperacion_contra(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
+
+
+
+
+    
