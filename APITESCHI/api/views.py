@@ -31,8 +31,47 @@ from django.contrib.auth.hashers import check_password
 
 
 # views.py
-from django.shortcuts import render
 import mercadopago
+
+# views.py
+import stripe
+from django.conf import settings
+from django.http import JsonResponse
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def stripe_payment(request):
+    if request.method == 'POST':
+        # Obtener la cantidad y el token del formulario
+        amount = request.POST.get('amount')
+        token = request.POST.get('stripeToken')
+
+        try:
+            # Crear el pago utilizando la API de Stripe
+            charge = stripe.Charge.create(
+                amount=int(amount) * 100,  # La cantidad debe estar en centavos
+                currency='usd',  # Cambia a tu moneda preferida
+                source=token,
+                description='Pago de prueba',
+            )
+
+            # Si el pago se realiza con éxito, puedes realizar acciones adicionales aquí
+
+            return JsonResponse({'message': 'Pago exitoso'})
+
+        except stripe.error.CardError as e:
+            # Manejar errores de tarjeta
+            return JsonResponse({'error': str(e)})
+
+        except Exception as e:
+            # Manejar otros errores
+            return JsonResponse({'error': str(e)})
+
+    return render(request, 'stripe_payment.html')
+
+
+
+###########################################################
 
 def checkout(request):
     # Asegúrate de cambiar "ACCESS_TOKEN" con tu verdadero token de acceso de Mercado Pago
@@ -71,7 +110,7 @@ def checkout(request):
     else:
         # Manejar solicitudes GET de manera adecuada si es necesario
         return render(request, 'checkout.html')
-
+#################################################################
 
 
 class login(APIView):

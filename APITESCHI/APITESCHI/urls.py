@@ -35,6 +35,7 @@ from api.views import (
     graficas_formulario,
     graficas_powerbi,
     checkout,
+    stripe_payment,
 )
 
 
@@ -59,7 +60,13 @@ urlpatterns = [
     path("recuperacion_contra/", recuperacion_contra.as_view(), name="recuperacion_contra"),
     path("graficas_formulario/", graficas_formulario.as_view(), name="graficas_formulario"),
     path("graficas_powerbi/", graficas_powerbi.as_view(), name="graficas_powerbi"),
+
+
+
     path('checkout/', checkout, name='checkout'),
+
+
+    path('stripe/', stripe_payment, name='stripe_payment'),
 
 
 
