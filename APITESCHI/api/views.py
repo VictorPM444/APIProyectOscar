@@ -26,18 +26,51 @@ from django.contrib.auth.hashers import (
     make_password,
 )  # Importa la función make_password
 
-
 from django.contrib.auth.hashers import check_password
 
 
+
 # views.py
-
 from django.shortcuts import render
-from django.conf import settings
+import mercadopago
 
-def payment(request):
-    return render(request, 'payment.html', {'stripe_public_key': settings.STRIPE_PUBLIC_KEY})
+def checkout(request):
+    # Asegúrate de cambiar "ACCESS_TOKEN" con tu verdadero token de acceso de Mercado Pago
+    sdk = mercadopago.SDK("TEST-209630761238066-111222-13ed7dfb56b2fa402ab89f84135609c0-790756007")
 
+    request_options = mercadopago.config.RequestOptions()
+    request_options.custom_headers = {
+        'x-idempotency-key': '<SOME_UNIQUE_VALUE>'
+    }
+
+    if request.method == 'POST':
+        payment_data = {
+            "transaction_amount": float(request.POST.get("transaction_amount")),
+            "token": request.POST.get("token"),
+            "description": request.POST.get("description"),
+            "installments": int(request.POST.get("installments")),
+            "payment_method_id": request.POST.get("payment_method_id"),
+            "payer": {
+                "email": request.POST.get("email"),
+                "identification": {
+                    "number": request.POST.get("number")
+                }
+            }
+        }
+
+        try:
+            payment_response = sdk.payment().create(payment_data, request_options)
+            payment = payment_response["response"]
+            
+            print(payment)
+            # Aquí puedes procesar la respuesta y realizar acciones adicionales si es necesario
+        except Exception as e:
+            # Manejar errores de Mercado Pago
+            print(f"Error en el pago: {e}")
+            return render(request, 'error_pago.html')
+    else:
+        # Manejar solicitudes GET de manera adecuada si es necesario
+        return render(request, 'checkout.html')
 
 
 
