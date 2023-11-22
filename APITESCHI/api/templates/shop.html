@@ -213,7 +213,7 @@
                         <div class="row">
 
                             <!-- Single Product 111111111111111111111111111111111111-->
-                            <div class="col-12">
+                            <div class="col-12 product-item" data-brand="Nike">
                                 <div class="single-product-area mb-30" style="height:250px;">
                                     <div class="product_image">
                                         <!-- Product Image -->
@@ -251,7 +251,7 @@
 
                             
                             <!-- Single Product 111111111111111111111111111111111111-->
-                            <div class="col-12">
+                            <div class="col-12 product-item" data-brand="Gucci">
                                 <div class="single-product-area mb-30" style="height:250px;">
                                     <div class="product_image">
                                         <!-- Product Image -->
@@ -285,7 +285,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
 
                             <!--Venta creada link-->
@@ -326,36 +325,7 @@
                 <div class="col-12 col-md-4 col-xl-3">
                     <div class="shop_sidebar_area">
                         <!-- Single Widget -->
-                        <div class="widget catagory mb-30">
-                            <h6 class="widget-title">Product Categories</h6>
-                            <div class="widget-desc">
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Men <span class="text-muted">(109)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2">Women <span class="text-muted">(67)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3">Kids <span class="text-muted">(89)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label" for="customCheck4">Accessories <span class="text-muted">(425)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                    <label class="custom-control-label" for="customCheck5">Fashion <span class="text-muted">(73)</span></label>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         {% comment %} <!-- Single Widget -->
                         <div class="widget price mb-30">
@@ -404,34 +374,19 @@
                             </div>
                         </div>
 
-                        <!-- Single Widget -->
+                        <!-- Checkboxes para Marcas - Nike y Gucci -->
                         <div class="widget brands mb-30">
-                            <h6 class="widget-title">Filter by brands</h6>
+                            <h6 class="widget-title">Filtrar Marca</h6>
                             <div class="widget-desc">
-                                <!-- Single Checkbox -->
+                                <!-- Checkbox para Nike -->
                                 <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                    <label class="custom-control-label" for="customCheck11">Zara <span class="text-muted">(213)</span></label>
+                                    <input type="checkbox" class="custom-control-input" id="NikeCheckbox">
+                                    <label class="custom-control-label" for="NikeCheckbox">Nike <span class="text-muted">(104)</span></label>
                                 </div>
-                                <!-- Single Checkbox -->
+                                <!-- Checkbox para Gucci -->
                                 <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck12">
-                                    <label class="custom-control-label" for="customCheck12">Gucci <span class="text-muted">(65)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck13">
-                                    <label class="custom-control-label" for="customCheck13">Addidas <span class="text-muted">(70)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck14">
-                                    <label class="custom-control-label" for="customCheck14">Nike <span class="text-muted">(104)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck15">
-                                    <label class="custom-control-label" for="customCheck15">Denim <span class="text-muted">(71)</span></label>
+                                    <input type="checkbox" class="custom-control-input" id="GucciCheckbox">
+                                    <label class="custom-control-label" for="GucciCheckbox">Gucci <span class="text-muted">(65)</span></label>
                                 </div>
                             </div>
                         </div>
@@ -453,20 +408,6 @@
                                 </ul>
                             </div>
                         </div> {% endcomment %}
-
-                        <!-- Single Widget -->
-                        <div class="widget size mb-30">
-                            <h6 class="widget-title">Filter by Size</h6>
-                            <div class="widget-desc">
-                                <ul>
-                                    <li><a href="#">XS</a></li>
-                                    <li><a href="#">S</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -566,6 +507,52 @@
      <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
      <script src="{% static 'js/wow.min.js'%}"></script>
      <script src="{% static 'js/default/active.js'%}"></script>
+     <!-- Script JavaScript -->
+     <!-- Script JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener checkboxes para Nike y Gucci
+            var nikeCheckbox = document.getElementById('NikeCheckbox');
+            var gucciCheckbox = document.getElementById('GucciCheckbox');
+
+            // Agregar evento de cambio a Nike Checkbox
+            nikeCheckbox.addEventListener('change', function () {
+                // Obtener estado del checkbox
+                var isChecked = nikeCheckbox.checked;
+
+                // Mostrar u ocultar productos Nike
+                mostrarOcultarProductos('Nike', isChecked);
+            });
+
+            // Agregar evento de cambio a Gucci Checkbox
+            gucciCheckbox.addEventListener('change', function () {
+                // Obtener estado del checkbox
+                var isChecked = gucciCheckbox.checked;
+
+                // Mostrar u ocultar productos Gucci
+                mostrarOcultarProductos('Gucci', isChecked);
+            });
+        });
+
+        // Función para mostrar/ocultar productos según la marca
+        function mostrarOcultarProductos(marca, shouldShow) {
+            var productos = document.querySelectorAll('.product-item');
+
+            productos.forEach(function (producto) {
+                var marcaProducto = producto.getAttribute('data-brand');
+
+                // Mostrar u ocultar el producto según la marca
+                if (marcaProducto === marca) {
+                    producto.style.display = shouldShow ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+
+    
+    
+    
+    
 
 </body>
 

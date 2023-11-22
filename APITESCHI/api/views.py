@@ -300,6 +300,7 @@ class shop(APIView):
     template_name = "shop.html"
 
     def get(self, request):
+        
         return render(request, self.template_name)
     
 class graficas_powerbi(APIView):
