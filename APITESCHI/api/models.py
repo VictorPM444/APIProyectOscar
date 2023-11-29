@@ -21,7 +21,6 @@ class Marca(models.Model):
 class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True,db_column='idCategoria')
     nombreCategoria = models.TextField(max_length=50,db_column='nombreCategoria')
-    descripcion = models.TextField(max_length=150,db_column='descripcion')
     class Meta:
         db_table='Categorias'
 
@@ -87,23 +86,6 @@ class CarroCompras(models.Model):
         db_table='CarroCompras'
 
 
-#Tablas de muchos a muchos
-class Producto_has_Categoria(models.Model):
-    id_Producto_has_Categoria = models.AutoField(primary_key=True,db_column='id_Producto_has_Categoria')
-    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
-    fk_id_Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE,db_column='fk_id_Categoria')
-    class Meta:
-        db_table='Producto_has_Categoria'
-
-
-class Producto_has_Talla(models.Model):
-    id_Producto_has_Talla = models.AutoField(primary_key=True,db_column='id_Producto_has_Talla')
-    fk_id_Producto = models.ForeignKey(Producto, on_delete=models.CASCADE,db_column='fk_id_Producto')
-    fk_id_Talla = models.ForeignKey(Talla, on_delete=models.CASCADE,db_column='fk_id_Talla')
-    class Meta:
-        db_table='Producto_has_Talla'
-
-
 #############Formulario#######
 class Formulario(models.Model):
     id_Formulario= models.AutoField(primary_key=True,db_column='id_Formulario')
@@ -119,18 +101,3 @@ class Formulario(models.Model):
     pregunta10= models.TextField(db_column='¿Qué método de registro prefieres en tiendas online?')
     class Meta:
         db_table='Formulario'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
