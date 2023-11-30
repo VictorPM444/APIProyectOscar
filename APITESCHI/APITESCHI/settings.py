@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-#hola
+#adios
 # This file must be used with "source bin/activate" *from bash*
 # you cannot run it directly
 import sys
@@ -132,6 +132,13 @@ DATABASES = {
 } """
 
 
+# Usar Google Cloud Storage para almacenar archivos estáticos.
+STATIC_URL = 'https://storage.googleapis.com/proyectooscar/static/'
+
+# Usar Google Cloud Storage para almacenar archivos de medios.
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'proyectooscar'
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -184,13 +191,13 @@ USE_TZ = True
 
 
 #########Correccion para el uso de render##############
-STATIC_URL = 'api/static/'
+#STATIC_URL = 'api/static/'
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
-    STATIC_ROOT = os.path.join(BASE_DIR, 'api/static')
+    #STATIC_ROOT = os.path.join(BASE_DIR, 'api/static')
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
