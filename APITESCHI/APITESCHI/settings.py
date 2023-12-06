@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vicshopDB',
+        'NAME': 'BDvicshop',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',  # Puedes cambiarlo según tu configuración

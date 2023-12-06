@@ -23,19 +23,19 @@ class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True,db_column='idCategoria')
     nombreCategoria = models.TextField(max_length=50,db_column='nombreCategoria')
     class Meta:
-        db_table='Categorias'
+        db_table='Categoria'
 
 class Color(models.Model):
     idColor = models.AutoField(primary_key=True,db_column='idColor')
     nombreColor = models.TextField(max_length=30,db_column='nombreColor')
     class Meta:
-        db_table='Temporadas'
+        db_table='Color'
 
 class Talla(models.Model):
     idTalla = models.AutoField(primary_key=True,db_column='idTalla')
     nombreTalla = models.FloatField(db_column='nombreTalla')
     class Meta:
-        db_table='Tallas'
+        db_table='Talla'
 
 class Usuario(AbstractUser):
     idUsuario = models.AutoField(primary_key=True, db_column='idUsuario')
@@ -72,12 +72,12 @@ class Producto(models.Model):
     nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
     descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
     precioProducto =models.FloatField(db_column='precioProducto')
-    linkStripe= models.TextField(max_length=100,db_column='linkStripe',default='Pruebas')
+    linkStripe= models.TextField(max_length=100,db_column='linkStripe')
     fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
     fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
-    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color',default='Pruebas')
-    imagen = models.ImageField(upload_to='imagenes/',default='Pruebas')
+    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
+    imagen = models.ImageField(upload_to='imagenes/')
 
     class Meta:
         db_table='Producto'
@@ -88,7 +88,7 @@ class CarroCompras(models.Model):
     fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
     fk_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,db_column='fk_producto')
     class Meta:
-        db_table='CarroCompras'
+        db_table='CarroCompra'
 
 
 #############Formulario#######
