@@ -76,8 +76,8 @@ class Producto(models.Model):
     fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
     fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
-    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
-    imagen = models.ImageField(upload_to='imagenes/')
+    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color',default='Pruebas')
+    imagen = models.ImageField(upload_to='imagenes/',default='Pruebas')
 
     class Meta:
         db_table='Producto'
