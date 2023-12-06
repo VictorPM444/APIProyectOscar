@@ -72,7 +72,7 @@ class Producto(models.Model):
     nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
     descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
     precioProducto =models.FloatField(db_column='precioProducto')
-    linkStripe= models.TextField(max_length=100,db_column='linkStripe')
+    linkStripe= models.TextField(max_length=100,db_column='linkStripe',default='Pruebas')
     fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
     fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
