@@ -66,6 +66,7 @@ class Usuario(AbstractUser):
         return self.nombreUsuario  # Puedes elegir qué campo usar como representación en cadena (string) del usuario
 
 
+
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True,db_column='idProducto')
     nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
@@ -78,6 +79,7 @@ class Producto(models.Model):
     fk_temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE,db_column='fk_temporada')
     class Meta:
         db_table='Producto'
+
 
 class CarroCompras(models.Model):
     idCarroCompras = models.AutoField(primary_key=True,db_column='idCarroCompras')
