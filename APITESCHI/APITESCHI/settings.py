@@ -100,24 +100,24 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 
 
 #BD con sqlite
-#DATABASES = {
-    #'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-  #      'NAME': BASE_DIR / 'db.sqlite3',
- #   }
-#}
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+} """
 
-#BD con postgres local
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_vicshop',
+        'NAME': 'vicshopBD',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST': 'localhost',  # Puede variar según tu configuración.
-        'PORT': '5432',           # Puede variar según tu configuración.
+        'HOST': 'localhost',  # Puedes cambiarlo según tu configuración
+        'PORT': '5432',       # El puerto por defecto de PostgreSQL
     }
-} 
+}
+
 
 #BD con postgres render
 """ DATABASES = {
