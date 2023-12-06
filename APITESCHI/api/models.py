@@ -25,9 +25,9 @@ class Categoria(models.Model):
     class Meta:
         db_table='Categorias'
 
-class Temporada(models.Model):
-    idTemporada = models.AutoField(primary_key=True,db_column='idTemporada')
-    nombreTemporada = models.TextField(max_length=30,db_column='nombreTemporada')
+class Color(models.Model):
+    idColor = models.AutoField(primary_key=True,db_column='idColor')
+    nombreColor = models.TextField(max_length=30,db_column='nombreColor')
     class Meta:
         db_table='Temporadas'
 
@@ -76,7 +76,9 @@ class Producto(models.Model):
     fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
     fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
-    fk_temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE,db_column='fk_temporada')
+    fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
+    imagen = models.ImageField(upload_to='imagenes/')
+
     class Meta:
         db_table='Producto'
 

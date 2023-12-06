@@ -4,11 +4,9 @@ from rest_framework.views import APIView
 import random
 import string
 # importo la bd de usuario
-from .models import Usuario
-
+from .models import Usuario, Formulario, Producto
 
 # importaciones para vsc
-from .models import Formulario  # Asegúrate de importar tu modelo
 import csv
 
 # importaciones para graficos
@@ -39,36 +37,6 @@ from django.conf import settings
 from django.http import JsonResponse
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
-def stripe_payment(request):
-    if request.method == 'POST':
-        # Obtener la cantidad y el token del formulario
-        amount = request.POST.get('amount')
-        token = request.POST.get('stripeToken')
-
-        try:
-            # Crear el pago utilizando la API de Stripe
-            charge = stripe.Charge.create(
-                amount=int(amount) * 100,  # La cantidad debe estar en centavos
-                currency='usd',  # Cambia a tu moneda preferida
-                source=token,
-                description='Pago de prueba',
-            )
-
-            # Si el pago se realiza con éxito, puedes realizar acciones adicionales aquí
-
-            return JsonResponse({'message': 'Pago exitoso'})
-
-        except stripe.error.CardError as e:
-            # Manejar errores de tarjeta
-            return JsonResponse({'error': str(e)})
-
-        except Exception as e:
-            # Manejar otros errores
-            return JsonResponse({'error': str(e)})
-
-    return render(request, 'stripe_payment.html')
-
 
 
 ###########################################################
@@ -151,12 +119,13 @@ class login(APIView):
                 usuario = Usuario.objects.get(correoElectronico=email)  # , password=password1
                 # usuario = authenticate(request, correoElectronico=email, password=password1)
                 valorObtenido = usuario.correoElectronico
+                contra = usuario.password
             except Usuario.DoesNotExist:
                 valorObtenido = None
 
             # usuario = authenticate(request, correElectronico=email, password=password1)
 
-            contra = usuario.password
+            
 
             if valorObtenido is not None:
                 # La contraseña es correcta, inicia sesión
@@ -288,7 +257,6 @@ class order_list(APIView):
     def get(self, request):
         return render(request, self.template_name)
 
-
 class wishlist(APIView):
     template_name = "wishlist.html"
 
@@ -302,6 +270,44 @@ class shop(APIView):
     def get(self, request):
         
         return render(request, self.template_name)
+    
+
+class formularioProducto(APIView):
+    template_name = "formularioProducto.html"
+
+    def get(self, request):
+        
+        return render(request, self.template_name)
+    
+    def post(self, request):
+        nombre_producto = request.POST.get('nombreProducto')
+        descripcion_producto = request.POST.get('descripcionProducto')
+        precio_producto = request.POST.get('precioProducto')
+        link_stripe = request.POST.get('linkStripe')
+        marca = request.POST.get('marca')
+        categoria = request.POST.get('Categoria')
+        color = request.POST.get('color')
+        talla = request.POST.get('talla')
+        imagen = request.FILES.get('imagen')
+
+        # Guardar el producto en la base de datos
+        producto = Producto.objects.create(
+            nombreProducto=nombre_producto,
+            descripcionProducto=descripcion_producto,
+            precioProducto=precio_producto,
+            linkStripe=link_stripe,
+            marca=marca,
+            categoria=categoria,
+            color=color,
+            talla=talla,
+            imagen=imagen
+        )
+
+        # Otras operaciones, redireccionar a otra página, etc.
+
+        return render(request, self.template_name)
+    
+
     
 class graficas_powerbi(APIView):
     template_name = "graficas_powerbi.html"

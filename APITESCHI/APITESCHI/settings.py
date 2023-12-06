@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'APITESCHI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vicshopBD',
+        'NAME': 'vicshop',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',  # Puedes cambiarlo según tu configuración
@@ -238,3 +238,7 @@ MERCADO_PAGO_ACCESS_TOKEN = 'TEST-209630761238066-111222-13ed7dfb56b2fa402ab89f8
 STRIPE_PUBLIC_KEY = 'pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa'
 STRIPE_SECRET_KEY = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
 
+
+#Para las imagenes 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

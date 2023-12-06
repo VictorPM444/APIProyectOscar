@@ -212,23 +212,20 @@
                     <div class="shop_list_product_area">
                         <div class="row">
 
-                            <!-- Single Product 111111111111111111111111111111111111-->
+                            <!-- Lista Pordictos-->
                             <div class="col-12 product-item" data-brand="Nike">
                                 <div class="single-product-area mb-30" style="height:250px;">
+
+
                                     <div class="product_image">
                                         <!-- Product Image -->
                                         <img class="normal_img" src="{%static 'img/product-img/onsale-3.png'%}" alt="">
                                         <img class="hover_img" src="{%static 'img/product-img/best-3.png'%}" alt="">
 
-                                        {% comment %} <!-- Wishlist -->
+                                        <!-- Wishlist -->
                                         <div class="product_wishlist">
                                             <a href="wishlist.html"><i class="icofont-heart"></i></a>
                                         </div>
-
-                                        <!-- Compare -->
-                                        <div class="product_compare">
-                                            <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                        </div> {% endcomment %}
                                     </div>
                                     
 
@@ -245,6 +242,7 @@
 
                                         <p class="product-short-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque repudiandae, ducimus nesciunt.</p>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -258,15 +256,10 @@
                                         <img class="normal_img" src="{%static 'img/product-img/best-3.png'%}" alt="">
                                         <img class="hover_img" src="{%static 'img/product-img/onsale-3.png'%}" alt="">
 
-                                        {% comment %} <!-- Wishlist -->
+                                        <!-- Wishlist -->
                                         <div class="product_wishlist">
                                             <a href="wishlist.html"><i class="icofont-heart"></i></a>
                                         </div>
-
-                                        <!-- Compare -->
-                                        <div class="product_compare">
-                                            <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                        </div> {% endcomment %}
                                     </div>
                                     
 
@@ -287,13 +280,14 @@
                             </div>
 
 
-                            <!--Venta creada link-->
+                            {% comment %}  <!--Venta creada link-->
                             <script async
                             src="https://js.stripe.com/v3/buy-button.js">
                             </script>
 
                             <stripe-buy-button buy-button-id="buy_btn_1OBu2eLZhvMA8N2Wj7JQV8cZ" publishable-key="pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa">
                             </stripe-buy-button>
+                            {% endcomment %}
 
 
                         </div>

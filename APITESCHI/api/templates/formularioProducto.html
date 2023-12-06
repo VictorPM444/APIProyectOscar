@@ -1,0 +1,367 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from designing-world.com/bigshop-2.3.0/account-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:42 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>VicShop</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico'%}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/default/classy-nav.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/default/icofont.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Header Area -->
+    <header class="header_area">
+        
+        <!-- Main Menu -->
+        <div class="bigshop-main-menu">
+            <div class="container">
+                <div class="classy-nav-container breakpoint-off">
+                    <nav class="classy-navbar" id="bigshopNav">
+
+                        <!-- Nav Brand -->
+                        <a class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
+
+                        <!-- Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Close -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home'%}">Inicio</a></li>
+
+                                    <li><a href="{% url 'shop'%}">Tienda</a></li>
+
+                                    <li><a href="#">Paginas</a>
+                                        <div class="dropdown">
+                                            <ul>
+                                                <li><a href="{% url 'graficas_formulario'%}">Graficas formulario</a></li>
+                                                <li><a href="{% url 'graficas_powerbi'%}">Garficas Power BI</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Hero Meta -->
+                        <div class="hero_meta_area ml-auto d-flex align-items-center justify-content-end">
+                        
+                            <!-- Wishlist -->
+                            <div class="wishlist-area">
+                                <a href="{% url 'wishlist'%}" class="wishlist-btn"><i class="icofont-heart"></i></a>
+                            </div>
+
+                            <!-- Cart                style="margin-right: 20px;" para separacion por margen -->
+                            <div class="cart-area">
+                                <a href="{% url 'wishlist'%}" class="wishlist-btn"  style="margin-right: 20px;"><i class="icofont-cart" ></i></a>
+                            </div>
+                            
+                            <!-- Account -->
+                            <div class="account-area">
+                                <div class="user-thumbnail">
+                                    <img src="{% static 'img/bg-img/user.jpg'%}" alt="">
+                                </div>
+                                <ul class="user-meta-dropdown">
+                                    <li class="user-title"><span>Hola,</span> Lim Sarah</li>
+                                    <li><a href="{% url 'my_account'%}">Mi cuenta</a></li>
+                                    <li><a href="{% url 'login'%}"><i class="icofont-logout"></i> Salir</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Main Menu -->
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Breadcumb Area -->
+    <div class="breadcumb_area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <h5>My Account</h5>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">My Account</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcumb Area -->
+
+    <!-- My Account Area -->
+    <section class="my-account-area section_padding_100_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-account-content mb-50">
+                        <h5 class="mb-3">Registrar Productos</h5>
+
+                        <form action="/formularioProducto/" method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="nombreProducto">Nombre Producto</label>
+                                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="descripcionProducto">Descripcion Producto</label>
+                                        <input type="text" class="form-control" id="descripcionProducto" name="descripcionProducto" placeholder="ISLAM" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="precioProducto">Precio producto</label>
+                                        <input type="number" class="form-control" id="precioProducto" name="precioProducto" placeholder="Desinging World" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="emailAddress">Link Stripe</label>
+                                        <input type="email" class="form-control" id="emailAddress" placeholder="care.designingworld@gmail.com" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-6 col-lg-3" >
+                                    <div class="form-group">
+                                        <label for="marca">Marca:</label>
+                                        <p>
+                                        <select id="marca" name="marca" required>
+                                            <option value="" disabled selected>Selecciona una marca</option>
+                                            <option value="Nike">Nike</option>
+                                            <option value="Adidas">Adidas</option>
+                                            <option value="DCShoes">DCShoes</option>
+                                            <option value="Comverse">Comverse</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3" >
+                                    <div class="form-group">
+                                        <label for="genero">Categoria:</label>
+                                        <p>
+                                        <select id="Categoria" name="Categoria" required>
+                                            <option value="" disabled selected>Selecciona una categoria</option>
+                                            <option value="masculino">Masculino</option>
+                                            <option value="femenino">Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3" >
+                                    <div class="form-group">
+                                        <label for="color">Color:</label>
+                                        <p>
+                                        <select id="color" name="color" required>
+                                            <option value="" disabled selected>Selecciona un color</option>
+                                            <option value="Rojo">Rojo</option>
+                                            <option value="Verde">Verde</option>
+                                            <option value="Negro">Negro</option>
+                                            <option value="Gris">Gris</option>
+                                            <option value="Blanco">Blanco</option>
+                                            <option value="Naranja">Naranja</option>
+                                            <option value="Morado">Morado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3" >
+                                    <div class="mb-3">
+                                        <label for="talla">Talla:</label>
+                                        <p>
+                                        <select id="talla" name="talla" required>
+                                            <option value="" disabled selected>Selecciona una talla</option>
+                                            <option value="femenino">25</option>
+                                            <option value="femenino">26</option>
+                                            <option value="femenino">27</option>
+                                            <option value="femenino">28</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% comment %} <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="nombreProducto">Imagen</label>
+                                        <input type="Imagen" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL">
+                                    </div>
+                                </div>
+                            </div> {% endcomment %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="imagen">Imagen:</label>
+                                        <input type="file" class="form-control-file" id="imagen" name="imagen" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row" >
+                                <div class="col-12 text-center">
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Account Area -->
+
+    <!-- Footer Area -->
+    <footer class="footer_area section_padding_70_0" >
+        <div class="container" style="height: 220px; margin-bottom: 40px;">
+            <div class="row">
+                <!-- Single Footer Area -->
+                <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3" >
+                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                        <div class="footer_heading mb-4">
+                            <h6>Contacto</h6>
+                        </div>
+                        <ul class="footer_content">
+                            <li><span>Direcccion:</span> Lords, London, UK - 1259</li>
+                            <li><span>Telefono:</span> 002 63695 24624</li>
+                            <li><span>Correo:</span> support@example.com</li>
+                        </ul>
+                        <div class="footer_social_area mt-15">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Footer Area -->
+                <div class="col-12 col-sm-6 col-md col-lg-4 col-xl-2">
+                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                        <div class="footer_heading mb-4">
+                            <h6>Informacion</h6>
+                        </div>
+                        <ul class="footer_widget_menu">
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Tu cuenta</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Tu carrito</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Politicas de devolucion</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Informacion de entrega</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Single Footer Area -->
+                <div class="col-12 col-sm-6 col-md col-lg-4 col-xl-2">
+                    <div class="single_footer_area mb-100" style="margin-top: 30px;">
+                        <div class="footer_heading mb-4">
+                            <h6>Cuenta</h6>
+                        </div>
+                        <ul class="footer_widget_menu">
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Recuperacion de contraseña</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Ayuda</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Metodos de pago</a></li>
+                            <li><a href="#"><i class="icofont-rounded-right"></i> Politicas de privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer_bottom_area" >
+            <div class="container">
+                <div class="row align-items-center" >
+                    <!-- Copywrite -->
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite_text">
+                            <p>Creado por VICSHOP <i class="fa fa-heart" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery.easing.min.js'%}"></script>
+    <script src="{% static 'js/default/classy-nav.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/default/scrollup.js'%}"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'js/jarallax.min.js'%}"></script>
+    <script src="{% static 'js/jarallax-video.min.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/default/active.js'%}"></script>
+
+</body>
+
+
+<!-- Mirrored from designing-world.com/bigshop-2.3.0/account-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:42 GMT -->
+</html>
