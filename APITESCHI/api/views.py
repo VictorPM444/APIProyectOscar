@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 import random
 import string
 # importo la bd de usuario
-from .models import Usuario, Formulario, Producto
+from .models import Usuario, Formulario, Producto, Talla, Marca, Color
 
 # importaciones para vsc
 import csv
@@ -262,6 +262,34 @@ class wishlist(APIView):
 
     def get(self, request):
         return render(request, self.template_name)
+
+class formularioDatos(APIView):
+    template_name = "formularioDatos.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+    
+    def post(self, request):
+        if "Marca" in request.POST:
+            marca = Marca(
+                nombreMarca=request.POST["nombreMarca"],
+            )
+            marca.save()
+
+        if "Talla" in request.POST:
+            talla = Talla(
+                nombreTalla=request.POST["nombreTalla"],
+            )
+            talla.save()
+
+        if "Color" in request.POST:
+            color = Color(
+                nombreColor=request.POST["nombreColor"],
+            )
+            color.save()
+        
+        return render(request, self.template_name)
+
 
 
 class shop(APIView):

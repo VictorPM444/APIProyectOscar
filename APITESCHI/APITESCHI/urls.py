@@ -35,6 +35,7 @@ from api.views import (
     graficas_formulario,
     graficas_powerbi,
     formularioProducto,
+    formularioDatos,
     checkout,
 )
 
@@ -61,6 +62,7 @@ urlpatterns = [
     path("graficas_formulario/", graficas_formulario.as_view(), name="graficas_formulario"),
     path("graficas_powerbi/", graficas_powerbi.as_view(), name="graficas_powerbi"),
     path("formularioProducto/", formularioProducto.as_view(), name="formularioProducto"),
+    path("formularioDatos/", formularioDatos.as_view(), name="formularioDatos"),
 
 
 

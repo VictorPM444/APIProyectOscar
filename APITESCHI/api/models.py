@@ -14,8 +14,6 @@ class Marca(models.Model):
     idMarca = models.AutoField(primary_key=True,db_column='idMarca')
     #creacion de atributos de entidad
     nombreMarca = models.TextField(max_length=20,db_column='nombreMarca')
-    descripcion = models.TextField(max_length=150,db_column='descripcion')
-    #metodo de nombramiento de la entidad
     class Meta:
         db_table='Marcas'
 
@@ -83,7 +81,7 @@ class Producto(models.Model):
         db_table='Producto'
 
 
-class CarroCompras(models.Model):
+class CarroCompra(models.Model):
     idCarroCompras = models.AutoField(primary_key=True,db_column='idCarroCompras')
     fk_usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,db_column='fk_usuario')
     fk_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,db_column='fk_producto')

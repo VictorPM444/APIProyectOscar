@@ -137,126 +137,48 @@
             <div class="row">
                 <div class="col-12">
                     <div class="my-account-content mb-50">
-                        <h5 class="mb-3">Registrar Productos</h5>
+                        <h5 class="mb-3">Registrar Datos</h5>
 
-                        <form action="/formularioProducto/" method="post" enctype="multipart/form-data">
-                            <div class="row">
+                        <div class="row">
 
-                                <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-4">
+                                <form action="/formularioDatos/" method="post">
+                                    {% csrf_token %}
                                     <div class="form-group">
-                                        <label for="nombreProducto">Nombre Producto</label>
-                                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL" required>
+                                        <label for="nombreMarca">Nombre de la Marca:</label>
+                                        <input type="text" class="form-control" id="nombreMarca" name="nombreMarca" required>
                                     </div>
-                                </div>
-
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group">
-                                        <label for="descripcionProducto">Descripcion Producto</label>
-                                        <input type="text" class="form-control" id="descripcionProducto" name="descripcionProducto" placeholder="ISLAM" required>
-                                    </div>
-                                </div>
+                                    <button type="submit" class="btn btn-primary" name="Marca">Guardar</button>
+                                </form>
                             </div>
 
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-4">
+                                <form action="/formularioDatos/" method="post">
+                                    {% csrf_token %}
                                     <div class="form-group">
-                                        <label for="precioProducto">Precio producto</label>
-                                        <input type="number" class="form-control" id="precioProducto" name="precioProducto" placeholder="Desinging World" required>
+                                        <label for="nombreColor">Nombre del Color:</label>
+                                        <input type="text" class="form-control" id="nombreColor" name="nombreColor" required>
                                     </div>
-                                </div>
+                                    <button type="submit" class="btn btn-primary" name="Color">Guardar</button>
+                                </form>
+                            </div>
+
+                            <div class="col-12 col-lg-4">
                                 
-                                <div class="col-12 col-lg-6">
+                                <form action="/formularioDatos/" method="post">
+                                    {% csrf_token %}
                                     <div class="form-group">
-                                        <label for="emailAddress">Link Stripe</label>
-                                        <input type="email" class="form-control" id="emailAddress" placeholder="care.designingworld@gmail.com" required>
+                                        <label for="nombreTalla">Nombre de la Talla:</label>
+                                        <input type="text" class="form-control" id="nombreTalla" name="nombreTalla" required>
                                     </div>
-                                </div>
+                                    <button type="submit" class="btn btn-primary" name="Talla">Guardar</button>
+                                </form>
+                                    
                             </div>
 
-                            <div class="row">
+                            
+                        </div>
 
-                                <div class="col-6 col-lg-3" >
-                                    <div class="form-group">
-                                        <label for="marca">Marca:</label>
-                                        <p>
-                                        <select id="marca" name="marca" required>
-                                            <option value="" disabled selected>Selecciona una marca</option>
-                                            <option value="Nike">Nike</option>
-                                            <option value="Adidas">Adidas</option>
-                                            <option value="DCShoes">DCShoes</option>
-                                            <option value="Comverse">Comverse</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-3" >
-                                    <div class="form-group">
-                                        <label for="genero">Categoria:</label>
-                                        <p>
-                                        <select id="Categoria" name="Categoria" required>
-                                            <option value="" disabled selected>Selecciona una categoria</option>
-                                            <option value="masculino">Masculino</option>
-                                            <option value="femenino">Femenino</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-3" >
-                                    <div class="form-group">
-                                        <label for="color">Color:</label>
-                                        <p>
-                                        <select id="color" name="color" required>
-                                            <option value="" disabled selected>Selecciona un color</option>
-                                            <option value="Rojo">Rojo</option>
-                                            <option value="Verde">Verde</option>
-                                            <option value="Negro">Negro</option>
-                                            <option value="Gris">Gris</option>
-                                            <option value="Blanco">Blanco</option>
-                                            <option value="Naranja">Naranja</option>
-                                            <option value="Morado">Morado</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-3" >
-                                    <div class="mb-3">
-                                        <label for="talla">Talla:</label>
-                                        <p>
-                                        <select id="talla" name="talla" required>
-                                            <option value="" disabled selected>Selecciona una talla</option>
-                                            <option value="femenino">25</option>
-                                            <option value="femenino">26</option>
-                                            <option value="femenino">27</option>
-                                            <option value="femenino">28</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {% comment %} <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="nombreProducto">Imagen</label>
-                                        <input type="Imagen" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL">
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="imagen">Imagen:</label>
-                                        <input type="file" class="form-control-file" id="imagen" name="imagen" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 text-center">
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </form>
                     </div>
                 </div>
             </div>
