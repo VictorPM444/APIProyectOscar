@@ -64,6 +64,7 @@ def checkout(request):
                 }
             }
         }
+        
 
         try:
             payment_response = sdk.payment().create(payment_data, request_options)
