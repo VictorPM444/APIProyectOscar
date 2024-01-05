@@ -17,11 +17,6 @@ class Marca(models.Model):
     class Meta:
         db_table='Marcas'
 
-class Categoria(models.Model):
-    idCategoria = models.AutoField(primary_key=True,db_column='idCategoria')
-    nombreCategoria = models.TextField(max_length=50,db_column='nombreCategoria')
-    class Meta:
-        db_table='Categoria'
 
 class Color(models.Model):
     idColor = models.AutoField(primary_key=True,db_column='idColor')
@@ -71,11 +66,14 @@ class Producto(models.Model):
     descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
     precioProducto =models.FloatField(db_column='precioProducto')
     linkStripe= models.TextField(max_length=100,db_column='linkStripe')
-    fk_categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,db_column='fk_categoria')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
     fk_talla = models.ForeignKey(Talla,on_delete=models.CASCADE,db_column='fk_talla')
     fk_color = models.ForeignKey(Color,on_delete=models.CASCADE,db_column='fk_color')
     imagen = models.ImageField(upload_to='imagenes/')
+
+    @property
+    def imagen_url(self):
+        return self.imagen.url if self.imagen else ''
 
     class Meta:
         db_table='Producto'

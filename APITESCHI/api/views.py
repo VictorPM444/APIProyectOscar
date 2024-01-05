@@ -1,5 +1,6 @@
 # renderiza y redirige
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 import random
 import string
@@ -64,7 +65,7 @@ def checkout(request):
                 }
             }
         }
-        
+
 
         try:
             payment_response = sdk.payment().create(payment_data, request_options)
@@ -267,8 +268,21 @@ class wishlist(APIView):
 class formularioDatos(APIView):
     template_name = "formularioDatos.html"
 
+    def get_context_data(self):
+        marcas = Marca.objects.all().values()
+        colores = Color.objects.all().values()
+        tallas = Talla.objects.all().values()
+
+        return {
+            'marcas': marcas,
+            'tallas': tallas,
+            'colores': colores
+        }
+    
+
     def get(self, request):
-        return render(request, self.template_name)
+        context = self.get_context_data()        
+        return render(request, self.template_name, context)
     
     def post(self, request):
         if "Marca" in request.POST:
@@ -296,46 +310,75 @@ class formularioDatos(APIView):
 class shop(APIView):
     template_name = "shop.html"
 
+    def get_context_data(self):
+        productos = Producto.objects.all().values()
+
+        return {
+            'productos': productos
+        }
+    
+
     def get(self, request):
-        
-        return render(request, self.template_name)
+        context = self.get_context_data()        
+        return render(request, self.template_name, context)
     
 
 class formularioProducto(APIView):
     template_name = "formularioProducto.html"
 
+   
+    def get_context_data(self):
+        marcas = Marca.objects.all().values()
+        colores = Color.objects.all().values()
+        tallas = Talla.objects.all().values()
+
+        return {
+            'marcas': marcas,
+            'tallas': tallas,
+            'colores': colores
+        }
+    
+
     def get(self, request):
-        
-        return render(request, self.template_name)
+        context = self.get_context_data()        
+        return render(request, self.template_name, context)
     
     def post(self, request):
+        # Obtener los datos del formulario
         nombre_producto = request.POST.get('nombreProducto')
         descripcion_producto = request.POST.get('descripcionProducto')
         precio_producto = request.POST.get('precioProducto')
         link_stripe = request.POST.get('linkStripe')
-        marca = request.POST.get('marca')
-        categoria = request.POST.get('Categoria')
-        color = request.POST.get('color')
-        talla = request.POST.get('talla')
+        marca_id = request.POST.get('marca')
+        color_id = request.POST.get('color')
+        talla_id = request.POST.get('talla')
         imagen = request.FILES.get('imagen')
 
-        # Guardar el producto en la base de datos
-        producto = Producto.objects.create(
+        # Resto de tu código...
+
+        # Obtener las instancias de Marca, Color y Talla
+        marca = Marca.objects.get(idMarca=marca_id)
+        color = Color.objects.get(idColor=color_id)
+        talla = Talla.objects.get(idTalla=talla_id)
+
+        # Crear y guardar el producto en la base de datos
+        producto = Producto(
             nombreProducto=nombre_producto,
             descripcionProducto=descripcion_producto,
             precioProducto=precio_producto,
             linkStripe=link_stripe,
-            marca=marca,
-            categoria=categoria,
-            color=color,
-            talla=talla,
+            fk_marca=marca,
+            fk_color=color,
+            fk_talla=talla,
             imagen=imagen
         )
-
-        # Otras operaciones, redireccionar a otra página, etc.
+        producto.save()
+        if imagen:
+            producto.imagen = 'imagenes/' + imagen.name
+            producto.save()
 
         return render(request, self.template_name)
-    
+
 
     
 class graficas_powerbi(APIView):

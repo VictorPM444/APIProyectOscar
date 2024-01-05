@@ -239,6 +239,8 @@ STRIPE_PUBLIC_KEY = 'pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjs
 STRIPE_SECRET_KEY = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
 
 
-#Para las imagenes 
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+

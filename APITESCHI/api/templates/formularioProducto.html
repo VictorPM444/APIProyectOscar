@@ -1,129 +1,20 @@
+{% include 'includeFases.html' %}
 {% load static %}
 <!doctype html>
 <html lang="en">
 
 
-<!-- Mirrored from designing-world.com/bigshop-2.3.0/account-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:42 GMT -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
-    <title>VicShop</title>
-
-    <!-- Favicon  -->
-    <link rel="icon" href="{% static 'img/core-img/favicon.ico'%}">
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{% static 'css/default/classy-nav.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/default/icofont.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-
-</head>
-
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
-    <!-- Header Area -->
-    <header class="header_area">
-        
-        <!-- Main Menu -->
-        <div class="bigshop-main-menu">
-            <div class="container">
-                <div class="classy-nav-container breakpoint-off">
-                    <nav class="classy-navbar" id="bigshopNav">
-
-                        <!-- Nav Brand -->
-                        <a class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
-
-                        <!-- Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Close -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="{% url 'home'%}">Inicio</a></li>
-
-                                    <li><a href="{% url 'shop'%}">Tienda</a></li>
-
-                                    <li><a href="#">Paginas</a>
-                                        <div class="dropdown">
-                                            <ul>
-                                                <li><a href="{% url 'graficas_formulario'%}">Graficas formulario</a></li>
-                                                <li><a href="{% url 'graficas_powerbi'%}">Garficas Power BI</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Hero Meta -->
-                        <div class="hero_meta_area ml-auto d-flex align-items-center justify-content-end">
-                        
-                            <!-- Wishlist -->
-                            <div class="wishlist-area">
-                                <a href="{% url 'wishlist'%}" class="wishlist-btn"><i class="icofont-heart"></i></a>
-                            </div>
-
-                            <!-- Cart                style="margin-right: 20px;" para separacion por margen -->
-                            <div class="cart-area">
-                                <a href="{% url 'wishlist'%}" class="wishlist-btn"  style="margin-right: 20px;"><i class="icofont-cart" ></i></a>
-                            </div>
-                            
-                            <!-- Account -->
-                            <div class="account-area">
-                                <div class="user-thumbnail">
-                                    <img src="{% static 'img/bg-img/user.jpg'%}" alt="">
-                                </div>
-                                <ul class="user-meta-dropdown">
-                                    <li class="user-title"><span>Hola,</span> Lim Sarah</li>
-                                    <li><a href="{% url 'my_account'%}">Mi cuenta</a></li>
-                                    <li><a href="{% url 'login'%}"><i class="icofont-logout"></i> Salir</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- Main Menu -->
-    </header>
-    <!-- Header Area End -->
 
     <!-- Breadcumb Area -->
     <div class="breadcumb_area">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <h5>My Account</h5>
+                    <h5>Productos</h5>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">My Account</li>
+                        <li class="breadcrumb-item active">Producto</li>
                     </ol>
                 </div>
             </div>
@@ -145,14 +36,14 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="nombreProducto">Nombre Producto</label>
-                                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL" required>
+                                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="Tenis Travis Scoot 3" required>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="descripcionProducto">Descripcion Producto</label>
-                                        <input type="text" class="form-control" id="descripcionProducto" name="descripcionProducto" placeholder="ISLAM" required>
+                                        <input type="text" class="form-control" id="descripcionProducto" name="descripcionProducto" placeholder="Modelo de tela inverso" required>
                                     </div>
                                 </div>
                             </div>
@@ -161,86 +52,61 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="precioProducto">Precio producto</label>
-                                        <input type="number" class="form-control" id="precioProducto" name="precioProducto" placeholder="Desinging World" required>
+                                        <input type="number" class="form-control" id="precioProducto" name="precioProducto" required>
                                     </div>
                                 </div>
                                 
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="emailAddress">Link Stripe</label>
-                                        <input type="email" class="form-control" id="emailAddress" placeholder="care.designingworld@gmail.com" required>
+                                        <label for="linkStripe">Link Stripe</label>
+                                        <input type="text" class="form-control" id="linkStripe" name="linkStripe" placeholder="httpsnnbfjkdkj" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
 
-                                <div class="col-6 col-lg-3" >
+                                <div class="col-4 col-lg-4" >
                                     <div class="form-group">
                                         <label for="marca">Marca:</label>
                                         <p>
                                         <select id="marca" name="marca" required>
                                             <option value="" disabled selected>Selecciona una marca</option>
-                                            <option value="Nike">Nike</option>
-                                            <option value="Adidas">Adidas</option>
-                                            <option value="DCShoes">DCShoes</option>
-                                            <option value="Comverse">Comverse</option>
+                                            {% for marca in marcas %}
+                                            <option value="{{ marca.idMarca }}">{{ marca.nombreMarca}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="col-6 col-lg-3" >
-                                    <div class="form-group">
-                                        <label for="genero">Categoria:</label>
-                                        <p>
-                                        <select id="Categoria" name="Categoria" required>
-                                            <option value="" disabled selected>Selecciona una categoria</option>
-                                            <option value="masculino">Masculino</option>
-                                            <option value="femenino">Femenino</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-3" >
+                                <div class="col-4 col-lg-4" >
                                     <div class="form-group">
                                         <label for="color">Color:</label>
                                         <p>
                                         <select id="color" name="color" required>
                                             <option value="" disabled selected>Selecciona un color</option>
-                                            <option value="Rojo">Rojo</option>
-                                            <option value="Verde">Verde</option>
-                                            <option value="Negro">Negro</option>
-                                            <option value="Gris">Gris</option>
-                                            <option value="Blanco">Blanco</option>
-                                            <option value="Naranja">Naranja</option>
-                                            <option value="Morado">Morado</option>
+                                            {% for color in colores %}
+                                            <option value="{{ color.idColor }}">{{ color.nombreColor}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="col-6 col-lg-3" >
+                                <div class="col-4 col-lg-4" >
                                     <div class="mb-3">
                                         <label for="talla">Talla:</label>
                                         <p>
                                         <select id="talla" name="talla" required>
                                             <option value="" disabled selected>Selecciona una talla</option>
-                                            <option value="femenino">25</option>
-                                            <option value="femenino">26</option>
-                                            <option value="femenino">27</option>
-                                            <option value="femenino">28</option>
+                                            {% for talla in tallas %}
+                                            <option value="{{ talla.idTalla }}">{{ talla.nombreTalla}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            {% comment %} <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="nombreProducto">Imagen</label>
-                                        <input type="Imagen" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="MD NAZRUL">
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
+                            <p></p>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
@@ -251,7 +117,7 @@
 
                                 <div class="col-6 text-center">
                                     <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button type="submit" class="btn btn-primary" name="Guardar">Guardar</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,119 +1,10 @@
+{% include 'includeFases.html' %}
 {% load static %}
 <!doctype html>
 <html lang="en">
 
 
-<!-- Mirrored from designing-world.com/bigshop-2.3.0/shop-list-right-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:40 GMT -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
-    <title>VicShop</title>
-
-    <!-- Favicon  -->
-    <link rel="icon" href="{% static 'img/core-img/favicon.ico'%}">
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{% static 'css/default/classy-nav.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/default/icofont.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-
-</head>
-
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
-    <!-- Header Area -->
-    <header class="header_area">
-
-        <!-- Main Menu -->
-        <div class="bigshop-main-menu">
-            <div class="container">
-                <div class="classy-nav-container breakpoint-off">
-                    <nav class="classy-navbar" id="bigshopNav">
-
-                        <!-- Nav Brand -->
-                        <a class="nav-brand"><img src="{% static 'img/core-img/logo.png'%}" alt="logo"></a>
-
-                        <!-- Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Close -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="{% url 'home'%}">Inicio</a></li>
-
-                                    <li><a href="{% url 'shop'%}">Tienda</a></li>
-
-                                    <li><a href="#">Paginas</a>
-                                        <div class="dropdown">
-                                            <ul>
-                                                <li><a href="{% url 'graficas_formulario'%}">Graficas formulario</a></li>
-                                                <li><a href="{% url 'graficas_powerbi'%}">Garficas Power BI</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Hero Meta -->
-                        <div class="hero_meta_area ml-auto d-flex align-items-center justify-content-end">
-                        
-                            <!-- Wishlist -->
-                            <div class="wishlist-area">
-                                <a href="{% url 'wishlist'%}" class="wishlist-btn"><i class="icofont-heart"></i></a>
-                            </div>
-
-                            <!-- Cart                style="margin-right: 20px;" para separacion por margen -->
-                            <div class="cart-area">
-                                <a href="{% url 'wishlist'%}" class="wishlist-btn"  style="margin-right: 20px;"><i class="icofont-cart" ></i></a>
-                            </div>
-                            
-                            <!-- Account -->
-                            <div class="account-area">
-                                <div class="user-thumbnail">
-                                    <img src="{% static 'img/bg-img/user.jpg'%}" alt="">
-                                </div>
-                                <ul class="user-meta-dropdown">
-                                    <li class="user-title"><span>Hola,</span> Lim Sarah</li>
-                                    <li><a href="{% url 'my_account'%}">Mi cuenta</a></li>
-                                    <li><a href="{% url 'login'%}"><i class="icofont-logout"></i> Salir</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- Main Menu -->
-    </header>
-    <!-- Header Area End -->
 
     <!-- Quick View Modal Area -->
     <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
@@ -213,38 +104,35 @@
                         <div class="row">
 
                             <!-- Lista Pordictos-->
-                            <div class="col-12 product-item" data-brand="Nike">
-                                <div class="single-product-area mb-30" style="height:250px;">
+                            {% for producto in productos %}
+                                <div class="col-12 product-item" data-brand="{{ producto.fk_marca.nombreMarca }}">
+                                    <div class="single-product-area mb-30" style="height: 200px;">
+                                        <div class="product_image">
+                                            <!-- Product Image -->
+                                            <img class="normal_img" src="{%static 'img/product-img/a.jpg'%}" alt="">
+                                            <img class="hover_img" src="{% static 'media/' %}{{ producto.imagen }}" alt="">
 
-
-                                    <div class="product_image">
-                                        <!-- Product Image -->
-                                        <img class="normal_img" src="{%static 'img/product-img/onsale-3.png'%}" alt="">
-                                        <img class="hover_img" src="{%static 'img/product-img/best-3.png'%}" alt="">
-
-                                        <!-- Wishlist -->
-                                        <div class="product_wishlist">
-                                            <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                        </div>
-                                    </div>
-                                    
-
-                                    <!-- Product Description -->
-                                    <div class="product_description">
-                                        <!-- Add to cart -->
-                                        <div class="product_add_to_cart">
-                                            <a href="https://buy.stripe.com/test_cN2cOa4ug2kv2v6dQR" style="width: 100%; height:auto; "><i class="icofont-shopping-cart"></i> Comprar</a>
+                                            <!-- Wishlist -->
+                                            <div class="product_wishlist">
+                                                <a href="wishlist.html"><i class="icofont-heart"></i></a>
+                                            </div>
                                         </div>
 
-                                        <p class="brand_name">Tenis</p>
-                                        <a href="#">Nike Travis</a>
-                                        <h6 class="product-price">$23</h6>
+                                        <!-- Product Description -->
+                                        <div class="product_description">
+                                            <!-- Add to cart -->
+                                            <div class="product_add_to_cart">
+                                                <a href="{{ producto.linkStripe }}" style="width: 100%; height:auto; "><i class="icofont-shopping-cart"></i> Comprar</a>
+                                            </div>
 
-                                        <p class="product-short-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque repudiandae, ducimus nesciunt.</p>
+                                            <p class="brand_name">{{ producto.nombreProducto }}</p>
+                                            <p></p>
+                                            <h6 class="product-price">${{ producto.precioProducto }}</h6>
+                                            <p class="product-short-desc">{{ producto.descripcionProducto }}</p>
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
+                            {% endfor %}
 
 
                             
@@ -279,21 +167,10 @@
                                 </div>
                             </div>
 
-
-                            {% comment %}  <!--Venta creada link-->
-                            <script async
-                            src="https://js.stripe.com/v3/buy-button.js">
-                            </script>
-
-                            <stripe-buy-button buy-button-id="buy_btn_1OBu2eLZhvMA8N2Wj7JQV8cZ" publishable-key="pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa">
-                            </stripe-buy-button>
-                            {% endcomment %}
-
-
                         </div>
                     </div>
 
-                    <!-- Shop Pagination Area -->
+                    {% comment %} <!-- Shop Pagination Area -->
                     <div class="shop_pagination_area mt-30 mb-30">
                         <nav aria-label="Page navigation">
                             <ul class="pagination pagination-sm justify-content-center">
@@ -313,28 +190,13 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
 
                 <div class="col-12 col-md-4 col-xl-3">
                     <div class="shop_sidebar_area">
                         <!-- Single Widget -->
                         
-
-                        {% comment %} <!-- Single Widget -->
-                        <div class="widget price mb-30">
-                            <h6 class="widget-title">Filter by Price</h6>
-                            <div class="widget-desc">
-                                <div class="slider-range">
-                                    <div data-min="0" data-max="1350" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="0" data-value-max="1350" data-label-result="Price:">
-                                        <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                    </div>
-                                    <div class="range-price">Price: 0 - 1350</div>
-                                </div>
-                            </div>
-                        </div> {% endcomment %}
 
                         <!-- Single Widget -->
                         <div class="widget color mb-30">
@@ -384,24 +246,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        {% comment %} <!-- Single Widget -->
-                        <div class="widget rating mb-30">
-                            <h6 class="widget-title">Average Rating</h6>
-                            <div class="widget-desc">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <span class="text-muted">(103)</span></a></li>
-
-                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <span class="text-muted">(78)</span></a></li>
-
-                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <span class="text-muted">(47)</span></a></li>
-
-                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <span class="text-muted">(9)</span></a></li>
-
-                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <span class="text-muted">(3)</span></a></li>
-                                </ul>
-                            </div>
-                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>

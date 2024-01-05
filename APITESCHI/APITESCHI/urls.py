@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 # se importa la vista de la API desde el Home que hicimos antes
 from api.views import (
@@ -74,3 +76,6 @@ urlpatterns = [
     # path('admin/',admin.site.urls)
     # Otras URL de la aplicación
 ]
+# Agrega esto para servir archivos de medios durante el desarrollo
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
