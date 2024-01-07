@@ -105,11 +105,11 @@
 
                             <!-- Lista Pordictos-->
                             {% for producto in productos %}
-                                <div class="col-12 product-item" data-brand="{{ producto.fk_marca.nombreMarca }}">
-                                    <div class="single-product-area mb-30" style="height: 200px;">
+                            <div class="col-12 product-item" data-brand="{{producto.fk_marca.nombreMarca}}" data-bran="Gris">
+                                <div class="single-product-area mb-30" style="height: 200px;">
                                         <div class="product_image">
                                             <!-- Product Image -->
-                                            <img class="normal_img" src="{%static 'img/product-img/a.jpg'%}" alt="">
+                                            <img class="normal_img" src="{% static 'media/' %}{{ producto.imagen }}" alt="">
                                             <img class="hover_img" src="{% static 'media/' %}{{ producto.imagen }}" alt="">
 
                                             <!-- Wishlist -->
@@ -137,7 +137,7 @@
 
                             
                             <!-- Single Product 111111111111111111111111111111111111-->
-                            <div class="col-12 product-item" data-brand="Gucci">
+                            <div class="col-12 product-item" data-brand="Gucci" data-bran="Morado" data-bra="27">
                                 <div class="single-product-area mb-30" style="height:250px;">
                                     <div class="product_image">
                                         <!-- Product Image -->
@@ -195,57 +195,61 @@
 
                 <div class="col-12 col-md-4 col-xl-3">
                     <div class="shop_sidebar_area">
-                        <!-- Single Widget -->
-                        
 
-                        <!-- Single Widget -->
-                        <div class="widget color mb-30">
-                            <h6 class="widget-title">Filter by Color</h6>
-                            <div class="widget-desc">
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                    <label class="custom-control-label black" for="customCheck6">Black <span class="text-muted">(9)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                    <label class="custom-control-label pink" for="customCheck7">Pink <span class="text-muted">(6)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                    <label class="custom-control-label red" for="customCheck8">Red <span class="text-muted">(8)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck9">
-                                    <label class="custom-control-label purple" for="customCheck9">Purple <span class="text-muted">(4)</span></label>
-                                </div>
-                                <!-- Single Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck10">
-                                    <label class="custom-control-label orange" for="customCheck10">Orange <span class="text-muted">(7)</span></label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Checkboxes para Marcas - Nike y Gucci -->
+                        <!-- Checkboxes para Marcas -->
                         <div class="widget brands mb-30">
                             <h6 class="widget-title">Filtrar Marca</h6>
                             <div class="widget-desc">
                                 <!-- Checkbox para Nike -->
                                 <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
                                     <input type="checkbox" class="custom-control-input" id="NikeCheckbox">
-                                    <label class="custom-control-label" for="NikeCheckbox">Nike <span class="text-muted">(104)</span></label>
+                                    <label class="custom-control-label" for="NikeCheckbox">Nike <span class="text-muted"></span></label>
                                 </div>
                                 <!-- Checkbox para Gucci -->
                                 <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
                                     <input type="checkbox" class="custom-control-input" id="GucciCheckbox">
-                                    <label class="custom-control-label" for="GucciCheckbox">Gucci <span class="text-muted">(65)</span></label>
+                                    <label class="custom-control-label" for="GucciCheckbox">Gucci <span class="text-muted"></span></label>
                                 </div>
                             </div>
                         </div>
+
+                        
+                        <!-- Checkboxes para Color -->
+                        <div class="widget brands mb-30">
+                            <h6 class="widget-title">Filtrar Color</h6>
+                            <div class="widget-desc">
+                                <!-- Checkbox  -->
+                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="MoradoCheckbox">
+                                    <label class="custom-control-label " for="MoradoCheckbox">Morado <span class="text-muted"></span></label>
+                                </div>
+                                <!-- Checkbox -->
+                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="GrisCheckbox">
+                                    <label class="custom-control-label " for="GrisCheckbox">Gris <span class="text-muted"></span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Checkboxes para Color -->
+                        <div class="widget brands mb-30">
+                            <h6 class="widget-title">Filtrar Talla</h6>
+                            <div class="widget-desc">
+                                <!-- Checkbox  -->
+                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="Talla27Checkbox">
+                                    <label class="custom-control-label " for="Talla27Checkbox">27 <span class="text-muted"></span></label>
+                                </div>
+                                <!-- Checkbox -->
+                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="Talla28Checkbox">
+                                    <label class="custom-control-label " for="Talla28Checkbox">28 <span class="text-muted"></span></label>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -345,7 +349,7 @@
      <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
      <script src="{% static 'js/wow.min.js'%}"></script>
      <script src="{% static 'js/default/active.js'%}"></script>
-     <!-- Script JavaScript -->
+
      <!-- Script JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -387,7 +391,77 @@
         }
     </script>
 
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var moradoCheckbox = document.getElementById('MoradoCheckbox');
+            var grisCheckbox = document.getElementById('GrisCheckbox');
+
+            // Agregar evento de cambio a Morado Checkbox
+            moradoCheckbox.addEventListener('change', function () {
+                // Obtener estado del checkbox
+                var isChecked = moradoCheckbox.checked;
+
+                // Mostrar u ocultar productos Morado
+                mostrarOcultarProducto('Morado', isChecked);
+            });
+
+            // Agregar evento de cambio a Morado Checkbox
+            grisCheckbox.addEventListener('change', function () {
+                // Obtener estado del checkbox
+                var isChecked = grisCheckbox.checked;
+
+                // Mostrar u ocultar productos Morado
+                mostrarOcultarProducto('Gris', isChecked);
+            });
+
+        });
+
+        // Función para mostrar/ocultar productos según la marca
+        function mostrarOcultarProducto(color, shouldShow) {
+            var productos = document.querySelectorAll('.product-item');
+
+            productos.forEach(function (producto) {
+                var colorProducto = producto.getAttribute('data-bran');
+
+                // Mostrar u ocultar el producto según la marca
+                if (colorProducto === color) {
+                    producto.style.display = shouldShow ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var talla27Checkbox = document.getElementById('Talla27Checkbox');
+
+            // Agregar evento de cambio a Morado Checkbox
+            talla27Checkbox.addEventListener('change', function () {
+                // Obtener estado del checkbox
+                var isChecked = talla27Checkbox.checked;
+
+                // Mostrar u ocultar productos Morado
+                mostrarOcultarProducto('27', isChecked);
+            });
+
+        });
+
+        // Función para mostrar/ocultar productos según la marca
+        function mostrarOcultarProducto(talla, shouldShow) {
+            var productos = document.querySelectorAll('.product-item');
+
+            productos.forEach(function (producto) {
+                var tallaProducto = producto.getAttribute('data-bra');
+
+                // Mostrar u ocultar el producto según la marca
+                if (tallaProducto === talla) {
+                    producto.style.display = shouldShow ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+
+
     
     
     

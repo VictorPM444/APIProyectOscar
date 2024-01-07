@@ -33,7 +33,7 @@
                         <div class="row">
 
                             <div class="col-4 col-lg-4">
-                                <form action="/formularioDatos/" method="post">
+                                <form action="/formularioMarca/" method="post" id="FormMarca">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label for="nombreMarca">Nombre de la Marca:</label>
@@ -61,13 +61,13 @@
                             </div>
 
                             <div class="col-4 col-lg-4">
-                                <form action="/formularioDatos/" method="post">
+                                <form action="/formularioColor/" method="post" id="FormColor">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label for="nombreColor">Nombre del Color:</label>
                                         <input type="text" class="form-control" id="nombreColor" name="nombreColor" required>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" name="Color">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" >Guardar</button>
                                 </form>
                                 <p></p>
                                 <table >
@@ -90,7 +90,7 @@
 
                             <div class="col-4 col-lg-4">
                                 
-                                <form action="/formularioDatos/" method="post">
+                                <form action="/formularioTalla/" method="post" id="FormTalla">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <label for="nombreTalla">Nombre de la Talla:</label>
@@ -218,6 +218,139 @@
     <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
     <script src="{% static 'js/wow.min.js'%}"></script>
     <script src="{% static 'js/default/active.js'%}"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#FormColor').submit(function (e) { // #formularioEspecialidad biene del ID que le tienes que poner al <form id="formularioEspecialidad" action="" method="">
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/formularioColor/', // TablaEspecialidades es le nombre de la clase.
+                    data: $(this).serialize(),
+                    success: function (response) {
+
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Excelente',
+                            text: response.message,
+                            didClose: function () {
+
+                                $('#nombreColor').val('');
+                                location.reload();
+
+                            }
+                        });
+                    },
+
+                    error: function (xhr, errmsg, err) {
+                        var errorResponse = xhr.responseJSON; 
+                        if (errorResponse && errorResponse.error) {
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: errorResponse.error
+                            });
+
+
+                        } else {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#FormMarca').submit(function (e) { // #formularioEspecialidad biene del ID que le tienes que poner al <form id="formularioEspecialidad" action="" method="">
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/formularioMarca/', // TablaEspecialidades es le nombre de la clase.
+                    data: $(this).serialize(),
+                    success: function (response) {
+
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Excelente',
+                            text: response.message,
+                            didClose: function () {
+
+                                $('#nombreMarca').val('');
+                                location.reload();
+
+                            }
+                        });
+                    },
+
+                    error: function (xhr, errmsg, err) {
+                        var errorResponse = xhr.responseJSON; 
+                        if (errorResponse && errorResponse.error) {
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: errorResponse.error
+                            });
+
+
+                        } else {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#FormTalla').submit(function (e) { // #formularioEspecialidad biene del ID que le tienes que poner al <form id="formularioEspecialidad" action="" method="">
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/formularioTalla/', // TablaEspecialidades es le nombre de la clase.
+                    data: $(this).serialize(),
+                    success: function (response) {
+
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Excelente',
+                            text: response.message,
+                            didClose: function () {
+
+                                $('#nombreTalla').val('');
+                                location.reload();
+
+                            }
+                        });
+                    },
+
+                    error: function (xhr, errmsg, err) {
+                        var errorResponse = xhr.responseJSON; 
+                        if (errorResponse && errorResponse.error) {
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: errorResponse.error
+                            });
+
+
+                        } else {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

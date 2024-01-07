@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 import random
+from django.http import HttpResponse, HttpRequest, JsonResponse
 import string
 # importo la bd de usuario
 from .models import Usuario, Formulario, Producto, Talla, Marca, Color
@@ -265,6 +266,42 @@ class wishlist(APIView):
     def get(self, request):
         return render(request, self.template_name)
 
+class formularioMarca(APIView):
+    template_name = "formularioDatos.html"
+
+    def post(self, request):
+        marca = Marca(
+            nombreMarca=request.POST["nombreMarca"],
+        )
+        marca.save()
+        message = "La marca se inserto correctamente"
+
+        return JsonResponse({'message': message})
+
+class formularioTalla(APIView):
+    template_name = "formularioDatos.html"
+
+    def post(self, request):
+        talla = Talla(
+            nombreTalla=request.POST["nombreTalla"],
+            )
+        talla.save()
+        message = "La talla se inserto correctamente"
+
+        return JsonResponse({'message': message})
+
+class formularioColor(APIView):
+    template_name = "formularioDatos.html"
+
+    def post(self, request):
+        color = Color(
+                nombreColor=request.POST["nombreColor"],
+            )
+        color.save()
+        message = "El color se inserto correctamente"
+
+        return JsonResponse({'message': message})
+
 class formularioDatos(APIView):
     template_name = "formularioDatos.html"
 
@@ -285,23 +322,6 @@ class formularioDatos(APIView):
         return render(request, self.template_name, context)
     
     def post(self, request):
-        if "Marca" in request.POST:
-            marca = Marca(
-                nombreMarca=request.POST["nombreMarca"],
-            )
-            marca.save()
-
-        if "Talla" in request.POST:
-            talla = Talla(
-                nombreTalla=request.POST["nombreTalla"],
-            )
-            talla.save()
-
-        if "Color" in request.POST:
-            color = Color(
-                nombreColor=request.POST["nombreColor"],
-            )
-            color.save()
         
         return render(request, self.template_name)
 

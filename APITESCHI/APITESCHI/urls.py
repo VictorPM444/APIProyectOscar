@@ -38,6 +38,9 @@ from api.views import (
     graficas_powerbi,
     formularioProducto,
     formularioDatos,
+    formularioTalla,
+    formularioMarca,
+    formularioColor,
     checkout,
 )
 
@@ -49,6 +52,9 @@ urlpatterns = [
     path("login/", login.as_view(), name="login"),
     path("", home.as_view(), name="home"),
     path("my_account/", my_account.as_view(), name="my_account"),
+    path("formularioColor/", formularioColor.as_view(), name="formularioColor"),
+    path("formularioMarca/", formularioMarca.as_view(), name="formularioMarca"),
+    path("formularioTalla/", formularioTalla.as_view(), name="formularioTalla"),
     path("account_details/", account_details.as_view(), name="account_details"),
     path("addresses/", addresses.as_view(), name="addresses"),
     path("cart/", cart.as_view(), name="cart"),
