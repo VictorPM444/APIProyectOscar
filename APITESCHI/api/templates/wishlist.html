@@ -29,10 +29,9 @@
                 <div class="col-12">
                     <div class="cart-table wishlist-table">
                         <div class="table-responsive">
-                            <table class="table table-bordered mb-30">
-                                <thead>
+                            <table id="TablaWishlist" class="hover table table-sm table-centered table-hover table-borderless mb-0" >
+                                <thead class="border-top border-bottom bg-light-subtle border-light">
                                     <tr>
-                                        <th scope="col"><i class="icofont-ui-delete"></i></th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Product</th>
                                         <th scope="col">Unit Price</th>
@@ -42,9 +41,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
                                         <td>
                                             <img src="img/product-img/onsale-1.png" alt="Product">
                                         </td>
@@ -59,86 +55,9 @@
                                         </td>
                                         <td><a href="#" class="btn btn-primary btn-sm">Add to Cart</a></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-2.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Roof Lamp</a>
-                                        </td>
-                                        <td>$11</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty3" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Add to Cart</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-6.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Cotton T-shirt</a>
-                                        </td>
-                                        <td>$6</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty4" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Add to Cart</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-4.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Water Bottle</a>
-                                        </td>
-                                        <td>$17</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty5" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Add to Cart</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="icofont-close"></i>
-                                        </th>
-                                        <td>
-                                            <img src="img/product-img/onsale-5.png" alt="Product">
-                                        </td>
-                                        <td>
-                                            <a href="#">Alka Sliper</a>
-                                        </td>
-                                        <td>$13</td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input type="number" class="qty-text" id="qty6" step="1" min="1" max="99" name="quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Add to Cart</a></td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-
-                    <div class="cart-footer text-right">
-                        <div class="back-to-shop">
-                            <a href="#" class="btn btn-primary">Add All Item</a>
                         </div>
                     </div>
                 </div>
@@ -239,6 +158,44 @@
      <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
      <script src="{% static 'js/wow.min.js'%}"></script>
      <script src="{% static 'js/default/active.js'%}"></script>
+
+     <!-- jQuery -->
+     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+     <!-- DataTables JS -->
+     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
+     <!-- SweetAlert2 -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+     <script>
+        $(document).ready(function () {
+          $('#TablaWishlist').DataTable({
+            lengthMenu: [5, 10, 15, 20, 50, 100],
+            pageLength: 5,
+            destroy:true,
+            "language": {
+                lengthMenu: "Mostrar _MENU_ registros por pagina",
+                zeroRecords: "Ningún producto encontrado",
+                info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ productos",
+                infoEmpty: "Ningún producto encontrado",
+                infoFiltered: "(filtrados desde _MAX_ productos totales)",
+                search: "Buscar:",
+                loadingRecords: "Cargando... ",
+                paginate: {
+                    first: "Primero",
+                    last: "Ultimo",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                }
+
+              }
+            // Otras opciones y configuraciones de DataTables que puedas tener...
+          });
+        });
+
+    </script>
 
 </body>
 

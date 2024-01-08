@@ -2,20 +2,19 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
+from django.core.exceptions import ValidationError
+from django.core.exceptions import ObjectDoesNotExist
 import random
 from django.http import HttpResponse, HttpRequest, JsonResponse
+from rest_framework.response import Response
 import string
 # importo la bd de usuario
 from .models import Usuario, Formulario, Producto, Talla, Marca, Color
-
+import os
 # importaciones para vsc
 import csv
-
 # importaciones para graficos
 from django.db.models import Count
-
-
-
 # para los correos
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -330,11 +329,18 @@ class formularioDatos(APIView):
 class shop(APIView):
     template_name = "shop.html"
 
+
     def get_context_data(self):
-        productos = Producto.objects.all().values()
+        marcas = Marca.objects.all()
+        colores = Color.objects.all()
+        tallas = Talla.objects.all()
+        productos = Producto.objects.all()
 
         return {
-            'productos': productos
+            'marcas': marcas,
+            'tallas': tallas,
+            'productos': productos,
+            'colores': colores
         }
     
 
@@ -364,42 +370,98 @@ class formularioProducto(APIView):
         return render(request, self.template_name, context)
     
     def post(self, request):
-        # Obtener los datos del formulario
-        nombre_producto = request.POST.get('nombreProducto')
-        descripcion_producto = request.POST.get('descripcionProducto')
-        precio_producto = request.POST.get('precioProducto')
-        link_stripe = request.POST.get('linkStripe')
-        marca_id = request.POST.get('marca')
-        color_id = request.POST.get('color')
-        talla_id = request.POST.get('talla')
-        imagen = request.FILES.get('imagen')
+        try:
+            # Obtener los datos del formulario
+            nombre_producto = request.POST.get('nombreProducto')
+            descripcion_producto = request.POST.get('descripcionProducto')
+            precio_producto = request.POST.get('precioProducto')
+            link_stripe = request.POST.get('linkStripe')
+            marca_id = request.POST.get('marca')
+            color_id = request.POST.get('color')
+            talla_id = request.POST.get('talla')
+            imagen = request.FILES.get('imagen')
 
-        # Resto de tu código...
+            # Obtener las instancias de Marca, Color y Talla
+            marca = Marca.objects.get(idMarca=marca_id)
+            color = Color.objects.get(idColor=color_id)
+            talla = Talla.objects.get(idTalla=talla_id)
 
-        # Obtener las instancias de Marca, Color y Talla
-        marca = Marca.objects.get(idMarca=marca_id)
-        color = Color.objects.get(idColor=color_id)
-        talla = Talla.objects.get(idTalla=talla_id)
+            # Crear una instancia de Producto sin guardarla aún
+            producto = Producto(
+                nombreProducto=nombre_producto,
+                descripcionProducto=descripcion_producto,
+                precioProducto=precio_producto,
+                linkStripe=link_stripe,
+                fk_marca=marca,
+                fk_color=color,
+                fk_talla=talla,
+                imagen=imagen
+            )
 
-        # Crear y guardar el producto en la base de datos
-        producto = Producto(
-            nombreProducto=nombre_producto,
-            descripcionProducto=descripcion_producto,
-            precioProducto=precio_producto,
-            linkStripe=link_stripe,
-            fk_marca=marca,
-            fk_color=color,
-            fk_talla=talla,
-            imagen=imagen
-        )
-        producto.save()
-        if imagen:
-            producto.imagen = 'imagenes/' + imagen.name
+            # Guardar el producto en la base de datos
             producto.save()
 
-        return render(request, self.template_name)
+            # Verificar si hay una imagen y guardarla con la ruta adecuada
+            if imagen:
+                producto.imagen = 'imagenes/' + imagen.name
+                producto.save()
 
+            mensaje = "¡Registro realizado con exito!"
 
+            return render(request, self.template_name, {'mensaje': mensaje})
+        except ValidationError as ve:
+            mensaje = "¡Error de validación!"
+            return render(request, self.template_name, {'mensaje': mensaje})
+        except ObjectDoesNotExist as dnfe:
+            mensaje = "¡El objeto no existe!"
+            return render(request, self.template_name, {'mensaje': mensaje})
+        except Exception as e:
+            mensaje = "¡Error de Excepcion!"
+            return render(request, self.template_name, {'mensaje': mensaje})
+
+        """ try:
+            # Obtener los datos del formulario
+            nombre_producto = request.POST.get('nombreProducto')
+            descripcion_producto = request.POST.get('descripcionProducto')
+            precio_producto = request.POST.get('precioProducto')
+            link_stripe = request.POST.get('linkStripe')
+            marca_id = request.POST.get('marca')
+            color_id = request.POST.get('color')
+            talla_id = request.POST.get('talla')
+            imagen = request.FILES.get('imagen')
+
+            # Obtener las instancias de Marca, Color y Talla
+            marca = Marca.objects.get(idMarca=marca_id)
+            color = Color.objects.get(idColor=color_id)
+            talla = Talla.objects.get(idTalla=talla_id)
+
+            # Crear una instancia de Producto sin guardarla aún
+            producto = Producto(
+                nombreProducto=nombre_producto,
+                descripcionProducto=descripcion_producto,
+                precioProducto=precio_producto,
+                linkStripe=link_stripe,
+                fk_marca=marca,
+                fk_color=color,
+                fk_talla=talla,
+                imagen=imagen
+            )
+
+            # Guardar el producto en la base de datos
+            producto.save()
+
+            # Verificar si hay una imagen y guardarla con la ruta adecuada
+            if imagen:
+                producto.imagen = 'imagenes/' + imagen.name
+                producto.save()
+
+            return Response({'message': 'Registro realizado con éxito'})
+        except ValidationError as ve:
+            return Response({'message': f'Error de validación: {str(ve)}'}, status=status.HTTP_400_BAD_REQUEST)
+        except ObjectDoesNotExist as dnfe:
+            return Response({'message': f'Error: {str(dnfe)}'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'message': f'Error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR) """
     
 class graficas_powerbi(APIView):
     template_name = "graficas_powerbi.html"

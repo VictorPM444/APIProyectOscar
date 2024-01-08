@@ -30,7 +30,13 @@
                     <div class="my-account-content mb-50">
                         <h5 class="mb-3">Registrar Productos</h5>
 
-                        <form action="/formularioProducto/" method="post" enctype="multipart/form-data">
+                        <form action="/formularioProducto/" method="post"   enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12 align-center">
+                                    {{ mensaje }}
+                                </div>
+                            </div>
+
                             <div class="row">
 
                                 <div class="col-12 col-lg-6">
@@ -113,7 +119,7 @@
                                         <label for="imagen">Imagen:</label>
                                         <input type="file" class="form-control-file" id="imagen" name="imagen" required>
                                     </div>
-                                </div>
+                                </div>                                
 
                                 <div class="col-6 text-center">
                                     <div class="mb-3">
@@ -222,6 +228,62 @@
     <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
     <script src="{% static 'js/wow.min.js'%}"></script>
     <script src="{% static 'js/default/active.js'%}"></script>
+
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            });
+
+            $('#FormProducto').submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/formularioProducto/',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Excelente',
+                            text: response.message,
+                            didClose: function () {
+                                $('#nombreProducto').val('');
+                                $('#descripcionProducto').val('');
+                                $('#precioProducto').val('');
+                                $('#linkStripe').val('');
+                                $('#marca').val('');
+                                $('#color').val('');
+                                $('#talla').val('');
+                                $('#imagen').val('');
+                                location.reload();
+                            }
+                        });
+                    },
+                    error: function (xhr, errmsg, err) {
+                        var errorResponse = xhr.responseJSON;
+                        if (errorResponse && errorResponse.error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: errorResponse.error
+                            });
+                        } else {
+                            console.log(err);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

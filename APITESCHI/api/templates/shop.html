@@ -6,77 +6,6 @@
 
 <body>
 
-    <!-- Quick View Modal Area -->
-    <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="modal-body">
-                    <div class="quickview_body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-lg-5">
-                                    <div class="quickview_pro_img">
-                                        <img class="first_img" src="img/product-img/new-1-back.png" alt="">
-                                        <img class="hover_img" src="img/product-img/new-1.png" alt="">
-                                        <!-- Product Badge -->
-                                        <div class="product_badge">
-                                            <span class="badge-new">New</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <div class="quickview_pro_des">
-                                        <h4 class="title">Boutique Silk Dress</h4>
-                                        <div class="top_seller_product_rating mb-15">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                        <h5 class="price">$120.99 <span>$130</span></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita quibusdam aspernatur, sapiente consectetur accusantium perspiciatis praesentium eligendi, in fugiat?</p>
-                                        <a href="#">View Full Product Details</a>
-                                    </div>
-                                    <!-- Add to Cart Form -->
-                                    <form class="cart" method="post">
-                                        <div class="quantity">
-                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
-                                        </div>
-                                        <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
-                                        <!-- Wishlist -->
-                                        <div class="modal_pro_wishlist">
-                                            <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                        </div>
-                                        <!-- Compare -->
-                                        <div class="modal_pro_compare">
-                                            <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                        </div>
-                                    </form>
-                                    <!-- Share -->
-                                    <div class="share_wf mt-30">
-                                        <p>Share with friends</p>
-                                        <div class="_icon">
-                                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick View Modal Area -->
 
     <!-- Breadcumb Area -->
     <div class="breadcumb_area">
@@ -104,18 +33,17 @@
                         <div class="row">
 
                             <!-- Lista Pordictos-->
+
                             {% for producto in productos %}
-                            <div class="col-12 product-item" data-brand="{{producto.fk_marca.nombreMarca}}" data-bran="Gris">
-                                <div class="single-product-area mb-30" style="height: 200px;">
+                                <div class="col-12 product-item"
+                                    data-marca="{{producto.fk_marca.nombreMarca}}"
+                                    data-color="{{producto.fk_color.nombreColor}}"
+                                    data-talla="{{producto.fk_talla.nombreTalla}}">
+
+                                    <div class="single-product-area mb-30" style="height: 200px;">
                                         <div class="product_image">
                                             <!-- Product Image -->
-                                            <img class="normal_img" src="{% static 'media/' %}{{ producto.imagen }}" alt="">
-                                            <img class="hover_img" src="{% static 'media/' %}{{ producto.imagen }}" alt="">
-
-                                            <!-- Wishlist -->
-                                            <div class="product_wishlist">
-                                                <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                            </div>
+                                            <img class="normal_img" src="{% static 'img/' %}{{ producto.imagen }}" alt="" style="height:200px;">
                                         </div>
 
                                         <!-- Product Description -->
@@ -131,13 +59,15 @@
                                             <p class="product-short-desc">{{ producto.descripcionProducto }}</p>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Contenido del producto -->
                                 </div>
                             {% endfor %}
 
 
                             
                             <!-- Single Product 111111111111111111111111111111111111-->
-                            <div class="col-12 product-item" data-brand="Gucci" data-bran="Morado" data-bra="27">
+                            <div class="col-12 product-item" data-brand="Nike" data-bran="Morado" data-bra="27">
                                 <div class="single-product-area mb-30" style="height:250px;">
                                     <div class="product_image">
                                         <!-- Product Image -->
@@ -200,52 +130,38 @@
                         <div class="widget brands mb-30">
                             <h6 class="widget-title">Filtrar Marca</h6>
                             <div class="widget-desc">
-                                <!-- Checkbox para Nike -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="NikeCheckbox">
-                                    <label class="custom-control-label" for="NikeCheckbox">Nike <span class="text-muted"></span></label>
-                                </div>
-                                <!-- Checkbox para Gucci -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="GucciCheckbox">
-                                    <label class="custom-control-label" for="GucciCheckbox">Gucci <span class="text-muted"></span></label>
-                                </div>
+                                {% for marca in marcas %}
+                                    <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                        <input type="checkbox" class="custom-control-input marca-checkbox" id="{{marca.nombreMarca}}Checkbox" value="{{marca.nombreMarca}}">
+                                        <label class="custom-control-label" for="{{marca.nombreMarca}}Checkbox">{{marca.nombreMarca}}<span class="text-muted"></span></label>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
-                        
-                        <!-- Checkboxes para Color -->
+                        <!-- Checkboxes para Colores -->
                         <div class="widget brands mb-30">
                             <h6 class="widget-title">Filtrar Color</h6>
                             <div class="widget-desc">
-                                <!-- Checkbox  -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="MoradoCheckbox">
-                                    <label class="custom-control-label " for="MoradoCheckbox">Morado <span class="text-muted"></span></label>
-                                </div>
-                                <!-- Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="GrisCheckbox">
-                                    <label class="custom-control-label " for="GrisCheckbox">Gris <span class="text-muted"></span></label>
-                                </div>
+                                {% for color in colores %}
+                                    <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                        <input type="checkbox" class="custom-control-input color-checkbox" id="{{color.nombreColor}}Checkbox" value="{{color.nombreColor}}">
+                                        <label class="custom-control-label" for="{{color.nombreColor}}Checkbox">{{color.nombreColor}}<span class="text-muted"></span></label>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
-                        
-                        <!-- Checkboxes para Color -->
+                        <!-- Checkboxes para Tallas -->
                         <div class="widget brands mb-30">
                             <h6 class="widget-title">Filtrar Talla</h6>
                             <div class="widget-desc">
-                                <!-- Checkbox  -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="Talla27Checkbox">
-                                    <label class="custom-control-label " for="Talla27Checkbox">27 <span class="text-muted"></span></label>
-                                </div>
-                                <!-- Checkbox -->
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="Talla28Checkbox">
-                                    <label class="custom-control-label " for="Talla28Checkbox">28 <span class="text-muted"></span></label>
-                                </div>
+                                {% for talla in tallas %}
+                                    <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                        <input type="checkbox" class="custom-control-input talla-checkbox" id="{{talla.nombreTalla}}Checkbox" value="{{talla.nombreTalla}}">
+                                        <label class="custom-control-label" for="{{talla.nombreTalla}}Checkbox">{{talla.nombreTalla}}<span class="text-muted"></span></label>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
@@ -351,116 +267,76 @@
      <script src="{% static 'js/default/active.js'%}"></script>
 
      <!-- Script JavaScript -->
-    <script>
+     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Obtener checkboxes para Nike y Gucci
-            var nikeCheckbox = document.getElementById('NikeCheckbox');
-            var gucciCheckbox = document.getElementById('GucciCheckbox');
-
-            // Agregar evento de cambio a Nike Checkbox
-            nikeCheckbox.addEventListener('change', function () {
-                // Obtener estado del checkbox
-                var isChecked = nikeCheckbox.checked;
-
-                // Mostrar u ocultar productos Nike
-                mostrarOcultarProductos('Nike', isChecked);
+            // Obtener todos los elementos de filtro
+            var marcaCheckboxes = document.querySelectorAll('.marca-checkbox');
+            var colorCheckboxes = document.querySelectorAll('.color-checkbox');
+            var tallaCheckboxes = document.querySelectorAll('.talla-checkbox');
+    
+            // Agregar eventos de cambio a los checkboxes de marca
+            marcaCheckboxes.forEach(function (marcaCheckbox) {
+                marcaCheckbox.addEventListener('change', function () {
+                    actualizarFiltros();
+                });
             });
-
-            // Agregar evento de cambio a Gucci Checkbox
-            gucciCheckbox.addEventListener('change', function () {
-                // Obtener estado del checkbox
-                var isChecked = gucciCheckbox.checked;
-
-                // Mostrar u ocultar productos Gucci
-                mostrarOcultarProductos('Gucci', isChecked);
+    
+            // Agregar eventos de cambio a los checkboxes de color
+            colorCheckboxes.forEach(function (colorCheckbox) {
+                colorCheckbox.addEventListener('change', function () {
+                    actualizarFiltros();
+                });
+            });
+    
+            // Agregar eventos de cambio a los checkboxes de talla
+            tallaCheckboxes.forEach(function (tallaCheckbox) {
+                tallaCheckbox.addEventListener('change', function () {
+                    actualizarFiltros();
+                });
             });
         });
-
-        // Función para mostrar/ocultar productos según la marca
-        function mostrarOcultarProductos(marca, shouldShow) {
+    
+        // Función para mostrar/ocultar productos según los filtros
+        function actualizarFiltros() {
+            var marcaCheckboxes = document.querySelectorAll('.marca-checkbox:checked');
+            var colorCheckboxes = document.querySelectorAll('.color-checkbox:checked');
+            var tallaCheckboxes = document.querySelectorAll('.talla-checkbox:checked');
+    
             var productos = document.querySelectorAll('.product-item');
-
+    
             productos.forEach(function (producto) {
-                var marcaProducto = producto.getAttribute('data-brand');
-
-                // Mostrar u ocultar el producto según la marca
-                if (marcaProducto === marca) {
-                    producto.style.display = shouldShow ? 'block' : 'none';
+                var cumpleFiltros = true;
+    
+                // Verificar si el producto cumple con los filtros de marca
+                if (marcaCheckboxes.length > 0) {
+                    var marcaProducto = producto.getAttribute('data-marca');
+                    cumpleFiltros = cumpleFiltros && Array.from(marcaCheckboxes).some(function (checkbox) {
+                        return checkbox.value === marcaProducto;
+                    });
                 }
+    
+                // Verificar si el producto cumple con los filtros de color
+                if (colorCheckboxes.length > 0) {
+                    var colorProducto = producto.getAttribute('data-color');
+                    cumpleFiltros = cumpleFiltros && Array.from(colorCheckboxes).some(function (checkbox) {
+                        return checkbox.value === colorProducto;
+                    });
+                }
+    
+                // Verificar si el producto cumple con los filtros de talla
+                if (tallaCheckboxes.length > 0) {
+                    var tallaProducto = producto.getAttribute('data-talla');
+                    cumpleFiltros = cumpleFiltros && Array.from(tallaCheckboxes).some(function (checkbox) {
+                        return checkbox.value === tallaProducto;
+                    });
+                }
+    
+                // Mostrar u ocultar el producto según los filtros
+                producto.style.display = cumpleFiltros ? 'block' : 'none';
             });
         }
     </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var moradoCheckbox = document.getElementById('MoradoCheckbox');
-            var grisCheckbox = document.getElementById('GrisCheckbox');
-
-            // Agregar evento de cambio a Morado Checkbox
-            moradoCheckbox.addEventListener('change', function () {
-                // Obtener estado del checkbox
-                var isChecked = moradoCheckbox.checked;
-
-                // Mostrar u ocultar productos Morado
-                mostrarOcultarProducto('Morado', isChecked);
-            });
-
-            // Agregar evento de cambio a Morado Checkbox
-            grisCheckbox.addEventListener('change', function () {
-                // Obtener estado del checkbox
-                var isChecked = grisCheckbox.checked;
-
-                // Mostrar u ocultar productos Morado
-                mostrarOcultarProducto('Gris', isChecked);
-            });
-
-        });
-
-        // Función para mostrar/ocultar productos según la marca
-        function mostrarOcultarProducto(color, shouldShow) {
-            var productos = document.querySelectorAll('.product-item');
-
-            productos.forEach(function (producto) {
-                var colorProducto = producto.getAttribute('data-bran');
-
-                // Mostrar u ocultar el producto según la marca
-                if (colorProducto === color) {
-                    producto.style.display = shouldShow ? 'block' : 'none';
-                }
-            });
-        }
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var talla27Checkbox = document.getElementById('Talla27Checkbox');
-
-            // Agregar evento de cambio a Morado Checkbox
-            talla27Checkbox.addEventListener('change', function () {
-                // Obtener estado del checkbox
-                var isChecked = talla27Checkbox.checked;
-
-                // Mostrar u ocultar productos Morado
-                mostrarOcultarProducto('27', isChecked);
-            });
-
-        });
-
-        // Función para mostrar/ocultar productos según la marca
-        function mostrarOcultarProducto(talla, shouldShow) {
-            var productos = document.querySelectorAll('.product-item');
-
-            productos.forEach(function (producto) {
-                var tallaProducto = producto.getAttribute('data-bra');
-
-                // Mostrar u ocultar el producto según la marca
-                if (tallaProducto === talla) {
-                    producto.style.display = shouldShow ? 'block' : 'none';
-                }
-            });
-        }
-    </script>
-
+    
 
     
     

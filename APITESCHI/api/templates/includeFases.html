@@ -27,7 +27,10 @@
     <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 
@@ -95,10 +98,10 @@
                         <!-- Hero Meta -->
                         <div class="hero_meta_area ml-auto d-flex align-items-center justify-content-end">
                         
-                            <!-- Wishlist -->
+                            {% comment %} <!-- Wishlist -->
                             <div class="wishlist-area">
                                 <a href="{% url 'wishlist'%}" class="wishlist-btn"><i class="icofont-heart"></i></a>
-                            </div>
+                            </div> {% endcomment %}
 
                             <!-- Cart                style="margin-right: 20px;" para separacion por margen -->
                             <div class="cart-area">

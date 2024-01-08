@@ -8,16 +8,16 @@
     
     <!-- Welcome Slides Area -->
     <section class="welcome_area">
-        <div class="welcome_slides modern-slides owl-carousel">
+        <div class="welcome_slides modern-slides owl-carousel " style="height: 550px; background-image: url({% static 'img/product/1.png'%});">
             <!-- Single Slide -->
-            <div class="single_slide bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
+            <div class="single_slide bg-img bg-overlay" style="height: 550px;  background-image: url(img/bg-img/3.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="welcome_slide_text text-center">
-                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">Trendy Fashion</p>
-                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Garments Apparels</h2>
-                                <a href="#" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Buy Now</a>
+                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">VicShop</p>
+                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Mas que estilo</h2>
+                                <a href="{% url 'shop'%}" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Tienda</a>
                             </div>
                         </div>
                     </div>
@@ -25,14 +25,14 @@
             </div>
 
             <!-- Single Slide -->
-            <div class="single_slide bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
+            <div class="single_slide bg-img bg-overlay" style="height: 550px;  background-image: url({% static 'img/product/11.png'%});">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="welcome_slide_text text-center">
-                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">Latest Trends</p>
-                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Exclusive Hat 2019</h2>
-                                <a href="#" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Shop Now</a>
+                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">VicShop</p>
+                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Mas que moda</h2>
+                                <a href="{% url 'shop'%}" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Tienda</a>
                             </div>
                         </div>
                     </div>
@@ -40,14 +40,14 @@
             </div>
 
             <!-- Single Slide -->
-            <div class="single_slide bg-img bg-overlay" style="background-image: url(img/bg-img/3.jpg);">
+            <div class="single_slide bg-img bg-overlay" style="height: 550px;  background-image: url({% static 'img/product/1.png'%});">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="welcome_slide_text text-center">
-                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">50% OFF</p>
-                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Kid's Collection</h2>
-                                <a href="#" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Check Collection</a>
+                                <p class="text-white" data-animation="fadeInUp" data-delay="100ms">VicShop</p>
+                                <h2 class="text-white" data-animation="fadeInUp" data-delay="300ms">Simplemente increible</h2>
+                                <a href="{% url 'shop'%}" class="btn btn-primary mt-4" data-animation="fadeInUp" data-delay="500ms">Tienda</a>
                             </div>
                         </div>
                     </div>
@@ -63,11 +63,11 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory mb-30">
-                        <img src="{% static 'img/product-img/cata-1.jpg'%}" alt="">
+                        <img src="{% static 'img/product/6.png'%}" alt="">
                         <div class="single_cata_desc d-flex align-items-center justify-content-center">
                             <div class="single_cata_desc_text">
-                                <h5>Craft Collection</h5>
-                                <a href="#">Shop Now <i class="icofont-rounded-double-right"></i></a>
+                                <h5>Estilo</h5>
+                                <a href="{% url 'shop'%}">Comprar ahora<i class="icofont-rounded-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -75,11 +75,11 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory mb-30">
-                        <img src="{% static 'img/product-img/cata-2.jpg'%}" alt="">
+                        <img src="{% static 'img/product/1.png'%}" alt="">
                         <div class="single_cata_desc d-flex align-items-center justify-content-center">
                             <div class="single_cata_desc_text">
-                                <h5>Women Collection</h5>
-                                <a href="#">Shop Now <i class="icofont-rounded-double-right"></i></a>
+                                <h5>Coleccion</h5>
+                                <a href="{% url 'shop'%}">Comprar ahora<i class="icofont-rounded-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -87,11 +87,11 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory mb-30">
-                        <img src="{% static 'img/product-img/cata-3.jpg'%}" alt="">
+                        <img src="{% static 'img/product/5.png'%}" alt="">
                         <div class="single_cata_desc d-flex align-items-center justify-content-center">
                             <div class="single_cata_desc_text">
-                                <h5>Kids Collection</h5>
-                                <a href="#">Shop Now <i class="icofont-rounded-double-right"></i></a>
+                                <h5>Moda</h5>
+                                <a href="{% url 'shop'%}">Comprar ahora<i class="icofont-rounded-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -107,8 +107,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="popular_section_heading mb-50 text-center">
-                        <h5>New Arrivals</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <h5>Simplemente Impresionante</h5>
+                        <p>No es solo moda, es un estilo de vida </p>
                     </div>
                 </div>
             </div>
@@ -118,21 +118,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-1.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-1-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/12.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
-                        <div class="product_description">
-                            <h5><a href="#">Trendy Top's</a></h5>
-                            <h6>$16 <span>$18</span></h6>
+                        <div class="product_description" style="height: 70px;">
+                            <h5><a href="{% url 'shop'%}">Nike Off-White Europa</a></h5>
                         </div>
                     </div>
                 </div>
@@ -141,21 +131,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-2.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-2-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/11.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product_description">
                             <h5><a href="#">Classy Black Dress</a></h5>
-                            <h6>$32 <span>$36</span></h6>
                         </div>
                     </div>
                 </div>
@@ -164,21 +144,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-3.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-3-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/2.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
-                        <div class="product_description">
+                        <div class="product_description" style="height: 50px;">
                             <h5><a href="#">Purple Dress</a></h5>
-                            <h6>$41 <span>$47</span></h6>
                         </div>
                     </div>
                 </div>
@@ -187,21 +157,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-4.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-4-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/9.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
-                        <div class="product_description">
+                        <div class="product_description" style="height: 80px;">
                             <h5><a href="#">Easy Wear</a></h5>
-                            <h6>$160 <span>$180</span></h6>
                         </div>
                     </div>
                 </div>
@@ -210,21 +170,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-5.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-5-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/8.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
-                        <div class="product_description">
+                        <div class="product_description" style="height: 66px;">
                             <h5><a href="#">Men Fashion</a></h5>
-                            <h6>$27 <span>$54</span></h6>
                         </div>
                     </div>
                 </div>
@@ -233,21 +183,11 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-6.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-6-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/7.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product_description">
                             <h5><a href="#">Jara Fashion</a></h5>
-                            <h6>$139 <span>$145</span></h6>
                         </div>
                     </div>
                 </div>
@@ -256,44 +196,24 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-7.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-7-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/6.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
-                        <div class="product_description">
+                        <div class="product_description" style="height: 53px;">
                             <h5><a href="#">Sports Wear</a></h5>
-                            <h6>$285 <span>$310</span></h6>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-                    <div class="single_popular_item">
+                    <div class="single_popular_item" >
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{% static 'img/product-img/new-arrivals-8.jpg'%}" alt="">
-                            <img class="hover_img" src="{% static 'img/product-img/new-arrivals-8-back.jpg'%}" alt="">
-                            <!-- Wishlist -->
-                            <div class="product_wishlist">
-                                <a href="wishlist.html" target="_blank"><i class="icofont-heart"></i></a>
-                            </div>
-                            <!-- Add to cart -->
-                            <div class="product_add_to_cart">
-                                <a href="#"><i class="icofont-cart"></i> Add to Cart</a>
-                            </div>
+                            <img class="first_img" src="{% static 'img/product/5.png'%}" alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product_description">
                             <h5><a href="#">Men Fashion</a></h5>
-                            <h6>$190 <span>$192</span></h6>
                         </div>
                     </div>
                 </div>

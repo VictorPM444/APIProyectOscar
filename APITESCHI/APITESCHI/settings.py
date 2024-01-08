@@ -136,8 +136,8 @@ DATABASES = {
 STATIC_URL = 'https://storage.googleapis.com/proyectooscar/static/'
 
 # Usar Google Cloud Storage para almacenar archivos de medios.
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'proyectooscar'
+#DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+#GS_BUCKET_NAME = 'proyectooscar'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -190,8 +190,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-#########Correccion para el uso de render##############
-#STATIC_URL = 'api/static/'
+#########Correccion para el uso de render############## SIN COMENTAR SIRVE IMAGENES LOCALES
+STATIC_URL = 'api/static/'
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
@@ -238,9 +238,10 @@ MERCADO_PAGO_ACCESS_TOKEN = 'TEST-209630761238066-111222-13ed7dfb56b2fa402ab89f8
 STRIPE_PUBLIC_KEY = 'pk_test_51OBjTRLZhvMA8N2WR4lQDo5RmklSYiUpvvpy8P62JVDk5slhjsVog0KeDq9mxQE8pIh8BkBgpDPVlv7hYbsEfHLP00PC5nPfAa'
 STRIPE_SECRET_KEY = 'sk_test_51OBjTRLZhvMA8N2WdibAtWSygtw0q4NBpHvglLzcHJ4iIL0As9pgpJuX8WjBjjefeyQw9D8I7n2Yr9uXC2UoEA4S00rsaF7GP1'
 
-
+# Usar almacenamiento local para archivos de medios.
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'api', 'static', 'img')
+
 
 
