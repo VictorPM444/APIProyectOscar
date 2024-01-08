@@ -269,9 +269,11 @@ class formularioMarca(APIView):
     template_name = "formularioDatos.html"
 
     def post(self, request):
+
         marca = Marca(
             nombreMarca=request.POST["nombreMarca"],
         )
+
         marca.save()
         message = "La marca se inserto correctamente"
 
@@ -305,12 +307,12 @@ class formularioDatos(APIView):
     template_name = "formularioDatos.html"
 
     def get_context_data(self):
-        marcas = Marca.objects.all().values()
+        Resultamarcas = Marca.objects.all().values()
         colores = Color.objects.all().values()
         tallas = Talla.objects.all().values()
 
         return {
-            'marcas': marcas,
+            'marcas': Resultamarcas,
             'tallas': tallas,
             'colores': colores
         }
@@ -357,9 +359,11 @@ class formularioProducto(APIView):
         marcas = Marca.objects.all().values()
         colores = Color.objects.all().values()
         tallas = Talla.objects.all().values()
+        productos = Producto.objects.all()
 
         return {
             'marcas': marcas,
+            'productos': productos,
             'tallas': tallas,
             'colores': colores
         }
@@ -462,7 +466,34 @@ class formularioProducto(APIView):
             return Response({'message': f'Error: {str(dnfe)}'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'message': f'Error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR) """
-    
+    def put(self, request, *args, **kwargs):
+        
+        idProducto= request.data.get('claveProducto')
+        nuevoNombre= request.data.get('nuevoNombre')
+        nuevaDescripcion= request.data.get('nuevaDescripcion')
+        nuevoPrecio= request.data.get('nuevoPrecio')
+        nuevoLink= request.data.get('nuevoLink')
+
+        return self.actualizarProducto(idProducto, nuevoNombre,nuevaDescripcion, nuevoPrecio,nuevoLink)
+
+    def actualizarProducto(self, idProducto, nuevoNombre,nuevaDescripcion, nuevoPrecio,nuevoLink):
+        try:
+            producto = Producto.objects.get(idProducto=idProducto)
+
+            producto.nombreProducto = nuevoNombre
+            producto.descripcionProducto = nuevaDescripcion
+            producto.precioProducto = nuevoPrecio
+            producto.linkStripe = nuevoLink
+            
+            
+            producto.save()
+            return Response({'message': 'Producto actualizado con éxito'})
+        
+        except Producto.DoesNotExist:
+            return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+        except Exception as e:
+            return JsonResponse({'error': f'Error al actualizar el producto: {str(e)}'}, status=500)
+
 class graficas_powerbi(APIView):
     template_name = "graficas_powerbi.html"
 

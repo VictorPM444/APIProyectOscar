@@ -3,7 +3,13 @@
 <!doctype html>
 <html lang="en">
 
+<head>
+    <!-- Agrega la referencia al conjunto de iconos FontAwesome (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+    <link href="{% static 'css/sweetalert2.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/sweetalert2Dos.css'%}" rel="stylesheet" type="text/css">
+</head>
 <body>
 
     <!-- Breadcumb Area -->
@@ -23,8 +29,8 @@
     <!-- Breadcumb Area -->
 
     <!-- My Account Area -->
-    <section class="my-account-area section_padding_100_50">
-        <div class="container">
+    <section class="my-account-area section_padding" >
+        <div class="container" style="margin-top: 20px;">
             <div class="row">
                 <div class="col-12">
                     <div class="my-account-content mb-50">
@@ -136,6 +142,57 @@
     </section>
     <!-- My Account Area -->
 
+    <!-- My Account Area -->
+    <section class="my-account-area section_padding_50_70">
+        <div class="container" style="height: 600px; margin-top: 20px;">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="cart-table wishlist-table">
+                        <div class="table-responsive">
+                            <table id="TablaProducto" class="hover table table-sm table-centered table-hover table-borderless mb-0" >
+                                <thead class="border-top border-bottom bg-light-subtle border-light">
+                                    <tr>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Descripcion</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Stripe</th>
+                                        <th scope="col">Color</th>
+                                        <th scope="col">Marca</th>
+                                        <th scope="col">Talla</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Editar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for producto in productos %}
+                                        <tr>
+                                            <td>{{ producto.nombreProducto}}</td>
+                                            <td>{{ producto.descripcionProducto}}</td>
+                                            <td>{{ producto.precioProducto}}</td>
+                                            <td>{{ producto.linkStripe}}</td>
+                                            <td>{{ producto.fk_color.nombreColor}}</td>
+                                            <td>{{ producto.fk_marca.nombreMarca}}</td>
+                                            <td>{{ producto.fk_talla.nombreTalla}}</td>
+                                            <td>
+                                                <img src="{% static 'img/' %}{{ producto.imagen }}" alt="{{ producto.nombreProducto }}" style="max-width: 100px; max-height: 100px;">
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt" style="color: #f0f0f0;"   onclick="editarProducto('{{ producto.idProducto }}', '{{ producto.nombreProducto}}', '{{ producto.descripcionProducto}}', '{{ producto.precioProducto}}', '{{ producto.linkStripe}}')"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- My Account Area -->
+
     <!-- Footer Area -->
     <footer class="footer_area section_padding_70_0" >
         <div class="container" style="height: 220px; margin-bottom: 40px;">
@@ -230,9 +287,14 @@
     <script src="{% static 'js/default/active.js'%}"></script>
 
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
     <script>
@@ -285,8 +347,133 @@
         });
     </script>
 
+    <script>
+       $(document).ready(function () {
+         $('#TablaProducto').DataTable({
+           lengthMenu: [3, 5],
+           pageLength: 3,
+           destroy:true,
+           "language": {
+               lengthMenu: "Mostrar _MENU_ registros por pagina",
+               zeroRecords: "Ningún producto encontrado",
+               info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ productos",
+               infoEmpty: "Ningún producto encontrado",
+               infoFiltered: "(filtrados desde _MAX_ productos totales)",
+               search: "Buscar:",
+               loadingRecords: "Cargando... ",
+               paginate: {
+                   first: "Primero",
+                   last: "Ultimo",
+                   next: "Siguiente",
+                   previous: "Anterior"
+               }
+
+             }
+           // Otras opciones y configuraciones de DataTables que puedas tener...
+         });
+       });
+
+   </script>
+
+    <script>
+        function editarProducto(claveProducto, nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevoLink) {
+            Swal.fire({
+                title: 'Editar producto',
+                html: 
+                    '<div class="my-swal-label-container">' +
+                        '<div class="row">' +
+                            '<div class="col-12">' +
+                                '<li class="my-swal-list-item"> <span class="my-swal-label">Clave:</span>' +
+                                    '<div class="my-swal-input-container">' +
+                                        '<input id="claveProducto" name="claveProducto" class="swal2-input my-swal-input" value="' + claveProducto + '" disabled>' +
+                                    '</div>' +
+                                '</li>' +
+                                '<li class="my-swal-list-item"> <span class="my-swal-label">Nombre producto:</span>' +
+                                    '<div class="my-swal-input-container">' +
+                                        '<input id="nuevoNombre" name="nuevoNombre" class="swal2-input my-swal-input" maxlength="45" value="' + nuevoNombre + '">' +
+                                    '</div>' +
+                                '</li>' +
+                                '<li class="my-swal-list-item"><span class="my-swal-label">Descripción:</span>' +
+                                    '<div class="my-swal-input-container">' +
+                                        '<input id="nuevaDescripcion" name="nuevaDescripcion" class="swal2-input my-swal-input" maxlength="45" value="' + nuevaDescripcion + '">' +
+                                    '</div>' +
+                                '</li>' +
+                                '<li class="my-swal-list-item"><span class="my-swal-label">Precio:</span>' +
+                                    '<div class="my-swal-input-container">' +
+                                        '<input id="nuevoPrecio" name="nuevoPrecio" class="swal2-input my-swal-input" maxlength="45" value="' + nuevoPrecio + '">' +
+                                    '</div>' +
+                                '</li>' +
+                                '<li class="my-swal-list-item"><span class="my-swal-label">Link:</span>' +
+                                    '<div class="my-swal-input-container">' +
+                                        '<input id="nuevoLink" name="nuevoLink" class="swal2-input my-swal-input" maxlength="45" value="' + nuevoLink + '">' +
+                                    '</div>' +
+                                '</li>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>',
+                focusConfirm: false,
+                showCancelButton: true,
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar',
+                allowOutsideClick: false,
+                customClass: {
+                    container: 'my-swal-container2',
+                    popup: 'my-swal-popup2',
+                    title: 'my-swal-title2',
+                    input: 'my-swal-input2',
+                    cancelButton: 'my-swal-cancel-button2',
+                    confirmButton: 'my-swal-confirm-button2',
+                },
+                preConfirm: () => {
+                    const nuevoNombre = Swal.getPopup().querySelector('#nuevoNombre').value;
+                    const claveProducto = Swal.getPopup().querySelector('#claveProducto').value;
+                    const nuevaDescripcion = Swal.getPopup().querySelector('#nuevaDescripcion').value;
+                    const nuevoPrecio = Swal.getPopup().querySelector('#nuevoPrecio').value;
+                    const nuevoLink = Swal.getPopup().querySelector('#nuevoLink').value;
+
+                    return fetch('{% url 'formularioProducto' %}', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken'),
+                        },
+                        body: JSON.stringify({
+                            claveProducto: claveProducto,
+                            nuevoNombre: nuevoNombre,
+                            nuevaDescripcion: nuevaDescripcion,
+                            nuevoPrecio: nuevoPrecio,
+                            nuevoLink: nuevoLink,
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            Swal.showValidationMessage(`Error: ${data.error}`);
+                        } else {
+                            Swal.fire({
+                                icon: 'success',
+                                title: data.message,
+                            }).then(() => {
+                                location.reload();
+                            });
+                        }
+                    });
+                }
+            });
+        }
+
+        function getCookie(name) {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(name + '='))
+                ?.split('=')[1];
+            return cookieValue ? decodeURIComponent(cookieValue) : null;
+        }
+    </script>
+
+
+
 </body>
 
 
-<!-- Mirrored from designing-world.com/bigshop-2.3.0/account-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Sep 2023 08:04:42 GMT -->
 </html>

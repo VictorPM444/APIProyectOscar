@@ -31,8 +31,6 @@
                     <div class="my-account-navigation mb-50">
                         <ul>
                             <li><a href="{% url 'my_account'%}">Inicio</a></li>
-                            <li><a href="{% url 'order_list'%}">Ordenes</a></li>
-                            <li><a href="{% url 'addresses'%}">Direcciones</a></li>
                             <li class="active"><a href="{% url 'account_details'%}">Detalles de cuenta</a></li>
                             <li><a href="{% url 'login'%}">Logout</a></li>
                         </ul>
@@ -40,54 +38,60 @@
                 </div>
                 <div class="col-12 col-lg-9">
                     <div class="my-account-content mb-50">
-                        <h5 class="mb-3">Account Details</h5>
+                        <h5 class="mb-3">Detalles de Cuenta</h5>
 
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="firstName">First Name *</label>
+                                        <label for="firstName">Usuario *</label>
                                         <input type="text" class="form-control" id="firstName" placeholder="MD NAZRUL">
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="lastName">Last Name *</label>
+                                        <label for="lastName">Nombre *</label>
                                         <input type="text" class="form-control" id="lastName" placeholder="ISLAM">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="displayName">Display Name *</label>
+                                        <label for="displayName">Apellido paterno *</label>
                                         <input type="text" class="form-control" id="displayName" placeholder="Desinging World">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="emailAddress">Email Address *</label>
+                                        <label for="displayName">Apellido materno *</label>
+                                        <input type="text" class="form-control" id="displayName" placeholder="Desinging World">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="emailAddress">Correo electronico*</label>
                                         <input type="email" class="form-control" id="emailAddress" placeholder="care.designingworld@gmail.com">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="currentPass">Current Password (Leave blank to leave unchanged)</label>
+                                        <label for="emailAddress">Numero telefonico*</label>
+                                        <input type="email" class="form-control" id="emailAddress" placeholder="care.designingworld@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="currentPass">Contraseña</label>
                                         <input type="password" class="form-control" id="currentPass">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="newPass">New Password (Leave blank to leave unchanged)</label>
+                                        <label for="newPass">Nueva contraseña</label>
                                         <input type="password" class="form-control" id="newPass">
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="confirmPass">Confirm New Password</label>
-                                        <input type="password" class="form-control" id="confirmPass">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
                                 </div>
                             </div>
                         </form>
