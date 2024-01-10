@@ -63,7 +63,7 @@ class Usuario(AbstractUser):
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True,db_column='idProducto')
     nombreProducto = models.TextField(max_length=50,db_column='nombreProducto')
-    descripcionProducto = models.TextField(max_length=100,db_column='descripcionProducto')
+    descripcionProducto = models.TextField(max_length=1000,db_column='descripcionProducto')
     precioProducto =models.FloatField(db_column='precioProducto')
     linkStripe= models.TextField(max_length=100,db_column='linkStripe')
     fk_marca = models.ForeignKey(Marca,on_delete=models.CASCADE,db_column='fk_marca')
